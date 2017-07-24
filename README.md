@@ -1,1 +1,1 @@
-# Opiskelihan dashboard uusi yritys
+# Opiskelijan dashboard uusi yritys
