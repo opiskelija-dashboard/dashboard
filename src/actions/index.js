@@ -15,7 +15,7 @@ export const fetchCoursePoints = () => {
     // const url = TEST_USER.ROOT_URL+'/courses/'+TEST_USER.COURSE_ID+'/users/'+TEST_USER.USER_ID+'/points';
     // const request = axios.get(url, { headers: {'Authorization': TEST_USER.ACCESS_TOKEN }});
 
-    const request = axios.get("http://student-dashboard-api.herokuapp.com/points");
+    const request = axios.get("https://student-dashboard-api.herokuapp.com/points");
     return {
         type: 'FETCH_COURSE_POINTS',
         payload: request
