@@ -13,7 +13,7 @@ export const fetchCoursePoints = () => {
     // actionCreator, joka aina palauttaa actionin (jolla on aina oltava tyyppi)
     // Tämä actionCreator luo AJAX kyselyn ja palauttaa sen tuloksen (payload)
     const url = TEST_USER.ROOT_URL+'/courses/'+TEST_USER.COURSE_ID+'/users/'+TEST_USER.USER_ID+'/points';
-    const request = axios.get(url, { headers: {'Authorization': TEST_USER.ACCESS_TOKEN, 'Origin': 'https://opiskelija-dashboard.github.io/dashboard/'}});
+    const request = axios.get(url, { headers: {'Authorization': TEST_USER.ACCESS_TOKEN }});
 
     return {
         type: 'FETCH_COURSE_POINTS',
