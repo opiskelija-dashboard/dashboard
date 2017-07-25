@@ -3,12 +3,7 @@ import '../App.css';
 import { connect } from 'react-redux';
 import { toggleVisibility } from '../actions/index';
 
-
-
 class NavButton extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     const text = this.props.text;
@@ -34,8 +29,6 @@ const mapDispatchToProps = dispatch => {
     )
   }
 }
-
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavButton);

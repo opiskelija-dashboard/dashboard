@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
+import { LeaderBoard } from '../components/LeaderBoard'
+import { Badges } from '../components/Badges'
+import { MyPage } from '../components/MyPage'
 
 class FilterWidget extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filter: this.props.filter
-    };
-  }
-
   render() {
-    return (
-      <div className="Widget">
-        asdasd
-      </div>
-    );
+    switch (this.props.filter) {
+      case "Leaderboard":
+        return (
+          <LeaderBoard />
+        )
+      case "Badget":
+        return (
+          <Badges />
+        )
+      case "Oma sivu":
+        return (
+          <MyPage />
+        )
+      default:
+        return (
+          <p>Väärin painettu nappia</p>
+        )
+    }
+
   }
 }
 
