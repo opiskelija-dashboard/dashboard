@@ -5,7 +5,7 @@ import UserCoursePoints from './containers/UserCoursePoints'
 class App extends Component {
   render() {
     return (
-      <div className="Centered">
+      <div class="centered">
         <UserCoursePoints />
       </div>
     );
