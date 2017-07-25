@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 import '../App.css';
-import UserCoursePoints from '../containers/UserCoursePoints'
+import UserCoursePoints from '../containers/UserCoursePoints';
+import FilterWidget from './FilterWidget';
+import { toggleVisibility } from '../actions/index';
+import { connect } from 'react-redux';
+import NavBar from './NavBar';
 
-class App extends Component {
+export default class App extends Component {
+
+
+
+
+
   render() {
     return (
-      <div class="centered">
-        <UserCoursePoints />
+
+      <div className="centered">
+        <NavBar />
+
+        <FilterWidget />
       </div>
     );
   }
-}
 
-export default App;
+
+}

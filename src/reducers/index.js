@@ -7,6 +7,10 @@ export default function(state = {}, action) {
       return Object.assign({}, state,
         { coursePoints: action.payload.data.length }
       );
+    case 'TOGGLE_WIDGET_VISIBILITY':
+      return [...state,
+        { action: action.filter }
+      ];
     default: return state;
   }
 }
