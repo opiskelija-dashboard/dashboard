@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
-import UserCoursePoints from './containers/UserCoursePoints'
+import '../App.css';
+import UserCoursePoints from '../containers/UserCoursePoints'
 
 class App extends Component {
   render() {
     return (
-      <div className="Centered">
+      <div class="centered">
         <UserCoursePoints />
       </div>
     );

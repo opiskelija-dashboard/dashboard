@@ -6,7 +6,7 @@ class UserCoursePoints extends Component {
   render() {
     return (
       <div>
-        <button type="button" className="btn btn-info" onClick = { this.props.fetchPoints }>
+        <button type="button" id="fetchButton" className="btn btn-info" onClick = { this.props.fetchPoints }>
           Request your points.
         </button>
         <div> Points awarded: <b>{ this.props.coursePoints }</b> </div>
