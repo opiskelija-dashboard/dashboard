@@ -29,7 +29,6 @@ test('renders button', t => {
   )
 
   t.deepEqual(wrapper.find('Button').length, 1);
-
 });
 
 test('outputs given text', t => {
@@ -40,4 +39,36 @@ test('outputs given text', t => {
   )
 
   t.regex(wrapper.render().text(), /testi/);
+});
+
+import { Button } from 'react-bootstrap'
+
+test('button can be clicked', t => {
+  const onClick = sinon.spy();
+  const wrapper = shallow(
+    <Provider store={store}>
+      <NavButton text="testi" onClick={onClick}/>
+    </Provider>
+  );
+
+  wrapper.simulate('click');
+  t.deepEqual(onClick.calledOnce, true);
+});
+
+const action = {
+  type: 'TOGGLE_WIDGET_VISIBILITY',
+  filter: 'testi'
+}
+
+// EI TOIMI ??? getActions palauttaa [], vaikka pitäisi olla toggleVisibility action
+test.todo('state changes when clicked', t => {
+  const store = mockStore(initialState);
+  const wrapper = shallow(
+    <Provider store={store}>
+      <NavButton text="testi" />
+    </Provider>
+  );
+
+  wrapper.simulate('click');
+  t.deepEqual(store.getActions(), []);
 });
