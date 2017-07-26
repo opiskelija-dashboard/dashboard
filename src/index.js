@@ -1,29 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reducers from './reducers/index';
-import ReduxPromise from 'redux-promise';
-import { connectBackend } from './actions/connectBackend.js';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./components/App";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reducers from "./reducers/index";
+import ReduxPromise from "redux-promise";
+import { connectBackend } from './actions/index.js';
 
-let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
+let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-let store = storeWithMiddleware(reducers)
+let store = storeWithMiddleware(reducers);
 
-ReactDOM.render (
+ReactDOM.render(
   <Provider store={store}>
     <div className="Centered">
-      <div className="App-header">
-        <h2>Opiskelijan dashboard</h2>
+      
+      <div className="app">
+        <App />
       </div>
-
-      <App />
-
     </div>
   </Provider>,
   document.getElementById('root')
 )
 
-//store.dispatch(connectBackend());
+store.dispatch(connectBackend());
