@@ -18,11 +18,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "testRS": "react-scripts test --env=jsdom",
-    "test": "mocha --require ignore-styles --compilers js:babel-core/register src/*/test/*.js && ava",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "testAva": "ava"
+    "test": "ava --verbose"
   },
   "devDependencies": {
     "ava": "^0.21.0",
@@ -47,6 +46,8 @@
       "!**/not-this-file.js"
     ],
     "concurrency": 5,
+    "failFast": true,
+		"failWithoutAssertions": false,
     "require": [
       "babel-register",
       "ignore-styles",
