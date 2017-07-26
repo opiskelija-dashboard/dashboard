@@ -3,7 +3,10 @@
 }
 
 .WidgetContainer {
+  margin: auto;
   margin-top: 50px;
+  max-width: 70vw;
+  max-height: 20vh;
 }
 
 .appContainer {

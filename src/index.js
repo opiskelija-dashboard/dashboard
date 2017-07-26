@@ -15,7 +15,6 @@ let store = storeWithMiddleware(reducers);
 ReactDOM.render(
   <Provider store={store}>
     <div className="Centered">
-      
       <div className="app">
         <App />
       </div>
