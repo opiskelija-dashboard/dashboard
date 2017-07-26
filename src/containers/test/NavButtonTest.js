@@ -7,6 +7,13 @@ import configureStore from 'redux-mock-store';
 import NavButton from '../NavButton'
 import sinon from 'sinon';
 
+//tested components
+import { Button } from 'react-bootstrap'
+import { NavButton as NoRedux } from '../NavButton'
+
+//tested actions
+import { toggleVisibility } from '../../actions/index'
+
 const mockStore = configureStore();
 const initialState = { "filter": "asdasd"}
 const store = mockStore(initialState);
@@ -28,7 +35,7 @@ test('renders button', t => {
     </Provider>
   )
 
-  t.deepEqual(wrapper.find('Button').length, 1);
+  t.deepEqual(wrapper.find(Button).length, 1);
 });
 
 test('outputs given text', t => {
@@ -41,34 +48,25 @@ test('outputs given text', t => {
   t.regex(wrapper.render().text(), /testi/);
 });
 
-import { Button } from 'react-bootstrap'
-
+//test without redux to dodge dispatch
 test('button can be clicked', t => {
   const onClick = sinon.spy();
-  const wrapper = shallow(
-    <Provider store={store}>
-      <NavButton text="testi" onClick={onClick}/>
-    </Provider>
+  const wrapper = mount(
+    <NoRedux text="testi" toggleFilter={onClick}/>
   );
 
-  wrapper.simulate('click');
+  wrapper.find(Button).simulate('click');
   t.deepEqual(onClick.calledOnce, true);
 });
 
-const action = {
-  type: 'TOGGLE_WIDGET_VISIBILITY',
-  filter: 'testi'
-}
-
-// EI TOIMI ??? getActions palauttaa [], vaikka pitäisi olla toggleVisibility action
-test.todo('state changes when clicked', t => {
+test('dispatch triggers when clicked', t => {
   const store = mockStore(initialState);
-  const wrapper = shallow(
+  const wrapper = mount(
     <Provider store={store}>
       <NavButton text="testi" />
     </Provider>
   );
 
-  wrapper.simulate('click');
-  t.deepEqual(store.getActions(), []);
+  wrapper.find(Button).simulate('click');
+  t.deepEqual(store.getActions(), [toggleVisibility("testi")]);
 });
