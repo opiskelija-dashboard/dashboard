@@ -35,10 +35,10 @@ export default class Chart extends Component {
         <h2>Edistyminen</h2>
         <Line
           data={data}
-          width={10}
-          height={200}
+          width="auto"
+          height="auto"
           options={{
-            maintainAspectRatio: false
+            maintainAspectRatio: true
           }}
         />
       </div>

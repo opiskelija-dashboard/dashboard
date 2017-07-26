@@ -49,7 +49,7 @@
     ],
     "concurrency": 5,
     "failFast": true,
-		"failWithoutAssertions": false,
+    "failWithoutAssertions": false,
     "require": [
       "babel-register",
       "ignore-styles",
