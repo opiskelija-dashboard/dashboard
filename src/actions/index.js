@@ -21,3 +21,10 @@ export const fetchCoursePoints = () => {
         payload: request
     };
 }
+
+export const toggleVisibility = (filter) => {
+  return {
+    type: 'TOGGLE_WIDGET_VISIBILITY',
+    filter
+  }
+}
