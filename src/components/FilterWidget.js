@@ -25,7 +25,6 @@ class FilterWidget extends Component {
           <p>Väärin painettu nappia</p>
         )
     }
-
   }
 }
 
