@@ -14,9 +14,7 @@ let store = storeWithMiddleware(reducers);
 ReactDOM.render(
   <Provider store={store}>
     <div className="Centered">
-      <div className="App-header">
-        <h2>Opiskelijan dashboard</h2>
-      </div>
+      
       <div className="app">
         <App />
       </div>

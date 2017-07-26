@@ -7,10 +7,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <div name="navbar">
-          <NavBar />
-        </div>
-        <div>
+        <NavBar />
+
+        <div className="WidgetContainer">
           <FilterWidget />
         </div>
       </div>

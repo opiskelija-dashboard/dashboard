@@ -9,7 +9,7 @@ export default function(state = {"filter": "Oma sivu"}, action) {
       );
     case 'TOGGLE_WIDGET_VISIBILITY':
       return Object.assign({}, state,
-        { filter: action.filter }
+        { filter: action.filter.text }
       );
     default: return state;
   }

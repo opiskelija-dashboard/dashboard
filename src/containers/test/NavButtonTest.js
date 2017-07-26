@@ -7,24 +7,24 @@ import sinon from 'sinon';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { expect } from 'chai';
-import UserCoursePoints from '../UserCoursePoints.js';
+import NavButton from '../NavButton';
 var assert = require('assert');
 
-describe('UserCoursePoints', () => {
+describe('NavButton', () => {
 
     const mockState = {
-        coursePoints : null
+        filter: null
     };
 
     const mockStore = configureStore();
     const store = mockStore(mockState);
     const wrapper = shallow(
       <Provider store={store}>
-        <UserCoursePoints />
+        <NavButton text="testi" />
       </Provider>
     );
 
   it('renders a container component', () => {
-    expect(wrapper.find(UserCoursePoints).length).to.equal(1);
+    expect(wrapper.find(NavButton).length).to.equal(1);
   });
 });

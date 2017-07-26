@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { toggleVisibility } from '../actions/index';
+import { Button } from 'react-bootstrap'
 
 class NavButton extends Component {
 
@@ -9,7 +10,7 @@ class NavButton extends Component {
     const text = this.props.text;
 
     return (
-      <button onClick={() => this.props.toggleFilter({text})}>{ text }</button>
+      <Button onClick={() => this.props.toggleFilter({text})}>{ text }</Button>
     )
   };
 
@@ -18,7 +19,7 @@ class NavButton extends Component {
 
 const mapStateToProps = state => {
   return {
-    filter: state.filter
+    filter: state.filter.text
   }
 }
 
