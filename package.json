@@ -5,9 +5,11 @@
   "homepage": "https://opiskelija-dashboard.github.io/dashboard/",
   "dependencies": {
     "axios": "^0.16.2",
+    "chart.js": "^2.6.0",
     "gh-pages": "^1.0.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.1",
+    "react-chartjs-2": "^2.5.5",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-scripts": "1.0.10",
