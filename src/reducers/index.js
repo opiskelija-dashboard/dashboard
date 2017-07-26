@@ -14,8 +14,3 @@ export default function(state = {"filter": "Oma sivu"}, action) {
     default: return state;
   }
 }
-
-
-/*********to be announced
-const rootReducer = combineReducers({});
-*/
