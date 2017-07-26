@@ -1,30 +1,23 @@
-
-
+import test from 'ava';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import chai from 'chai';
-import sinon from 'sinon';
+import {shallow, mount} from 'enzyme';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { expect } from 'chai';
-import NavButton from '../NavButton';
-var assert = require('assert');
+import NavButton from '../NavButton'
 
-describe('NavButton', () => {
 
-    const mockState = {
-        filter: null
-    };
+const mockStore = configureStore();
+const initialState = { "filter": "asdasd" };
 
-    const mockStore = configureStore();
-    const store = mockStore(mockState);
-    const wrapper = shallow(
-      <Provider store={store}>
-        <NavButton text="testi" />
-      </Provider>
-    );
+test('renders without crashing', t => {
+  const store = mockStore(initialState);
+  const wrapper = mount(
+    <Provider store={store}>
+      <NavButton />
+    </Provider>
+  )
 
-  it('renders a container component', () => {
-    expect(wrapper.find(NavButton).length).to.equal(1);
-  });
+  t.deepEqual(wrapper.find('Button').length, 1);
+
 });
