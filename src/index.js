@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers/index';
 import ReduxPromise from 'redux-promise';
-
+import { connectBackend } from './actions/connectBackend.js';
 
 let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
 
@@ -25,3 +25,5 @@ ReactDOM.render (
   </Provider>,
   document.getElementById('root')
 )
+
+//store.dispatch(connectBackend());

@@ -17,7 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "testRS": "react-scripts test --env=jsdom",
-    "test": "mocha --require ignore-styles --compilers js:babel-core/register src/*/test/*.js",
+    "test": "mocha --require ignore-styles ./src/setupTests.js --compilers js:babel-core/register src/*/test/*.js",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -32,7 +32,8 @@
     "mocha-jsdom": "^1.1.0",
     "react-addons-test-utils": "^15.6.0",
     "redux-mock-store": "latest",
-    "sinon": "^2.3.8"
+    "sinon": "^2.3.8",
+    "store": "^2.0.12"
   },
   "babel": {
     "presets": [
