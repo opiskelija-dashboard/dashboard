@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { toggleVisibility } from '../actions/index';
-import { Button } from 'react-bootstrap';
 
 class NavButton extends Component {
 
