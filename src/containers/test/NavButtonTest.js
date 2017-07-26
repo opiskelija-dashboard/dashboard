@@ -1,30 +1,43 @@
-
-
+import test from 'ava';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import chai from 'chai';
-import sinon from 'sinon';
+import {shallow, mount} from 'enzyme';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { expect } from 'chai';
-import NavButton from '../NavButton';
-var assert = require('assert');
+import NavButton from '../NavButton'
+import sinon from 'sinon';
 
-describe('NavButton', () => {
+const mockStore = configureStore();
+const initialState = { "filter": "asdasd"}
+const store = mockStore(initialState);
 
-    const mockState = {
-        filter: null
-    };
+test('renders without crashing', t => {
+  const div = document.createElement('div');
+  ReactDOM.render(
+    <Provider store={store}>
+      <NavButton />
+    </Provider>,
+    div
+  );
+});
 
-    const mockStore = configureStore();
-    const store = mockStore(mockState);
-    const wrapper = shallow(
-      <Provider store={store}>
-        <NavButton text="testi" />
-      </Provider>
-    );
+test('renders button', t => {
+  const wrapper = mount(
+    <Provider store={store}>
+      <NavButton />
+    </Provider>
+  )
 
-  it('renders a container component', () => {
-    expect(wrapper.find(NavButton).length).to.equal(1);
-  });
+  t.deepEqual(wrapper.find('Button').length, 1);
+
+});
+
+test('outputs given text', t => {
+  const wrapper = mount(
+    <Provider store={store}>
+      <NavButton text="testi"/>
+    </Provider>
+  )
+
+  t.regex(wrapper.render().text(), /testi/);
 });
