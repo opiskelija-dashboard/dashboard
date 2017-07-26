@@ -11,7 +11,7 @@ class NavButton extends Component {
     const actived = (this.props.filter === text) ? true : false;
 
     return (
-      <Button active={actived} onClick={() => this.props.toggleFilter({text})}>{ text }</Button>
+      <Button active={actived} onClick={() => this.props.toggleFilter({ text })}>{text}</Button>
     )
   };
 

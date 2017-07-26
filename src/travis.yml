@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "6"
+  - "node"
+cache:
+  directories:
+    - "node_modules"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+
+ notifications:
+    slack: opiskelijadash:PAhP1SftnMDTvQYCnwphQ2UI
