@@ -7,6 +7,13 @@ import configureStore from 'redux-mock-store';
 import NavButton from '../NavButton'
 import sinon from 'sinon';
 
+//tested components
+import { Button } from 'react-bootstrap'
+import { NavButton as NoRedux } from '../NavButton'
+
+//tested actions
+import { toggleVisibility } from '../../actions/index'
+
 const mockStore = configureStore();
 const initialState = { "filter": "asdasd"}
 const store = mockStore(initialState);
@@ -28,8 +35,7 @@ test('renders button', t => {
     </Provider>
   )
 
-  t.deepEqual(wrapper.find('Button').length, 1);
-
+  t.deepEqual(wrapper.find(Button).length, 1);
 });
 
 test('outputs given text', t => {
@@ -40,4 +46,27 @@ test('outputs given text', t => {
   )
 
   t.regex(wrapper.render().text(), /testi/);
+});
+
+//test without redux to dodge dispatch
+test('button can be clicked', t => {
+  const onClick = sinon.spy();
+  const wrapper = mount(
+    <NoRedux text="testi" toggleFilter={onClick}/>
+  );
+
+  wrapper.find(Button).simulate('click');
+  t.deepEqual(onClick.calledOnce, true);
+});
+
+test('dispatch triggers when clicked', t => {
+  const store = mockStore(initialState);
+  const wrapper = mount(
+    <Provider store={store}>
+      <NavButton text="testi" />
+    </Provider>
+  );
+
+  wrapper.find(Button).simulate('click');
+  t.deepEqual(store.getActions(), [toggleVisibility("testi")]);
 });
