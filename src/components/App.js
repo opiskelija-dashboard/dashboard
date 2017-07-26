@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="appContainer">
         <NavBar />
 
         <div className="WidgetContainer">
