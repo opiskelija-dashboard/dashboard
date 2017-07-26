@@ -8,9 +8,10 @@ class NavButton extends Component {
 
   render() {
     const text = this.props.text;
+    const actived = (this.props.filter === text) ? true : false;
 
     return (
-      <Button onClick={() => this.props.toggleFilter({text})}>{ text }</Button>
+      <Button active={actived} onClick={() => this.props.toggleFilter({text})}>{ text }</Button>
     )
   };
 
@@ -19,7 +20,7 @@ class NavButton extends Component {
 
 const mapStateToProps = state => {
   return {
-    filter: state.filter.text
+    filter: state.filter
   }
 }
 
