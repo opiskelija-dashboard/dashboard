@@ -9,15 +9,15 @@ export const fetchCoursePoints = () => {
     }
 }
 
-export const connectBackend = () => { 
-    if(!store.get("tmc.user")) {
-      //fill store (remove this later)
+export const connectBackend = () => {
+    /***remove write when able to login***/
+    if(!store.get('tmc.user')) {
       store.set('tmc.user',
-        { accessToken: "Bearer c114d429c93fd38de8fa10e20f9b0d9a8683603e623a2359bf603ce9bcbb717b" }
-    )};
-    const token = store.get("tmc.user");
-    console.log("read token :" + token.accessToken);
-    //replace when api is ready
+        { accessToken: "Bearer c114d429c93fd38de8fa10e20f9b0d9a8683603e623a2359bf603ce9bcbb717b" })
+    }
+    const token = store.get('tmc.user');
+    console.log("read token from localStorage:" + token.accessToken);
+    /***replace when api is ready***/
     const conn_url = "https://student-dashboard-api.herokuapp.com/";
     const request = axios.post(conn_url,
        { accessToken: token.accessToken }
