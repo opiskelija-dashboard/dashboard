@@ -29,6 +29,7 @@ test('renders without crashing', t => {
 });
 
 test('renders button', t => {
+
   const wrapper = mount(
     <Provider store={store}>
       <NavButton />
