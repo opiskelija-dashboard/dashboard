@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import Chart from "./Chart";
+import Chart from "../containers/ChartContainer";
 
 export const MyPage = () =>
   <div>
