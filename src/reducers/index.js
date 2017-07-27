@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { FETCH_COURSE_POINTS } from '../actions/index';
 
 export default function(state = {"filter": "Oma sivu"}, action) {
