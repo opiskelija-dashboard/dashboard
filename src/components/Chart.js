@@ -3,8 +3,7 @@ import { Line } from "react-chartjs-2";
 
 
 
-export const Chart = (props) => {
-  return (
+export const Chart = (props) => (
     <div>
       <h2>Edistyminen</h2>
       <Line
@@ -16,5 +15,4 @@ export const Chart = (props) => {
         }}
       />
     </div>
-  );
-}
+)
