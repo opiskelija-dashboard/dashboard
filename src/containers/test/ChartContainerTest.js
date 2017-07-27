@@ -4,7 +4,7 @@ import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 
 import ChartContainer from '../ChartContainer';
-import { Chart } from '../../components/chart'
+import { Chart } from '../../components/Chart'
 
 test('renders chart', t => {
   const wrapper = shallow(
