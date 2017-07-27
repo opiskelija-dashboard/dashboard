@@ -21,7 +21,6 @@ export const connectBackend = () => {
   const request = axios.post(conn_url,
     { accessToken: "Bearer " + token.accessToken }
   );
-  console.log(request);
   return {
     type: 'CONNECT_BACKEND',
     payload: request
