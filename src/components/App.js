@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import FilterWidget from "./FilterWidget";
-import NavBar from "./NavBar";
+import { NavBar } from "./NavBar";
 
 export default class App extends Component {
   render() {

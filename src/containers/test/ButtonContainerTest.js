@@ -4,15 +4,18 @@ import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import NavButton from '../NavButton'
+import NavButton from '../ButtonContainer'
 import sinon from 'sinon';
 
 //tested components
 import { Button } from 'react-bootstrap'
-import { NavButton as NoRedux } from '../NavButton'
+import { NavButton as NoRedux } from '../ButtonContainer'
 
 //tested actions
 import { toggleVisibility } from '../../actions/index'
+
+//tested reducers
+import reducer from '../../reducers/index'
 
 const mockStore = configureStore();
 const initialState = { "filter": "asdasd"}
@@ -29,7 +32,6 @@ test('renders without crashing', t => {
 });
 
 test('renders button', t => {
-
   const wrapper = mount(
     <Provider store={store}>
       <NavButton />
@@ -62,6 +64,7 @@ test('button can be clicked', t => {
 
 test('dispatch triggers when clicked', t => {
   const store = mockStore(initialState);
+  store.replaceReducer(reducer)
   const wrapper = mount(
     <Provider store={store}>
       <NavButton text="testi" />
@@ -71,3 +74,5 @@ test('dispatch triggers when clicked', t => {
   wrapper.find(Button).simulate('click');
   t.deepEqual(store.getActions(), [toggleVisibility("testi")]);
 });
+
+test.todo('state changes properly when button clicked');

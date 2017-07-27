@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
 
 const data = {
@@ -56,20 +56,16 @@ const data = {
   }
 };
 
-export default class Chart extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Edistyminen</h2>
-        <Line
-          data={data}
-          width="auto"
-          height="auto"
-          options={{
-            maintainAspectRatio: true
-          }}
-        />
-      </div>
-    );
-  }
-}
+export const Chart = (props) => (
+    <div>
+      <h2>Edistyminen</h2>
+      <Line
+        data={props.data}
+        width="auto"
+        height="auto"
+        options={{
+          maintainAspectRatio: true
+        }}
+      />
+    </div>
+)
