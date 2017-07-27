@@ -19,7 +19,7 @@ export const connectBackend = () => {
   /***replace when api is ready***/
   const conn_url = "https://student-dashboard-api.herokuapp.com/";
   const request = axios.post(conn_url,
-    { accessToken: token.accessToken }
+    { accessToken: "Bearer " + token.accessToken }
   );
   console.log(request);
   return {
