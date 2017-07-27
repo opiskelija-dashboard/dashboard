@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import '../App.css';
-import UserCoursePoints from '../containers/UserCoursePoints'
+import React, { Component } from "react";
+import "../App.css";
+import FilterWidget from "./FilterWidget";
+import { NavBar } from "./NavBar";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
-      <div class="centered">
-        <UserCoursePoints />
+      <div className="appContainer">
+        <NavBar />
+        <div className="WidgetContainer">
+          <FilterWidget />
+        </div>
       </div>
     );
   }
 }
-
-export default App;
