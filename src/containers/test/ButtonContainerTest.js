@@ -4,12 +4,12 @@ import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import NavButton from '../NavButton'
+import NavButton from '../ButtonContainer'
 import sinon from 'sinon';
 
 //tested components
 import { Button } from 'react-bootstrap'
-import { NavButton as NoRedux } from '../NavButton'
+import { NavButton as NoRedux } from '../ButtonContainer'
 
 //tested actions
 import { toggleVisibility } from '../../actions/index'
