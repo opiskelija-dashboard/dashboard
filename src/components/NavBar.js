@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import "../App.css";
-import NavButton from '../containers/NavButton'
+import ButtonContainer from '../containers/ButtonContainer'
 
-export class NavBar extends Component {
-  render() {
-    return (
-      <div>
-        <NavButton text="Oma sivu" />
+export const NavBar = () => (
+  <div>
+    <ButtonContainer text="Oma sivu" />
 
-        <NavButton text="Leaderboard" />
+    <ButtonContainer text="Leaderboard" />
 
-        <NavButton text="Badget" />
-      </div>
-    );
-  }
-}
-
-export default NavBar;
+    <ButtonContainer text="Badget" />
+  </div>
+)

@@ -27,9 +27,11 @@ export const connectBackend = () => {
   }
 }
 
+export const TOGGLE_WIDGET_VISIBILITY = 'TOGGLE_WIDGET_VISIBILITY';
+
 export const toggleVisibility = (filter) => {
   return {
-    type: 'TOGGLE_WIDGET_VISIBILITY',
+    type: TOGGLE_WIDGET_VISIBILITY,
     filter
   }
 }

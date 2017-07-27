@@ -6,7 +6,7 @@ export default function(state = {"filter": "Oma sivu"}, action) {
       );
     case 'TOGGLE_WIDGET_VISIBILITY':
       return Object.assign({}, state,
-        { filter: action.filter.text }
+        { filter: action.filter }
       );
     case 'CONNECT_BACKEND':
       console.log("payload:", action.payload);
