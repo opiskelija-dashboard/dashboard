@@ -14,6 +14,9 @@ import { NavButton as NoRedux } from '../ButtonContainer'
 //tested actions
 import { toggleVisibility } from '../../actions/index'
 
+//tested reducers
+import reducer from '../../reducers/index'
+
 const mockStore = configureStore();
 const initialState = { "filter": "asdasd"}
 const store = mockStore(initialState);
@@ -29,7 +32,6 @@ test('renders without crashing', t => {
 });
 
 test('renders button', t => {
-
   const wrapper = mount(
     <Provider store={store}>
       <NavButton />
@@ -62,6 +64,7 @@ test('button can be clicked', t => {
 
 test('dispatch triggers when clicked', t => {
   const store = mockStore(initialState);
+  store.replaceReducer(reducer)
   const wrapper = mount(
     <Provider store={store}>
       <NavButton text="testi" />
