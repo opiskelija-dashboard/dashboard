@@ -14,6 +14,5 @@ deploy:
     branch: master
 after_success:
     - coveralls
-    - "npm run deploy"
 notifications:
    slack: opiskelijadash:2M95H1Hl03iTaxd7yav9c5Il
