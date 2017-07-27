@@ -2,14 +2,14 @@
 language: node_js
 node_js:
   - 6
-
+before_deploy: npm run build
 cache:
   directories:
     - "node_modules"
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: '7f6bea7f2fb6d62523003be7259a1bbcd4508fc5'
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
     branch: master
 after_success:
