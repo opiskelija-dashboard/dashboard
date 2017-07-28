@@ -1,3 +1,4 @@
+
 export default function(state = {"filter": "Oma sivu"}, action) {
   switch (action.type) {
     case 'FETCH_COURSE_POINTS':

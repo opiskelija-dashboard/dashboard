@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
+  labels: ["Kurssin alku", "Viikko 1", "Viikko 2", "Viikko 3", "Viikko 4", "Viikko 5", "Viikko 6", "Viikko 7"],
   datasets: [
     {
       label: "Omat pisteet (dummy)",
@@ -23,7 +23,7 @@ const data = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [5, 10, 20, 35, 42, 44, 60]
+      data: [0, 5, 10, 20, 35, 42, 44, 60]
     },
     {
       label: "Läpipääsyraja (dummy)",
@@ -43,7 +43,7 @@ const data = {
       pointHoverBorderWidth: 0,
       pointRadius: 0,
       pointHitRadius: 0,
-      data: [30, 30, 30, 30, 30, 30, 30]
+      data: [30, 30, 30, 30, 30, 30, 30, 30]
     }
   ],
   options: {
@@ -56,11 +56,11 @@ const data = {
   }
 };
 
-export const Chart = (props) => (
+export const Chart = () => (
     <div>
       <h2>Edistyminen</h2>
       <Line
-        data={props.data}
+        data={data}
         width="auto"
         height="auto"
         options={{

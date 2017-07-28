@@ -1,6 +1,7 @@
 import axios from 'axios';
 import store from 'store'
 
+
 export const fetchCoursePoints = () => {
   const request = axios.get("https://student-dashboard-api.herokuapp.com/points");
     return {
