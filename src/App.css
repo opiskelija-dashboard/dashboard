@@ -1,0 +1,15 @@
+.Centered {
+  text-align: center;
+}
+
+.WidgetContainer {
+  margin: auto;
+  margin-top: 50px;
+  max-width: 70vw;
+  max-height: 20vh;
+}
+
+.appContainer {
+  margin: 20px;
+  padding: 10px;
+}
