@@ -3,11 +3,11 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 
-import { Badges } from '../Badges'
+import { LeaderBoard } from '../LeaderBoard'
 
 test('component renders', t => {
   const wrapper = shallow(
-    <Badges />
+    <LeaderBoard />
   )
 
   t.deepEqual(wrapper.find('div').length, 1);
