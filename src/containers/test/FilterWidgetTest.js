@@ -8,7 +8,7 @@ import sinon from 'sinon';
 
 import FilterWidget from '../FilterWidget'
 import { LeaderBoard } from '../../components/LeaderBoard'
-import { Badges } from '../../components/Badges'
+import { Badges } from '../../components/Badges '
 
 const mockStore = configureStore();
 
@@ -23,7 +23,6 @@ test("component renders", t => {
   )
 
   t.deepEqual(wrapper.find(FilterWidget).length, 1);
-  //t.deepEqual(wrapper.find(FilterWidget).find(LeaderBoard).length, 1);
 });
 
 test('when state is \'Leaderboard\' LeaderBoard -component renders', t => {
