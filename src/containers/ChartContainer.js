@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class ChartContainer extends Component {
 
-  halfwayData = function() {
+  halfwayData() {
     if(this.props.progressData) {
       return new Array(this.props.progressData.length).fill(this.props.maxPoints / 2);
     }
