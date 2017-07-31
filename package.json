@@ -35,7 +35,8 @@
     "react-test-renderer": "^15.6.1",
     "redux-ava": "^2.2.0",
     "redux-mock-store": "latest",
-    "sinon": "^2.3.8"
+    "sinon": "^2.3.8",
+    "store": "^2.0.12"
   },
   "babel": {
     "presets": [
