@@ -3,11 +3,27 @@ import { Chart } from '../components/Chart'
 
 export default class ChartContainer extends Component {
 
+  halfwayData = function() {
+    if(this.props.progressData) {
+      return new Array(this.props.progressData.length).fill(this.props.maxPoints / 2);
+    }
+    return [];
+  };
 
   render() {
     //dummy data
+    const options = {
+      maintainAspectRatio: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            max: this.props.maxPoints
+          }
+        }]
+      }
+    };
     const data = {
-      labels: ["Kurssin alku", "Viikko 1", "Viikko 2", "Viikko 3", "Viikko 4", "Viikko 5", "Viikko 6", "Viikko 7"],
+      labels: this.props.progressLabels,
       datasets: [
         {
           label: "Omat pisteet (dummy)",
@@ -28,13 +44,46 @@ export default class ChartContainer extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [0, 25, 41, 79, 101, 151, 194, 260]
+          data: this.props.progressData
+        },
+        {
+          label: "Läpipääsyraja (dummy)",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: "rgba(150,150,150,1)",
+          borderColor: "rgba(150,150,150,1)",
+          borderCapStyle: "butt",
+          borderDash: [20],
+          borderDashOffset: 0.0,
+          borderJoinStyle: "miter",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 0,
+          pointHoverRadius: 0,
+          pointHoverBackgroundColor: "rgba(75,192,192,1)",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 0,
+          pointRadius: 0,
+          pointHitRadius: 0,
+          data: this.halfwayData()
         }
       ]
     };
 
     return (
-      <Chart data={data} />
+      <Chart data={data} options={options}/>
     )
   }
 }
+
+/* Connect chart container to it's data in the store
+
+const mapStateToProps = dispatch => {
+  return {
+    this.progressLabels: state.progressLabels,
+    this.progressData: state.progressData
+    this.maxPoints: state.courseMaxPoints
+  }
+}
+
+export default connect(mapStateToProps, null)(ChartContainer);
+*/
