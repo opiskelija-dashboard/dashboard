@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Chart } from '../components/Chart'
+import { Chart } from '../components/Chart';
+import { connect } from 'react-redux';
 
-export default class ChartContainer extends Component {
+class ChartContainer extends Component {
 
   halfwayData = function() {
     if(this.props.progressData) {
@@ -75,15 +76,15 @@ export default class ChartContainer extends Component {
   }
 }
 
-/* Connect chart container to it's data in the store
+//Connect chart container to it's data in the store
 
-const mapStateToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    this.progressLabels: state.progressLabels,
-    this.progressData: state.progressData
-    this.maxPoints: state.courseMaxPoints
+    progressLabels: state.progressLabels,
+    progressData: state.progressData,
+    maxPoints: state.courseMaxPoints
   }
 }
 
 export default connect(mapStateToProps, null)(ChartContainer);
-*/
+
