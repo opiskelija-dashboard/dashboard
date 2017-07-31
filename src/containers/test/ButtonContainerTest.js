@@ -74,5 +74,3 @@ test('dispatch triggers when clicked', t => {
   wrapper.find(Button).simulate('click');
   t.deepEqual(store.getActions(), [toggleVisibility("testi")]);
 });
-
-test.todo('state changes properly when button clicked');
