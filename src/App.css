@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
 .WidgetContainer {
   margin: auto;
   margin-top: 50px;
@@ -14,12 +21,10 @@
   padding: 10px;
 }
 
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+.floatLeft {
+
 }
-th, td {
-    padding: 5px;
-    text-align: left;
-    width: 1000px;
+
+.floatRight {
+  
 }

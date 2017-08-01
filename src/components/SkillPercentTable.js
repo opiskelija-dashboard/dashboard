@@ -4,18 +4,10 @@ import "../App.css";
 
 export const SkillPercentTable = (props) => (
 
-  <div>
-    <table>
-      <tbody>
-        <tr>
-          <th>Taito 1</th>
-
-          <td>
-            {<ProgressBar taito1={props.taito1} />}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div className="center">
+    <div>
+      { <ProgressBar taito1={props.taito1} /> }
+    </div>
   </div>
 
 

@@ -4,7 +4,7 @@ import ChartContainer from "../containers/ChartContainer";
 import ProgressBarContainer from "../containers/ProgressBarContainer";
 
 export const MyPage = () => (
-  <div>
+  <div className="center">
     <ChartContainer />
 
     <ProgressBarContainer />
