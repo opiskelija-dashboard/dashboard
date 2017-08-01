@@ -3,7 +3,7 @@
 }
 
 .center {
-    margin: auto;
+    margin-top: 50px;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -22,9 +22,15 @@
 }
 
 .floatLeft {
-
+  float: left;
+  margin-right: 50px
 }
 
-.floatRight {
-  
+.progressBar {
+  float: left;
+  width: 30vw;
+}
+
+.progressBarContainer {
+  margin-top: 50px;
 }

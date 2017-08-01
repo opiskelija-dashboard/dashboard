@@ -1,7 +1,9 @@
 import React from "react";
 import "../App.css";
-import { Line } from 'rc-progress';
+import { ProgressBar as BootStrapProgressBar } from 'react-bootstrap'
 
 export const ProgressBar = (props) => (
-  <Line strokeWidth={1} percent={props.taito1} />
+  <div>
+    <BootStrapProgressBar now={35}/>
+  </div>
 )

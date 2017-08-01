@@ -4,10 +4,17 @@ import "../App.css";
 
 export const SkillPercentTable = (props) => (
 
-  <div className="center">
-    <div>
-      { <ProgressBar taito1={props.taito1} /> }
+  let views = props.data.map((bar) => {
+    <div className="floatLeft">
+      <p>taito 1</p>
     </div>
+    <div className="progressBar">
+      <ProgressBar />
+    </div>
+  })
+
+  <div className="progressBarContainer">
+
   </div>
 
 
