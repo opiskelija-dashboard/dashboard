@@ -18,7 +18,8 @@ class ChartContainer extends Component {
       scales: {
         yAxes: [{
           ticks: {
-            max: this.props.maxPoints
+            max: this.props.maxPoints,
+            min: 0
           }
         }]
       }
