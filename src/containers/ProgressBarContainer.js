@@ -61,7 +61,7 @@ export default class ProgressBarContainer extends Component {
 
     return(
       <div className="progressBarContainer">
-        <p>Vihreä palkki kuvaa omaa menestystäsi. Punainen keskiarvon alitusta, raidallinen vihreä ylitystä.</p>
+        <p>Punainen palkki kuvaa keskiarvon alitusta, vihreä palkki kuvaa keskiarvon ylitystä.</p>
         { list }
       </div>
 
