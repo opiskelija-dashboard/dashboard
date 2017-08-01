@@ -4,6 +4,9 @@ import { ProgressBar } from '../components/ProgressBar'
 
 export default class ProgressBarContainer extends Component {
 
+  // lasketaan suhde averagen ja käyttäjän pistemääristä
+  // firstBar on palkin aloittava, secondBar sen perään
+  // tuleva palkki
   countPercentages(average, userPoints) {
     let overAverage = (userPoints > average);
     let firstBar;
@@ -43,6 +46,8 @@ export default class ProgressBarContainer extends Component {
       10
     ]
 
+    // list sisältää datan pituuden verran ProgressBareja, joihin
+    // lasketaan sopiva averagen ja käyttäjän pisteiden määrä
     const list = label.map((data, index) =>
       <div key={index} className="progressBarContainer">
         <div className="floatLeft">
