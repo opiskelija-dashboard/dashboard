@@ -17,7 +17,7 @@ export default function(state = {"filter": "Oma sivu"}, action) {
       return Object.assign({}, state,
         { progressData: action.payload.data.points },
         { progressLabels: action.payload.data.days },
-        { courseMaxPoints: 50 }
+        { courseMaxPoints: 15 }
       );
     default: return state;
   }
