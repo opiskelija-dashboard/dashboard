@@ -28,6 +28,15 @@ export const connectBackend = () => {
   }
 }
 
+export const fetchDailyPoints = () => {
+  const url = "https://student-dashboard-api.herokuapp.com/submissions";
+  const request = axios.get(url);
+  return {
+    type: 'FETCH_DAILY_POINTS',
+    payload: request
+  }
+}
+
 export const TOGGLE_WIDGET_VISIBILITY = 'TOGGLE_WIDGET_VISIBILITY';
 
 export const toggleVisibility = (filter) => {
