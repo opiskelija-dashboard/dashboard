@@ -12,6 +12,13 @@ export default function(state = {"filter": "Oma sivu"}, action) {
     case 'CONNECT_BACKEND':
       console.log("payload:", action.payload);
       return state;
+    case 'FETCH_DAILY_POINTS':
+      console.log('Received data from backend:', action.payload.data);
+      return Object.assign({}, state,
+        { progressData: action.payload.data.points },
+        { progressLabels: action.payload.data.days },
+        { courseMaxPoints: 15 }
+      );
     default: return state;
   }
 }
