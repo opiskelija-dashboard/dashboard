@@ -49,7 +49,7 @@ export default class ProgressBarContainer extends Component {
     // list sisältää datan pituuden verran ProgressBareja, joihin
     // lasketaan sopiva averagen ja käyttäjän pisteiden määrä
     const list = label.map((data, index) =>
-      <div key={index} className="progressBarContainer">
+      <div key={index}>
         <div className="floatLeft">
           <p>{ data }</p>
         </div>
@@ -60,7 +60,8 @@ export default class ProgressBarContainer extends Component {
     )
 
     return(
-      <div>
+      <div className="progressBarContainer">
+        <p>Vihreä palkki kuvaa omaa menestystäsi. Punainen keskiarvon alitusta, raidallinen vihreä ylitystä.</p>
         { list }
       </div>
 
