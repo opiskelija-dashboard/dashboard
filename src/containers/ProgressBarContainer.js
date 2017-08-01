@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 import "../App.css";
-import { SkillPercentTable } from "../components/SkillPercentTable";
 import { ProgressBar } from '../components/ProgressBar'
 
 export default class ProgressBarContainer extends Component {
 
-  countPercentages() {
+  countPercentages(average, userPoints) {
+    let overAverage = (userPoints > average);
+    let firstBar;
+    let secondBar;
 
+    if (overAverage) {
+      firstBar = average;
+      secondBar = userPoints - average;
+    } else {
+      firstBar = userPoints;
+      secondBar = average - userPoints;
+    }
+
+
+    return <ProgressBar usrAbove={overAverage} firstBar={firstBar} secondBar={secondBar} />
   }
 
   render() {
@@ -31,16 +43,22 @@ export default class ProgressBarContainer extends Component {
       10
     ]
 
-    let data = {
-      "taito1": [40, 90],
-      "taito2": [60, 70],
-      "taito3": [80, 20],
-      "taito4": [10, 10]
-    }
-
+    const list = label.map((data, index) =>
+      <div key={index} className="progressBarContainer">
+        <div className="floatLeft">
+          <p>{ data }</p>
+        </div>
+        <div>
+          { this.countPercentages(average[index], users[index]) }
+        </div>
+      </div>
+    )
 
     return(
-      <SkillPercentTable data={data} />
+      <div>
+        { list }
+      </div>
+
     )
   }
 }
