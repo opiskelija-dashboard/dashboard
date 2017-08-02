@@ -6,7 +6,6 @@ export default class ProgressBarContainer extends Component {
 
   countPercentages(average, userPoints) {
     let overAverage = userPoints >= average;
-    let color;
 
     return (
       <ProgressBar
