@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { ProgressBar } from '../ProgressBar'
 import { ProgressBar as BootStrapProgressBar } from "react-bootstrap";
 
-test('component renders', t => {
+test('component renders two bars', t => {
   const wrapper = shallow(
     <ProgressBar />
   )
