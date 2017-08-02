@@ -1,8 +1,10 @@
-
-
 export default function(state = {"filter": "Oma sivu", dashboard_token: null }, action) {
+  if(action.error) {
+    action.type = 'HANDLE_ERROR'
+  }
   switch (action.type) {
     case 'FETCH_COURSE_POINTS':
+      if(action.payload.data)
       return Object.assign({}, state,
         { coursePoints: action.payload.data.length }
       );
@@ -13,8 +15,7 @@ export default function(state = {"filter": "Oma sivu", dashboard_token: null }, 
     case 'CONNECT_BACKEND':
        console.log(action.payload.data.data.token);
        return Object.assign({}, state,
-        { dashboard_token: action.payload.data.data.token });
-      
+        { dashboard_token: action.payload.data.data.token });     
     case 'FETCH_DAILY_POINTS':
       console.log('Received data from backend:', action.payload.data);
       return Object.assign({}, state,
@@ -22,6 +23,8 @@ export default function(state = {"filter": "Oma sivu", dashboard_token: null }, 
         { progressLabels: action.payload.data.days },
         { courseMaxPoints: 15 }
       );
+    case 'HANDLE_ERROR':
+      console.log("there was an error while making request");
     default: return state;
   }
 }

@@ -35,7 +35,7 @@ export const connectBackend = () => {
 }
 
 export const fetchDailyPoints = (token) => {
-  const url = "https://student-dashboard-api.herokuapp.com/cumulative/points";
+  const url = "https://student-dashboard-api.herokuapp.com/cumulative-points";
   const request = axios.get(url,
     {'Authorization': 'Bearer ' + token}
   );
