@@ -8,7 +8,7 @@ import configureStore from 'redux-mock-store';
 import { NavBar } from '../NavBar'
 import ButtonContainer from '../../containers/ButtonContainer'
 
-test('component renders wihtour crashing', t => {
+test('component renders without crashing', t => {
   const mockStore = configureStore();
   const initialState = { "filter": "asdasd"}
   const store = mockStore(initialState);

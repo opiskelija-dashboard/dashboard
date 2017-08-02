@@ -1,9 +1,17 @@
 import React from "react";
 import "../App.css";
-import Chart from "../containers/ChartContainer";
+import ChartContainer from "../containers/ChartContainer";
+import ProgressBarContainer from "../containers/ProgressBarContainer";
 
 export const MyPage = () => (
-  <div>
-    <Chart />
+  <div className="center">
+    <div className="WidgetContainer">
+      <ChartContainer />
+    </div>
+
+    <div className="WidgetContainer">
+      <ProgressBarContainer />
+    </div>
+
   </div>
 )
