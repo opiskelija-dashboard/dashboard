@@ -6,9 +6,9 @@ import {
 } from '../actions/index'
 
 export default function APIcalls(state = {dashboard_token: null }, action) {
-  // if(action.error) {
-  //   action.type = 'HANDLE_ERROR'
-  // }
+  if(action.error) {
+    action.type = 'HANDLE_ERROR'
+  }
   switch (action.type) {
     case FETCH_COURSE_POINTS:
       return Object.assign({}, state,

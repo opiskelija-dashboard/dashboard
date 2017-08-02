@@ -15,6 +15,8 @@ export const fetchCoursePoints = (token) => {
     }
 }
 
+
+
 export const CONNECT_BACKEND = 'CONNECT_BACKEND'
 
 export const connectBackend = () => {
@@ -39,6 +41,8 @@ export const connectBackend = () => {
   }
 }
 
+
+
 export const FETCH_DAILY_POINTS = 'FETCH_DAILY_POINTS'
 
 export const fetchDailyPoints = (token) => {
@@ -51,6 +55,8 @@ export const fetchDailyPoints = (token) => {
     payload: request
   }
 }
+
+
 
 export const TOGGLE_WIDGET_VISIBILITY = 'TOGGLE_WIDGET_VISIBILITY';
 
