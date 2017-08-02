@@ -22,15 +22,17 @@
 }
 
 .floatLeft {
-  float: left;
-  margin-right: 50px
-}
-
-.progressBar {
-  float: left;
-  width: 30vw;
+  margin-right: 50px;
+  display: table-row;
+  font-size: 2em;
 }
 
 .progressBarContainer {
-  margin-top: 20px;
+  margin: auto;
+  display: table;
+}
+
+.progressBarPair {
+  display: table-cell;
+  width: 30vw;
 }
