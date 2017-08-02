@@ -1,7 +1,7 @@
 export default function(state = {"filter": "Oma sivu", dashboard_token: null }, action) {
-  if(action.error) {
+  /*if(action.error) {
     action.type = 'HANDLE_ERROR'
-  }
+  }*/
   switch (action.type) {
     case 'FETCH_COURSE_POINTS':
       if(action.payload.data)
