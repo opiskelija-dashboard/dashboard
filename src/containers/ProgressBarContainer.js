@@ -5,12 +5,12 @@ import { ProgressBar } from "../components/ProgressBar";
 export default class ProgressBarContainer extends Component {
 
   countPercentages(average, userPoints) {
-    let overAverage = userPoints > average;
+    let overAverage = userPoints >= average;
     let color;
 
     return (
       <ProgressBar
-        color={color}
+        over={overAverage}
         firstBar={userPoints}
         secondBar={average}
       />

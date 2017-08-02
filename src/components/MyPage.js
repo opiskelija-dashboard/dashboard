@@ -5,8 +5,13 @@ import ProgressBarContainer from "../containers/ProgressBarContainer";
 
 export const MyPage = () => (
   <div className="center">
-    <ChartContainer />
+    <div className="WidgetContainer">
+      <ChartContainer />
+    </div>
 
-    <ProgressBarContainer />
+    <div className="WidgetContainer">
+      <ProgressBarContainer />
+    </div>
+
   </div>
 )

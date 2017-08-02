@@ -10,5 +10,5 @@ test('component renders', t => {
     <MyPage />
   )
 
-  t.deepEqual(wrapper.find('div').length, 1);
+  t.deepEqual(wrapper.find('.center').length, 1);
 });
