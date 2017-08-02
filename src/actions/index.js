@@ -21,7 +21,6 @@ export const connectBackend = () => {
     });
   }
   const user = store.get('tmc.user');
-  /***request jwt token from dashboard api**/
   const conn_url = "https://student-dashboard-api.herokuapp.com/new-dash-session";
   const request = axios.post(conn_url,
     {
@@ -38,9 +37,7 @@ export const connectBackend = () => {
 export const fetchDailyPoints = (token) => {
   const url = "https://student-dashboard-api.herokuapp.com/cumulative/points";
   const request = axios.get(url,
-    {
-      'Authorization': 'Bearer ' + token
-    }
+    {'Authorization': 'Bearer ' + token}
   );
   return {
     type: 'FETCH_DAILY_POINTS',
