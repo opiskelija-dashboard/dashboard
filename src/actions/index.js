@@ -1,7 +1,6 @@
 import axios from 'axios';
 import store from 'store'
 
-
 export const fetchCoursePoints = (token) => {
   const request = axios.get("https://student-dashboard-api.herokuapp.com/points",
     {
@@ -17,7 +16,7 @@ export const fetchCoursePoints = (token) => {
 export const connectBackend = () => {
   if(!store.get("tmc.user")) {
     store.set("tmc.user",
-    { username: 'jijioj',
+    { username: 'ohtu_dashboard',
       accessToken:'c114d429c93fd38de8fa10e20f9b0d9a8683603e623a2359bf603ce9bcbb717b'
     });
   }
@@ -35,7 +34,6 @@ export const connectBackend = () => {
     payload: request
   }
 }
-
 
 export const fetchDailyPoints = (token) => {
   const url = "https://student-dashboard-api.herokuapp.com/cumulative/points";
