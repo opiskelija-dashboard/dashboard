@@ -11,20 +11,20 @@ export const fetchCoursePoints = () => {
 }
 
 export const connectBackend = () => {
-  /***remove write when able to login***/
-  if(!store.get('tmc.user')) {
-    store.set('tmc.user',
-      { accessToken: "Bearer c114d429c93fd38de8fa10e20f9b0d9a8683603e623a2359bf603ce9bcbb717b" })
-  }
-  const token = store.get('tmc.user');
-  /***replace when api is ready***/
-  const conn_url = "https://student-dashboard-api.herokuapp.com/";
-  const request = axios.post(conn_url,
-    { accessToken: "Bearer " + token.accessToken }
-  );
-  return {
-    type: 'CONNECT_BACKEND',
-    payload: request
+  if(store.get("tmc.user")) {
+    const user = store.get('tmc.user');
+    /***request jwt token from dashboard api**/
+    const conn_url = "https://student-dashboard-api.herokuapp.com/new-dash-session";
+    const request = axios.post(conn_url,
+      {
+        tmc_username: user.username,
+        tmc_access_token: user.accessToken
+      }
+    );
+    return {
+      type: 'CONNECT_BACKEND',
+      payload: request
+    }
   }
 }
 
