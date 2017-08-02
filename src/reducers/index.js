@@ -1,10 +1,9 @@
 export default function(state = {"filter": "Oma sivu", dashboard_token: null }, action) {
-  /*if(action.error) {
+  if(action.error) {
     action.type = 'HANDLE_ERROR'
-  }*/
+  }
   switch (action.type) {
     case 'FETCH_COURSE_POINTS':
-      if(action.payload.data)
       return Object.assign({}, state,
         { coursePoints: action.payload.data.length }
       );
@@ -25,6 +24,7 @@ export default function(state = {"filter": "Oma sivu", dashboard_token: null }, 
       );
     case 'HANDLE_ERROR':
       console.log("there was an error while making request");
+      break;
     default: return state;
   }
 }
