@@ -11,19 +11,11 @@ export default class ProgressBarContainer extends Component {
     let firstBar;
     let secondBar;
 
-    if (overAverage) {
-      firstBar = average;
-      secondBar = userPoints - average;
-    } else {
-      firstBar = userPoints;
-      secondBar = average - userPoints;
-    }
-
     return (
       <ProgressBar
         usrAbove={overAverage}
-        firstBar={firstBar}
-        secondBar={secondBar}
+        firstBar={userPoints}
+        secondBar={average}
       />
     );
   }

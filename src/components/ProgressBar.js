@@ -6,9 +6,7 @@ export const ProgressBar = props =>
   <div className="progressBarPair">
     <BootStrapProgressBar bsStyle="success" now={props.firstBar} />
     <BootStrapProgressBar
-      bsStyle={props.usrAbove ? "success" : "warning"}
+      bsStyle={props.usrAbove ? "warning" : "danger"}
       now={props.secondBar}
-      striped={props.usrAbove}
-      active
     />
   </div>;
