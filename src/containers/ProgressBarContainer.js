@@ -7,18 +7,12 @@ export default class ProgressBarContainer extends Component {
   // firstBar on palkin aloittava, secondBar sen perään
   // tuleva palkki
   countPercentages(average, userPoints) {
-    let overAverage = userPoints > average;
+    let overAverage = userPoints >= average;
     let color;
-
-    if (overAverage) {
-      color = "success";
-    } else {
-      color = (userPoints < average - average * 0.2) ? "danger" : "warning";
-    }
 
     return (
       <ProgressBar
-        color={color}
+        over={overAverage}
         firstBar={userPoints}
         secondBar={average}
       />

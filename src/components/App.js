@@ -6,7 +6,7 @@ import { NavBar } from "./NavBar";
 export const App = () => (
   <div className="appContainer">
     <NavBar />
-    <div className="WidgetContainer">
+    <div className="Container">
       <FilterWidget />
     </div>
   </div>
