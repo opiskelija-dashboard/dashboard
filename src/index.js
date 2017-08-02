@@ -25,6 +25,4 @@ ReactDOM.render(
 )
 
 //store.dispatch(connectBackend());
-store.dispatch(fetchDailyPoints());
-
-
+//store.dispatch(fetchDailyPoints());
