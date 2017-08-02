@@ -1,6 +1,6 @@
-import store from 'store';
 
-export default function(state = {"filter": "Oma sivu"}, action) {
+
+export default function(state = {"filter": "Oma sivu", dashboard_token: null }, action) {
   switch (action.type) {
     case 'FETCH_COURSE_POINTS':
       return Object.assign({}, state,
@@ -11,8 +11,10 @@ export default function(state = {"filter": "Oma sivu"}, action) {
         { filter: action.filter }
       );
     case 'CONNECT_BACKEND':
-      store.set('dashboard_api', { jwt_token: action.payload.data.data.token });
-      return state;
+       console.log(action.payload.data.data.token);
+       return Object.assign({}, state,
+        { dashboard_token: action.payload.data.data.token });
+      
     case 'FETCH_DAILY_POINTS':
       console.log('Received data from backend:', action.payload.data);
       return Object.assign({}, state,
