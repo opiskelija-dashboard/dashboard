@@ -81,11 +81,10 @@ class ChartContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    progressLabels: state.progressLabels,
-    progressData: state.progressData,
-    maxPoints: state.courseMaxPoints
+    progressLabels: state.APIcalls.progressLabels,
+    progressData: state.APIcalls.progressData,
+    maxPoints: state.APIcalls.courseMaxPoints
   }
 }
 
 export default connect(mapStateToProps, null)(ChartContainer);
-
