@@ -21,7 +21,7 @@ import reducer from '../../reducers/index'
 
 test.beforeEach(t => {
   const mockStore = configureStore();
-  const initialState = {"Widgets": {"filter": "asdasd"}};
+  const initialState = {"Widgets": { "filter": "asdasd" }};
   t.context.store = mockStore(initialState);
 });
 
