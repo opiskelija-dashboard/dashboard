@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { App } from "./components/App";
+import App from "./components/App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers/index";
 import ReduxPromise from "redux-promise";
-//import { connectBackend } from './actions/index.js';
-import { fetchDailyPoints } from './actions/index.js';
+import { connectBackend } from './actions/index.js';
 
 let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -24,5 +23,5 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-//store.dispatch(connectBackend());
+store.dispatch(connectBackend());
 //store.dispatch(fetchDailyPoints());
