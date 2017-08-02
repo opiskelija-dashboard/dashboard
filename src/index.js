@@ -23,5 +23,5 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-store.dispatch(connectBackend());
+//store.dispatch(connectBackend());
 //store.dispatch(fetchDailyPoints());

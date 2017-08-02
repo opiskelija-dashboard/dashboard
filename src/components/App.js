@@ -9,12 +9,12 @@ import { connect } from 'react-redux';
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.connectBackend();
+    //this.props.connectBackend();
   }
 
   componentWillUpdate(nextProps) {
    if(nextProps.dashboard_token) {
-     this.props.fetchDailyPoints();
+     //this.props.fetchDailyPoints();
     }
   }
 
@@ -22,7 +22,7 @@ class App extends React.Component {
     return (
       <div className="appContainer">
         <NavBar />
-        <div className="WidgetContainer">
+        <div className="Container">
           <FilterWidget />
         </div>
       </div>
