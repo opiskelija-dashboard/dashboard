@@ -53,7 +53,8 @@ export default class ProgressBarContainer extends Component {
     return (
       <div className="progressBarContainer">
         <p>
-          Ylempi palkki kuvaa omaa edistymistäsi, alempi palkki on kurssin opiskelijoiden keskiarvo.
+          Ylempi palkki kuvaa omaa edistymistäsi, alempi palkki on kurssin
+          opiskelijoiden keskiarvo.
         </p>
         {list}
       </div>
