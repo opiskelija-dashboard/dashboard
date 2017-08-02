@@ -4,9 +4,9 @@ import { ProgressBar as BootStrapProgressBar } from "react-bootstrap";
 
 export const ProgressBar = props =>
   <div className="progressBarPair">
-    <BootStrapProgressBar bsStyle="success" now={props.firstBar} />
+    <BootStrapProgressBar bsStyle="info" now={props.firstBar} />
     <BootStrapProgressBar
-      bsStyle={props.usrAbove ? "warning" : "danger"}
+      bsStyle={props.color}
       now={props.secondBar}
     />
   </div>;

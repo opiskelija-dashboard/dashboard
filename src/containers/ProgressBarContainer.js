@@ -8,12 +8,17 @@ export default class ProgressBarContainer extends Component {
   // tuleva palkki
   countPercentages(average, userPoints) {
     let overAverage = userPoints > average;
-    let firstBar;
-    let secondBar;
+    let color;
+
+    if (overAverage) {
+      color = "success";
+    } else {
+      color = (userPoints < average - average * 0.2) ? "danger" : "warning";
+    }
 
     return (
       <ProgressBar
-        usrAbove={overAverage}
+        color={color}
         firstBar={userPoints}
         secondBar={average}
       />
@@ -25,7 +30,7 @@ export default class ProgressBarContainer extends Component {
 
     let label = ["taito1", "taito2", "taito3", "taito4"];
 
-    let users = [90, 70, 20, 10];
+    let users = [90, 48, 20, 10];
 
     // list sisältää datan pituuden verran ProgressBareja, joihin
     // lasketaan sopiva averagen ja käyttäjän pisteiden määrä
