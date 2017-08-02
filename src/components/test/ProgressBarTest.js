@@ -4,11 +4,12 @@ import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 
 import { ProgressBar } from '../ProgressBar'
+import { ProgressBar as BootStrapProgressBar } from "react-bootstrap";
 
 test('component renders', t => {
   const wrapper = shallow(
     <ProgressBar />
   )
 
-  t.deepEqual(value, expected, 'message');
+  t.deepEqual(wrapper.find(BootStrapProgressBar).length, 2);
 });
