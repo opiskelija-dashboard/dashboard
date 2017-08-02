@@ -49,7 +49,7 @@
       "src/*/test/*.js",
       "!**/not-this-file.js"
     ],
-    "concurrency": 10,
+    "concurrency": 5,
     "failFast": true,
     "failWithoutAssertions": false,
     "require": [

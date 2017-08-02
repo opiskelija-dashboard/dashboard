@@ -18,7 +18,7 @@ import { toggleVisibility } from '../../actions/index'
 import reducer from '../../reducers/index'
 
 const mockStore = configureStore();
-const initialState = { "filter": "asdasd"}
+const initialState = {"Widgets": {"filter": "asdasd"}};
 const store = mockStore(initialState);
 
 test('renders without crashing', t => {
@@ -63,7 +63,6 @@ test('button can be clicked', t => {
 });
 
 test('dispatch triggers when clicked', t => {
-  const store = mockStore(initialState);
   store.replaceReducer(reducer)
   const wrapper = mount(
     <Provider store={store}>

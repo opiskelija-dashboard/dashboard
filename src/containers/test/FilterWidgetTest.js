@@ -10,10 +10,9 @@ import FilterWidget from '../FilterWidget'
 import { LeaderBoard } from '../../components/LeaderBoard'
 import { Badges } from '../../components/Badges'
 
-const mockStore = configureStore();
-
 test("component renders", t => {
-  const initialState = { "filter": "asdasd"}
+  const mockStore = configureStore();
+  const initialState = {"Widgets": { "filter": "random" }};
   const store = mockStore(initialState);
 
   const wrapper = mount(
@@ -26,7 +25,8 @@ test("component renders", t => {
 });
 
 test('when state is \'Leaderboard\' LeaderBoard -component renders', t => {
-  const initialState = { "filter": "Leaderboard"}
+  const mockStore = configureStore();
+  const initialState = {"Widgets": { "filter": "Leaderboard" }};
   const store = mockStore(initialState);
 
   const wrapper = mount(
@@ -39,7 +39,8 @@ test('when state is \'Leaderboard\' LeaderBoard -component renders', t => {
 });
 
 test('when state is \'Badget\' Badges -component renders', t => {
-  const initialState = { "filter": "Badget"}
+  const mockStore = configureStore();
+  const initialState = {"Widgets": { "filter": "Badget" }};
   const store = mockStore(initialState);
 
   const wrapper = mount(
