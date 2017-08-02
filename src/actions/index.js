@@ -3,7 +3,7 @@ import store from 'store'
 
 
 export const fetchCoursePoints = () => {
-  const request = axios.get("https://student-dashboard-api.herokuapp.com/points");
+  const request = axios.get("https://student-dashboard-api.herokuapp.com/cumulative-points");
     return {
       type: 'FETCH_COURSE_POINTS',
       payload: request
