@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.center {
+    margin-top: 50px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
 .WidgetContainer {
   margin: auto;
   margin-top: 50px;
@@ -12,4 +19,20 @@
 .appContainer {
   margin: 20px;
   padding: 10px;
+}
+
+.floatLeft {
+  margin-right: 50px;
+  display: table-row;
+  font-size: 2em;
+}
+
+.progressBarContainer {
+  margin: auto;
+  display: table;
+}
+
+.progressBarPair {
+  display: table-cell;
+  width: 30vw;
 }
