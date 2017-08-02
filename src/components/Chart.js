@@ -6,8 +6,6 @@ export const Chart = props => (
       <h2>Edistyminen</h2>
       <Line
         data={props.data}
-        width="auto"
-        height="auto"
         options={props.options}
       />
     </div>
