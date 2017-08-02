@@ -17,14 +17,18 @@ import { toggleVisibility } from '../../actions/index'
 //tested reducers
 import reducer from '../../reducers/index'
 
-const mockStore = configureStore();
-const initialState = {"Widgets": {"filter": "asdasd"}};
-const store = mockStore(initialState);
+
+
+test.beforeEach(t => {
+  const mockStore = configureStore();
+  const initialState = {"Widgets": {"filter": "asdasd"}};
+  t.context.store = mockStore(initialState);
+});
 
 test('renders without crashing', t => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={t.context.store}>
       <NavButton />
     </Provider>,
     div
@@ -33,7 +37,7 @@ test('renders without crashing', t => {
 
 test('renders button', t => {
   const wrapper = mount(
-    <Provider store={store}>
+    <Provider store={t.context.store}>
       <NavButton />
     </Provider>
   )
@@ -43,7 +47,7 @@ test('renders button', t => {
 
 test('outputs given text', t => {
   const wrapper = mount(
-    <Provider store={store}>
+    <Provider store={t.context.store}>
       <NavButton text="testi"/>
     </Provider>
   )
@@ -63,13 +67,13 @@ test('button can be clicked', t => {
 });
 
 test('dispatch triggers when clicked', t => {
-  store.replaceReducer(reducer)
+  t.context.store.replaceReducer(reducer)
   const wrapper = mount(
-    <Provider store={store}>
+    <Provider store={t.context.store}>
       <NavButton text="testi" />
     </Provider>
   );
 
   wrapper.find(Button).simulate('click');
-  t.deepEqual(store.getActions(), [toggleVisibility("testi")]);
+  t.deepEqual(t.context.store.getActions(), [toggleVisibility("testi")]);
 });

@@ -10,19 +10,25 @@ import FilterWidget from '../FilterWidget'
 import { LeaderBoard } from '../../components/LeaderBoard'
 import { Badges } from '../../components/Badges'
 
-test("component renders", t => {
+test.beforeEach(t => {
   const mockStore = configureStore();
   const initialState = {"Widgets": { "filter": "random" }};
-  const store = mockStore(initialState);
+  t.context.store = mockStore(initialState);
+});
 
+test("component renders", t => {
   const wrapper = mount(
-    <Provider store={store} >
+    <Provider store={t.context.store} >
       <FilterWidget />
     </Provider>
   )
 
   t.deepEqual(wrapper.find(FilterWidget).length, 1);
 });
+
+// Näissä täytyy tehdä uudet storet, koska mock storen statea
+// ei ilmeisesti pysty vaihtamaan lennosta
+
 
 test('when state is \'Leaderboard\' LeaderBoard -component renders', t => {
   const mockStore = configureStore();
