@@ -7,7 +7,7 @@ body {
 }
 
 .center {
-    margin-top: 50px;
+    margin-top: 10px;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -15,7 +15,6 @@ body {
 
 .Container {
   margin: auto;
-  margin-top: 50px;
   max-width: 70vw;
   max-height: 20vh;
 }
