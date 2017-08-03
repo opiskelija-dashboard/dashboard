@@ -10,7 +10,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "ava --verbose"
+    "test": "ava -s",
+    "testFast": "ava --verbose"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -49,7 +50,7 @@
       "src/*/test/*.js",
       "!**/not-this-file.js"
     ],
-    "concurrency": 10,
+    "concurrency": 5,
     "failFast": true,
     "failWithoutAssertions": false,
     "require": [

@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./components/App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import reducers from "./reducers/index";
+import rootReducer from "./reducers/index";
 import ReduxPromise from "redux-promise";
 
 let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-let store = storeWithMiddleware(reducers);
+let store = storeWithMiddleware(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -21,5 +24,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-
-

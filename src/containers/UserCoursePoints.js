@@ -17,7 +17,7 @@ class UserCoursePoints extends Component {
 
 const mapStateToProps = state => {
   return {
-    coursePoints: state.coursePoints
+    coursePoints: state.APIcalls.coursePoints
   }
 }
 
