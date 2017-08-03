@@ -9,12 +9,12 @@ import { connect } from 'react-redux';
 class App extends React.Component {
 
   componentDidMount() {
-    //this.props.connectBackend();
+    this.props.connectBackend();
   }
 
   componentWillUpdate(nextProps) {
    if(nextProps.dashboard_token) {
-     //this.props.fetchDailyPoints();
+     //this.props.fetchDailyPoints(nextProps.dashboard_token);
     }
   }
 
