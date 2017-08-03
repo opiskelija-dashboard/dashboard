@@ -44,16 +44,7 @@
     "presets": [
       "react",
       "es2015"
-    ],
-    "plugins": [
-      "transform-runtime"
-    ],
-    "ignore": "*Test.js",
-    "env": {
-      "development": {
-        "sourceMaps": "inline"
-      }
-    }
+    ]
   },
   "ava": {
     "files": [
