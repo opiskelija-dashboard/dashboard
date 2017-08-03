@@ -6,6 +6,7 @@ before_deploy:
   - npm run predeploy
 # GH-pages only understand to show /dist/ folder's webpages, so rename /build to /dist
   - mv ./build ./dist
+# Duplicate js & css files with dynamic names to static mainDash.js/css for ohpe2017-material's link-usage
   - cp ./dist/js/main.*.js mainDash.js
   - cp ./dist/css/main.*.css mainDash.css
 deploy:
