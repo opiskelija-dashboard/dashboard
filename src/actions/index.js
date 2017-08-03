@@ -1,6 +1,8 @@
 import axios from 'axios';
 import store from 'store'
 
+export const FETCH_COURSE_POINTS = 'FETCH_COURSE_POINTS'
+
 export const fetchCoursePoints = (token) => {
   const request = axios.get("https://student-dashboard-api.herokuapp.com/points",
     {
@@ -8,10 +10,14 @@ export const fetchCoursePoints = (token) => {
     }
   );
     return {
-      type: 'FETCH_COURSE_POINTS',
+      type: FETCH_COURSE_POINTS,
       payload: request
     }
 }
+
+
+
+export const CONNECT_BACKEND = 'CONNECT_BACKEND'
 
 export const connectBackend = () => {
   if(!store.get('tmc.user').username || !store.get('tmc.user').accessToken){
@@ -30,10 +36,14 @@ export const connectBackend = () => {
     }
   );
   return {
-    type: 'CONNECT_BACKEND',
+    type: CONNECT_BACKEND,
     payload: request
   }
 }
+
+
+
+export const FETCH_DAILY_POINTS = 'FETCH_DAILY_POINTS'
 
 export const fetchDailyPoints = (token) => {
   const url = "https://student-dashboard-api.herokuapp.com/cumulative-points";
@@ -41,10 +51,12 @@ export const fetchDailyPoints = (token) => {
     {'Authorization': 'Bearer ' + token}
   );
   return {
-    type: 'FETCH_DAILY_POINTS',
+    type: FETCH_DAILY_POINTS,
     payload: request
   }
 }
+
+
 
 export const TOGGLE_WIDGET_VISIBILITY = 'TOGGLE_WIDGET_VISIBILITY';
 
