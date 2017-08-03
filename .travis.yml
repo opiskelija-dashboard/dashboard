@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "node"
-before_deploy: 
+before_deploy:
 # npm run predeploy builds to /build/ folder
   - npm run predeploy
 # GH-pages only understand to show /dist/ folder's webpages, so rename /build to /dist
@@ -12,3 +12,6 @@ deploy:
   github_token: $GITHUB_TOKEN
   on:
     branch: master
+
+after_success:
+  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
