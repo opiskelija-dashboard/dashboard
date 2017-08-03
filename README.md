@@ -4,4 +4,6 @@
 
 Front end: https://opiskelija-dashboard.github.io/dashboard
 
-Back end API: https://student-dashboard-api.herokuapp.com/points
+Back end API: https://student-dashboard-api.herokuapp.com/
+- cumulative points: https://student-dashboard-api.herokuapp.com/cumulative-points
+- skill percentages: https://student-dashboard-api.herokuapp.com/skill-percentages
