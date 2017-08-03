@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export default function(state = {"filter": "Oma sivu", dashboard_token: null }, action) {
   if(action.error) {
     action.type = 'HANDLE_ERROR'
@@ -28,4 +29,15 @@ export default function(state = {"filter": "Oma sivu", dashboard_token: null }, 
     default: return state;
   }
 }
+=======
+import APIcalls from './APIcalls'
+import Widgets from './Widgets'
+import { combineReducers } from 'redux'
+>>>>>>> 1d7d61221d132fbe8932e36d17800f9eacf7aa1e
 
+const rootReducer = combineReducers({
+  APIcalls,
+  Widgets
+})
+
+export default rootReducer
