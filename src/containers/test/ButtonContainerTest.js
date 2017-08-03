@@ -64,8 +64,7 @@ test('button can be clicked', t => {
   t.deepEqual(onClick.calledOnce, true);
 });
 
-test.skip('dispatch triggers when clicked', t => {
-  t.context.store.replaceReducer(rootReducer)
+test('dispatch triggers when clicked', t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
       <ButtonContainer text="testi" />
