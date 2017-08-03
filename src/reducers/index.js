@@ -24,7 +24,7 @@ export default function(state = {"filter": "Oma sivu", dashboard_token: null }, 
       );
     case 'HANDLE_ERROR':
       console.log("there was an error while making request");
-      break;
+      return state;
     default: return state;
   }
 }
