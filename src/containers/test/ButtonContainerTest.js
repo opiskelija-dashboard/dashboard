@@ -15,7 +15,7 @@ import { ButtonContainer as NoRedux } from '../ButtonContainer'
 import { toggleVisibility } from '../../actions/index'
 
 //tested reducers
-import rootReducer from '../../reducers/index'
+//import rootReducer from '../../reducers/index'
 
 test.beforeEach(t => {
   const mockStore = configureStore();
@@ -23,7 +23,7 @@ test.beforeEach(t => {
   t.context.store = mockStore(initialState);
 });
 
-test.skip('renders without crashing', t => {
+test('renders without crashing', t => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={t.context.store}>
@@ -33,7 +33,7 @@ test.skip('renders without crashing', t => {
   );
 });
 
-test.skip('renders button', t => {
+test('renders button', t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
       <ButtonContainer />
@@ -43,7 +43,7 @@ test.skip('renders button', t => {
   t.deepEqual(wrapper.find(Button).length, 1);
 });
 
-test.skip('outputs given text', t => {
+test('outputs given text', t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
       <ButtonContainer text="testi"/>
