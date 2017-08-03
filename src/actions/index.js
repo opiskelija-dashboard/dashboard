@@ -20,7 +20,7 @@ export const fetchCoursePoints = (token) => {
 export const CONNECT_BACKEND = 'CONNECT_BACKEND'
 
 export const connectBackend = () => {
-  if(!store.get('tmc.user').username || !store.get('tmc.user').accessToken){
+  if(!store.get('tmc.user')){
     store.set("tmc.user",
       { username: 'ohtu_dashboard',
         accessToken: 'c114d429c93fd38de8fa10e20f9b0d9a8683603e623a2359bf603ce9bcbb717b'
@@ -48,7 +48,7 @@ export const FETCH_DAILY_POINTS = 'FETCH_DAILY_POINTS'
 export const fetchDailyPoints = (token) => {
   const url = "https://student-dashboard-api.herokuapp.com/cumulative-points";
   const request = axios.get(url,
-    {'Authorization': 'Bearer ' + token}
+    { headers: { 'Authorization': 'Bearer ' + token }}
   );
   return {
     type: FETCH_DAILY_POINTS,
