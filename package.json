@@ -5,12 +5,12 @@
   "homepage": "https://opiskelija-dashboard.github.io/dashboard/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "BABEL_ENV=production react-scripts build",
     "testRS": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "ava -s",
+    "test": "nyc ava",
     "testFast": "ava --verbose"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "coveralls": "^2.13.1",
     "enzyme": "^2.9.1",
     "ignore-styles": "^5.0.1",
+    "nyc": "^11.1.0",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
     "redux-ava": "^2.2.0",
