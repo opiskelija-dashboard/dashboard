@@ -12,7 +12,7 @@ import { fetchDailyPoints } from "../../actions/index";
 
 test.beforeEach(t => {
   const mockStore = configureStore();
-  const initialState = { "Widgets": { "filter": "asdasd" }};
+  const initialState = { "widgets": { "filter": "asdasd" }};
   t.context.store = mockStore(initialState);
 
   t.context.wrapper = mount(
@@ -29,5 +29,5 @@ test('component renders', t => {
 test('component dispatches correctly', t => {
   let actions = t.context.store.getActions();
 
-  t.is(actions[0]['type'], connectBackend()['type']);
+  t.deepEqual(actions[0]['type'], connectBackend()['type']);
 });

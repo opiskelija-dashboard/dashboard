@@ -19,7 +19,7 @@ import { toggleVisibility } from '../../actions/index'
 
 test.beforeEach(t => {
   const mockStore = configureStore();
-  const initialState = { "Widgets": { "filter": "asdasd" }};
+  const initialState = { "widgets": { "filter": "asdasd" }};
   t.context.store = mockStore(initialState);
 });
 

@@ -12,7 +12,7 @@ import { Badges } from '../../components/Badges'
 
 test.beforeEach(t => {
   const mockStore = configureStore();
-  const initialState = {"Widgets": { "filter": "random" }};
+  const initialState = {"widgets": { "filter": "random" }};
   t.context.store = mockStore(initialState);
 });
 
@@ -32,7 +32,7 @@ test("component renders", t => {
 
 test('when state is \'Leaderboard\' LeaderBoard -component renders', t => {
   const mockStore = configureStore();
-  const initialState = {"Widgets": { "filter": "Leaderboard" }};
+  const initialState = {"widgets": { "filter": "Leaderboard" }};
   const store = mockStore(initialState);
 
   const wrapper = mount(
@@ -46,7 +46,7 @@ test('when state is \'Leaderboard\' LeaderBoard -component renders', t => {
 
 test('when state is \'Badget\' Badges -component renders', t => {
   const mockStore = configureStore();
-  const initialState = {"Widgets": { "filter": "Badget" }};
+  const initialState = {"widgets": { "filter": "Badget" }};
   const store = mockStore(initialState);
 
   const wrapper = mount(
