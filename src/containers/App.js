@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 import FilterWidget from "../containers/FilterWidget";
-import { NavBar } from "./NavBar";
+import { NavBar } from "../components/NavBar";
 import { connectBackend } from "../actions/index";
 import { fetchDailyPoints } from "../actions/index";
 import { connect } from 'react-redux';
