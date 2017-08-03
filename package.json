@@ -10,7 +10,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "ava --verbose -s",
+    "test": "ava -s",
     "testFast": "ava --verbose"
   },
   "dependencies": {
