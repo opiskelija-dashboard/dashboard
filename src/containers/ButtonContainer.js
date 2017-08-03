@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { toggleVisibility } from '../actions/index';
 import { Button } from 'react-bootstrap';
 
-export class NavButton extends Component {
+export class ButtonContainer extends Component {
 
   render() {
     const text = this.props.text;
@@ -31,4 +31,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavButton);
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonContainer);

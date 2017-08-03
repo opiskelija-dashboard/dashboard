@@ -54,13 +54,13 @@ test('outputs given text', t => {
 });
 
 //test without redux to dodge dispatch
-test.skip('button can be clicked', t => {
+test('button can be clicked', t => {
   const onClick = sinon.spy();
   const wrapper = mount(
     <NoRedux text="testi" toggleFilter={onClick}/>
   );
 
-  wrapper.find(Button).simulate('click');
+  wrapper.find('Button').simulate('click');
   t.deepEqual(onClick.calledOnce, true);
 });
 
