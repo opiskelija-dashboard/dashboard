@@ -1,5 +1,5 @@
 import APIcalls from './APIcalls'
-import Widgets from './Widgets'
+import Widgets from './widgets'
 import { combineReducers } from 'redux'
 
 
