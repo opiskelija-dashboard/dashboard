@@ -6,46 +6,22 @@ class LeaderBoardContainer extends Component {
     //dummy data
     const columns = [
         {
-          Header: "Name",
           columns: [
             {
-              Header: "First Name",
-              accessor: "firstName"
+              Header: "Opiskelija id",
+              accessor: "id"
             },
             {
-              Header: "Last Name",
-              id: "lastName",
-              accessor: d => d.lastName
-            }
-          ]
-        },
-        {
-          Header: "Info",
-          columns: [
-            {
-              Header: "Age",
-              accessor: "age"
-            },
-            {
-              Header: "Status",
-              accessor: "status"
-            }
-          ]
-        },
-        {
-          Header: "Stats",
-          columns: [
-            {
-              Header: "Visits",
-              accessor: "visits"
+              Header: "Pisteet",
+              accessor: "points"
             }
           ]
         }
       ]
 
     const data = [
-      {id: '1', points: '3'},
-      {id: '2', points: '5'}
+      {id: '715517', points: '5/5'},
+      {id: 'h4x0r', points: '5000'}
     ]
 
     return (
