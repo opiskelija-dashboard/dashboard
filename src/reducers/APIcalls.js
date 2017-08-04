@@ -15,19 +15,17 @@ export default function APIcalls(state = {dashboard_token: null }, action) {
         { coursePoints: action.payload.data.length }
       );
     case CONNECT_BACKEND:
-       console.log(action.payload.data.data.token);
        return Object.assign({}, state,
         { dashboard_token: action.payload.data.data.token });
     case FETCH_DAILY_POINTS:
-      console.log('Received data from backend:', action.payload.data);
       return Object.assign({}, state,
         { progressData: action.payload.data.points },
         { progressLabels: action.payload.data.days },
-        { courseMaxPoints: 15 }
+        { courseMaxPoints: 50 }
       );
     case 'HANDLE_ERROR':
-      console.log("there was an error while making request");
-      break;
+      console.log("an error occurred during a http request");
+      return state;
     default:
       return state;
   }
