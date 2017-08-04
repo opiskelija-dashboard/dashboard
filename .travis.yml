@@ -4,13 +4,12 @@ node_js:
 before_deploy:
 # npm run predeploy builds to /build/ folder
   - npm run predeploy
-# GH-pages only understand to show web-content from the root index.html, so splash build to there 
-# OBS: build --> dist legacy, CLEAN UP
-  - mv ./build ./dist
-  - cp -r ./dist/* .
+# GH-pages only understand to show web-content from the root index.html, so splash build to there
+  - mv ./build/* .
+  - rm -r ./build
 # Duplicate js & css files with dynamic names to static mainDash.js/css for ohpe2017-material's link-usage
-  - cp ./dist/static/js/main.*.js ./dist/static/js/mainDash.js
-  - cp ./dist/static/css/main.*.css ./dist/static/css/mainDash.css
+  - cp ./static/js/main.*.js ./static/js/mainDash.js
+  - cp ./static/css/main.*.css ./static/css/mainDash.css
 deploy:
   provider: pages
   skip-cleanup: true
