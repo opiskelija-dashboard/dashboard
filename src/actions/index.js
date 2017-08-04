@@ -16,7 +16,6 @@ export const fetchCoursePoints = (token) => {
 }
 
 
-
 export const CONNECT_BACKEND = 'CONNECT_BACKEND'
 
 export const connectBackend = () => {
@@ -42,7 +41,6 @@ export const connectBackend = () => {
 }
 
 
-
 export const FETCH_DAILY_POINTS = 'FETCH_DAILY_POINTS'
 
 export const fetchDailyPoints = (token) => {
@@ -56,6 +54,18 @@ export const fetchDailyPoints = (token) => {
   }
 }
 
+export const FETCH_SKILLS_DATA = 'FETCH_SKILLS_DATA'
+
+export const fetchSkillsData = (token) => {
+  const url = "https://student-dashboard-api.herokuapp.com/skill-percentages";
+  const request = axios.get(url,
+    { headers: { 'Authorization': 'Bearer ' + token }}
+  );
+  return {
+    type: FETCH_SKILLS_DATA,
+    payload: request
+  }
+}
 
 
 export const TOGGLE_WIDGET_VISIBILITY = 'TOGGLE_WIDGET_VISIBILITY';
