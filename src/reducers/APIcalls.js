@@ -6,7 +6,7 @@ import {
   FETCH_SKILLS_DATA
 } from '../actions/index'
 
-export default function APIcalls(state = {dashboard_token: null }, action) {
+export default function APIcalls(state = {dashboard_token: null, skillsData: [] }, action) {
   if(action.error) {
     action.type = 'HANDLE_ERROR'
   }
@@ -25,8 +25,9 @@ export default function APIcalls(state = {dashboard_token: null }, action) {
         { courseMaxPoints: 50 }
       );
     case FETCH_SKILLS_DATA:
-      console.log(action.payload.data);
-      return state;
+      return Object.assign({}, state,
+       { skillsData: action.payload.data.skills }
+      );
     case 'HANDLE_ERROR':
       console.log("an error occurred during a http request");
       return state;
