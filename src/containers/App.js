@@ -13,7 +13,6 @@ class App extends React.Component {
   }
 
   componentWillUpdate(nextProps) {
-    console.log("componentWillUpdate" + nextProps);
     if(nextProps.dashboard_token) {
       this.props.fetchDailyPoints(nextProps.dashboard_token);
     }
