@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "../App.css";
 import { ProgressBar } from "../components/ProgressBar";
+import { connect } from 'react-redux';
 
-export default class ProgressBarContainer extends Component {
+class ProgressBarContainer extends Component {
 
   countPercentages(average, userPoints) {
     let overAverage = userPoints >= average;
@@ -17,11 +18,16 @@ export default class ProgressBarContainer extends Component {
   }
 
   render() {
-    let average = [40, 60, 80, 10];
-
-    let label = ["taito1", "taito2", "taito3", "taito4"];
-
-    let users = [90, 48, 20, 10];
+    
+    let average = [];
+    let label = [];
+    let users = [];
+    console.log(this.props.skillsData);
+    for (let i=0; i<this.props.skillsData.length; i++) {
+      average.push(this.props.skillsData[i].average);
+      label.push(this.props.skillsData[i].label);
+      users.push(this.props.skillsData[i].user);
+    }
 
     // list sisältää datan pituuden verran ProgressBareja, joihin
     // lasketaan sopiva averagen ja käyttäjän pisteiden määrä
@@ -49,3 +55,11 @@ export default class ProgressBarContainer extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    skillsData: state.APIcalls.skillsData
+  }
+}
+
+export default connect(mapStateToProps, null)(ProgressBarContainer); 
