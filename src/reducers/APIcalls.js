@@ -2,7 +2,8 @@
 import {
   FETCH_COURSE_POINTS,
   CONNECT_BACKEND,
-  FETCH_DAILY_POINTS
+  FETCH_DAILY_POINTS,
+  FETCH_SKILLS_DATA
 } from '../actions/index'
 
 export default function APIcalls(state = {dashboard_token: null }, action) {
@@ -23,6 +24,9 @@ export default function APIcalls(state = {dashboard_token: null }, action) {
         { progressLabels: action.payload.data.days },
         { courseMaxPoints: 50 }
       );
+    case FETCH_SKILLS_DATA:
+      console.log(action.payload.data);
+      return state;
     case 'HANDLE_ERROR':
       console.log("an error occurred during a http request");
       return state;
