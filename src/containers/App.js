@@ -13,8 +13,9 @@ class App extends React.Component {
   }
 
   componentWillUpdate(nextProps) {
-   if(nextProps.dashboard_token) {
-     this.props.fetchDailyPoints(nextProps.dashboard_token);
+    console.log("componentWillUpdate" + nextProps);
+    if(nextProps.dashboard_token) {
+      this.props.fetchDailyPoints(nextProps.dashboard_token);
     }
   }
 
@@ -32,7 +33,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    dashboard_token: state.dashboard_token
+    dashboard_token: state.APIcalls.dashboard_token
   }
 }
 
