@@ -8,8 +8,8 @@ before_deploy:
   - mv ./build/* .
   - rm -r ./build
 # Duplicate js & css files with dynamic names to static mainDash.js/css for ohpe2017-material's link-usage
-  - cp ./static/js/main.*.js ./static/js/mainDash.js
-  - cp ./static/css/main.*.css ./static/css/mainDash.css
+  - cp ./static/js/main.*.js dashboard/static/js/mainDash.js
+  - cp ./static/css/main.*.css dashboard/static/css/mainDash.css
 deploy:
   provider: pages
   skip-cleanup: true
