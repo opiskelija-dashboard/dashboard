@@ -6,7 +6,7 @@ import {
   FETCH_SKILLS_DATA
 } from '../actions/index'
 
-export default function APIcalls(state = {dashboard_token: null, skillsData: [] }, action) {
+export default function APIcalls(state = {dashboard_token: null, skillsData: [], fetchError: false, isFetching: true }, action) {
   if(action.error) {
     action.type = 'HANDLE_ERROR'
   }
@@ -22,7 +22,8 @@ export default function APIcalls(state = {dashboard_token: null, skillsData: [] 
       return Object.assign({}, state,
         { progressData: action.payload.data.points },
         { progressLabels: action.payload.data.days },
-        { courseMaxPoints: 50 }
+        { courseMaxPoints: 50 },
+        { isFetching: false}
       );
     case FETCH_SKILLS_DATA:
       return Object.assign({}, state,
@@ -30,7 +31,9 @@ export default function APIcalls(state = {dashboard_token: null, skillsData: [] 
       );
     case 'HANDLE_ERROR':
       console.log("an error occurred during a http request");
-      return state;
+      return Object.assign({}, state,
+       { fetchError: true }
+      );
     default:
       return state;
   }
