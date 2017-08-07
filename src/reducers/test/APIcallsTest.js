@@ -75,3 +75,16 @@ test('APIcalls reducer handles skills data correctly', reducerTest(
       {label: 'while' , user: 0, average: 3 }]
   }
 ))
+
+test('APIcalls reducer handles http error correctly', reducerTest(
+  reducer,
+  {
+    fetchError: false
+  },
+  {
+    type: 'HANDLE_ERROR'
+  },
+  {
+    fetchError: true
+  } 
+))
