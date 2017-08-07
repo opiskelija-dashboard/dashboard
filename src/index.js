@@ -9,9 +9,16 @@ import ReduxPromise from "redux-promise";
 
 let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
+let envExtension = (process.env.NODE_ENV === 'development') ?
+  [
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  ] :
+  [rootReducer];
+
+
 let store = storeWithMiddleware(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  ...envExtension
 );
 
 ReactDOM.render(
