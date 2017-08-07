@@ -7,7 +7,7 @@ import "react-table/react-table.css";
 
 export const LeaderBoard = props => {
   return (
-    <div>
+    <div className="WidgetContainer">
       <ReactTable
         data={props.data}
         columns={props.columns}
