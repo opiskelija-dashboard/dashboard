@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { Responsive, WidthProvider } from "react-grid-layout";
-import "/node_modules/react-grid-layout/css/styles.css";
-import "/node_modules/react-resizable/css/styles.css";
+import "../../node_modules/react-grid-layout/css/styles.css";
+import "../../node_modules/react-resizable/css/styles.css";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-class ShowcaseLayout extends React.Component {
+export default class ShowcaseLayout extends React.Component {
   static propTypes = {
     onLayoutChange: PropTypes.func.isRequired
   };
@@ -91,8 +91,6 @@ class ShowcaseLayout extends React.Component {
   }
 }
 
-module.exports = ShowcaseLayout;
-
 function generateLayout() {
   return _.map(_.range(0, 25), function(item, i) {
     var y = Math.ceil(Math.random() * 4) + 1;
@@ -105,8 +103,4 @@ function generateLayout() {
       static: Math.random() < 0.05
     };
   });
-}
-
-if (require.main === module) {
-  require("../test-hook.jsx")(module.exports);
 }
