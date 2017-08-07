@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { Responsive, WidthProvider } from "react-grid-layout";
@@ -7,7 +7,7 @@ import "../../node_modules/react-resizable/css/styles.css";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export default class ShowcaseLayout extends React.Component {
+export default class ShowcaseLayout extends Component {
   static propTypes = {
     onLayoutChange: PropTypes.func.isRequired
   };
