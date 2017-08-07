@@ -12,7 +12,10 @@ import { fetchDailyPoints } from "../../actions/index";
 
 test.beforeEach(t => {
   const mockStore = configureStore();
-  const initialState = { "widgets": { "filter": "asdasd" }};
+  const initialState = {
+    "widgets": { "filter": "random" },
+    "APIcalls": { "dashboard_token": "random"}
+  };
   t.context.store = mockStore(initialState);
 
   t.context.wrapper = mount(
