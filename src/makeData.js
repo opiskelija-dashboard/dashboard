@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import namor from "namor";
 
 const range = len => {
@@ -10,7 +10,7 @@ const range = len => {
 };
 
 const newPerson = () => {
-  const statusChance = Math.random();
+  //const statusChance = Math.random();
   return {
     id: namor.generate({ words: 1, numbers: 0 }),
     points: Math.floor(Math.random() * 30)

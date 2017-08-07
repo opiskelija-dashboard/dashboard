@@ -10,7 +10,7 @@ import ButtonContainer from '../../containers/ButtonContainer';
 
 test('component renders without crashing', t => {
   const mockStore = configureStore();
-  const initialState = {"Widgets": {"filter": "asdasd"}}
+  const initialState = {"widgets": {"filter": "asdasd"}}
   const store = mockStore(initialState);
   const div = document.createElement('div');
   ReactDOM.render(
