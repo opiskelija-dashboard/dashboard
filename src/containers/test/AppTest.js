@@ -1,20 +1,36 @@
 import test from 'ava';
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store'
 
 import App from '../App'
 
-test('component renders', t => {
+import { connectBackend } from "../../actions/index";
+import { fetchDailyPoints } from "../../actions/index";
+
+test.beforeEach(t => {
   const mockStore = configureStore();
-  const initialState = {};
-  const store = mockStore(initialState);
-  const wrapper = shallow(
-    <Provider store={store}>
+  const initialState = {
+    "widgets": { "filter": "random" },
+    "APIcalls": { "dashboard_token": "random"}
+  };
+  t.context.store = mockStore(initialState);
+
+  t.context.wrapper = mount(
+    <Provider store={t.context.store}>
       <App />
     </Provider>
   )
-  t.deepEqual(wrapper.find(App).length, 1);
+});
+
+test('component renders', t => {
+  t.deepEqual(t.context.wrapper.find(App).length, 1);
+});
+
+test('component dispatches correctly', t => {
+  let actions = t.context.store.getActions();
+
+  t.deepEqual(actions[0]['type'], connectBackend()['type']);
 });

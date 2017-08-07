@@ -31,7 +31,7 @@ class FilterWidget extends Component {
 
 const mapStateToProps = state => {
   return {
-    filter: state.Widgets.filter
+    filter: state.widgets.filter
   }
 }
 

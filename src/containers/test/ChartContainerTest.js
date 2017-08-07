@@ -8,20 +8,25 @@ import { Provider } from "react-redux";
 import ChartContainer from "../ChartContainer";
 import { Chart } from "../../components/Chart";
 
-const mockStore = configureStore();
 
-const initialState = {
-  APIcalls: {
-    progressData: [],
-    progressLabels: [],
-    maxpoints: 20
-  }
-};
+
+test.beforeEach(t => {
+  const mockStore = configureStore();
+
+  const initialState = {
+    APIcalls: {
+      progressData: [],
+      progressLabels: [],
+      maxpoints: 20
+    }
+  };
+
+  t.context.store = mockStore(initialState);
+});
 
 test("renders without crashing", t => {
-  const store = mockStore(initialState);
   const wrapper = shallow(
-    <Provider store={store}>
+    <Provider store={t.context.store}>
       <ChartContainer />
     </Provider>
   );
@@ -29,9 +34,10 @@ test("renders without crashing", t => {
 });
 
 test("chartcontainer renders chart", t => {
-  const store = mockStore(initialState);
+  window.HTMLCanvasElement.prototype.getContext = null;
+
   const wrapper = mount(
-    <Provider store={store}>
+    <Provider store={t.context.store}>
       <ChartContainer />
     </Provider>
   );
