@@ -20,7 +20,6 @@ class ProgressBarContainer extends Component {
     let average = [];
     let label = [];
     let users = [];
-    console.log(this.props.skillsData);
     for (let i = 0; i < this.props.skillsData.length; i++) {
       average.push(this.props.skillsData[i].average);
       label.push(this.props.skillsData[i].label);
