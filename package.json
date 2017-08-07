@@ -5,7 +5,7 @@
   "homepage": "https://opiskelija-dashboard.github.io/dashboard/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "BABEL_ENV=production react-scripts build",
+    "build": "react-scripts build",
     "testRS": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
