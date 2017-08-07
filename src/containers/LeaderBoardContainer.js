@@ -1,33 +1,33 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { LeaderBoard } from "../components/LeaderBoard";
 
 class LeaderBoardContainer extends Component {
   render() {
     //dummy data
     const columns = [
-        {
-          columns: [
-            {
-              Header: "Opiskelija id",
-              accessor: "id"
-            },
-            {
-              Header: "Pisteet",
-              accessor: "points"
-            }
-          ]
-        }
-      ]
+      {
+        columns: [
+          {
+            Header: "Opiskelija id",
+            accessor: "id"
+          },
+          {
+            Header: "Pisteet",
+            accessor: "points"
+          }
+        ]
+      }
+    ];
 
-    const data = [
-      {id: '715517', points: '5/5'},
-      {id: 'h4x0r', points: '5000'}
-    ]
-
-    return (
-      <LeaderBoard data={data} columns={columns} />
-    )
+    return <LeaderBoard data={this.props.leaderBoardData} columns={columns} />;
   }
 }
 
-export default (LeaderBoardContainer);
+const mapStateToProps = state => {
+  return {
+    leaderBoardData: state.APIcalls.leaderBoardData
+  };
+};
+
+export default connect(mapStateToProps, null)(LeaderBoardContainer);

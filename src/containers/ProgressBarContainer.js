@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import "../App.css";
 import { ProgressBar } from "../components/ProgressBar";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 class ProgressBarContainer extends Component {
-
   countPercentages(average, userPoints) {
     let overAverage = userPoints >= average;
 
@@ -18,12 +17,11 @@ class ProgressBarContainer extends Component {
   }
 
   render() {
-    
     let average = [];
     let label = [];
     let users = [];
     console.log(this.props.skillsData);
-    for (let i=0; i<this.props.skillsData.length; i++) {
+    for (let i = 0; i < this.props.skillsData.length; i++) {
       average.push(this.props.skillsData[i].average);
       label.push(this.props.skillsData[i].label);
       users.push(this.props.skillsData[i].user);
@@ -59,7 +57,7 @@ class ProgressBarContainer extends Component {
 const mapStateToProps = state => {
   return {
     skillsData: state.APIcalls.skillsData
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, null)(ProgressBarContainer); 
+export default connect(mapStateToProps, null)(ProgressBarContainer);
