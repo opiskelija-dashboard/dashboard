@@ -19,9 +19,8 @@ const newPerson = () => {
 
 export function makeData(len = 50) {
   return range(len).map(d => {
-    return {
-      ...newPerson(),
+    return Object.assign({}, newPerson(), {
       children: range(10).map(newPerson)
-    };
+    });
   });
 }
