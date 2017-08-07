@@ -18,6 +18,10 @@ body {
   max-height: 20vh;
 }
 
+.marginTop {
+  margin-top: 40vh;
+}
+
 .WidgetContainer {
   background-color: #f2f2f2;
   margin: 20px;

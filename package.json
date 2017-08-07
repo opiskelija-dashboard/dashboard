@@ -5,7 +5,7 @@
   "homepage": "https://opiskelija-dashboard.github.io/dashboard/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "BABEL_ENV=production react-scripts build",
+    "build": "react-scripts build",
     "testRS": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "better-react-spinkit": "^2.0.0",
     "chart.js": "^2.6.0",
     "gh-pages": "^1.0.0",
     "react": "^15.6.1",
@@ -22,6 +23,7 @@
     "react-chartjs-2": "^2.5.5",
     "react-redux": "^5.0.5",
     "react-scripts": "1.0.10",
+    "react-table": "^6.5.3",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3"
   },

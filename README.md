@@ -1,4 +1,13 @@
-# Opiskelijan dashboard uusi yritys
+```
+
+╔═╗┌─┐┬┌─┐┬┌─┌─┐┬  ┬ ┬┌─┐┌┐┌
+║ ║├─┘│└─┐├┴┐├┤ │  │ │├─┤│││
+╚═╝┴  ┴└─┘┴ ┴└─┘┴─┘┴└┘┴ ┴┘└┘
+╔╦╗┌─┐┌─┐┬ ┬┌┐ ┌─┐┌─┐┬─┐┌┬┐ 
+ ║║├─┤└─┐├─┤├┴┐│ │├─┤├┬┘ ││ 
+═╩╝┴ ┴└─┘┴ ┴└─┘└─┘┴ ┴┴└──┴┘ 
+                                   
+```
 [![Build Status](https://travis-ci.org/opiskelija-dashboard/dashboard.svg?branch=master)](https://travis-ci.org/opiskelija-dashboard/dashboard)
 [![Coverage Status](https://coveralls.io/repos/github/opiskelija-dashboard/dashboard/badge.svg?branch=master)](https://coveralls.io/github/opiskelija-dashboard/dashboard?branch=master)
 

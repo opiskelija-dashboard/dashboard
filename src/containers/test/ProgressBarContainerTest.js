@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 
 import ProgressBarContainer from '../ProgressBarContainer'
 
-test('component renders correctly', t => {
+test.skip('component renders correctly', t => {
   const wrapper = shallow(
     <ProgressBarContainer />
   )
