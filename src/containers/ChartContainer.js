@@ -1,34 +1,35 @@
 import React, { Component } from "react";
-import { Chart } from '../components/Chart';
-import { connect } from 'react-redux';
+import { Chart } from "../components/Chart";
+import { connect } from "react-redux";
 
 class ChartContainer extends Component {
-
-  halfwayData() {
-    if(this.props.progressData) {
-      return new Array(this.props.progressData.length).fill(this.props.maxPoints / 2);
+  averageLine() {
+    if (this.props.progressData) {
+      return new Array(this.props.progressData.length).fill(this.props.average);
     }
     return [];
-  };
+  }
 
   render() {
     //dummy data
     const options = {
       maintainAspectRatio: true,
       scales: {
-        yAxes: [{
-          ticks: {
-            max: this.props.maxPoints,
-            min: 0
+        yAxes: [
+          {
+            ticks: {
+              max: this.props.maxPoints,
+              min: 0
+            }
           }
-        }]
+        ]
       }
     };
     const data = {
       labels: this.props.progressLabels,
       datasets: [
         {
-          label: "Omat pisteet (dummy)",
+          label: "Omat pisteet",
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(75,192,192,0.4)",
@@ -49,7 +50,7 @@ class ChartContainer extends Component {
           data: this.props.progressData
         },
         {
-          label: "Läpipääsyraja (dummy)",
+          label: "Läpipääsyraja",
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(150,150,150,1)",
@@ -66,14 +67,12 @@ class ChartContainer extends Component {
           pointHoverBorderWidth: 0,
           pointRadius: 0,
           pointHitRadius: 0,
-          data: this.halfwayData()
+          data: this.averageLine()
         }
       ]
     };
 
-    return (
-      <Chart data={data} options={options}/>
-    )
+    return <Chart data={data} options={options} />;
   }
 }
 
@@ -83,8 +82,9 @@ const mapStateToProps = state => {
   return {
     progressLabels: state.APIcalls.progressLabels,
     progressData: state.APIcalls.progressData,
-    maxPoints: state.APIcalls.courseMaxPoints
-  }
-}
+    maxPoints: state.APIcalls.courseMaxPoints,
+    average: state.APIcalls.progressAverage
+  };
+};
 
 export default connect(mapStateToProps, null)(ChartContainer);

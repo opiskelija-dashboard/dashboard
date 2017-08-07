@@ -33,12 +33,13 @@ export default function APIcalls(
         state,
         { progressData: action.payload.data.points },
         { progressLabels: action.payload.data.days },
+        { progressAverage: action.payload.data.average },
         { courseMaxPoints: 50 },
         { isFetching: false }
       );
     case FETCH_SKILLS_DATA:
       return Object.assign({}, state, {
-        skillsData: action.payload.data.skills
+        skillsData: action.payload.data.skill_percentage
       });
     case FETCH_LEADERBOARD_DATA:
       return Object.assign({}, state, {
