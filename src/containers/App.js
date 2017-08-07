@@ -2,10 +2,15 @@ import React from "react";
 import "../App.css";
 import FilterWidget from "../containers/FilterWidget";
 import { NavBar } from "../components/NavBar";
-import { connectBackend, fetchDailyPoints, fetchSkillsData } from "../actions/index";
-import { connect } from 'react-redux';
-import {Alert} from 'react-bootstrap'
-import { ThreeBounce } from 'better-react-spinkit'
+import {
+  connectBackend,
+  fetchDailyPoints,
+  fetchSkillsData,
+  fetchLeaderBoardData
+} from "../actions/index";
+import { connect } from "react-redux";
+import { Alert } from "react-bootstrap";
+import { ThreeBounce } from "better-react-spinkit";
 
 class App extends React.Component {
   componentDidMount() {
@@ -13,9 +18,10 @@ class App extends React.Component {
   }
 
   componentWillUpdate(nextProps) {
-    if(nextProps.dashboard_token) {
+    if (nextProps.dashboard_token) {
       this.props.fetchDailyPoints(nextProps.dashboard_token);
       this.props.fetchSkillsData(nextProps.dashboard_token);
+      this.props.fetchLeaderBoardData(nextProps.dashboard_token);
     }
   }
 
@@ -31,13 +37,12 @@ class App extends React.Component {
               <p>Virhe ladattaessa tietoja palvelimelta!</p>
               <p>Olethan kirjautunut sisään?</p>
             </Alert>
-          </div>
-        }
-        {isFetching && !fetchError &&
+          </div>}
+        {isFetching &&
+          !fetchError &&
           <div className="marginTop">
             <ThreeBounce size={40} />
-          </div>
-        }
+          </div>}
 
         {!isFetching &&
           <div>
@@ -45,10 +50,9 @@ class App extends React.Component {
             <div className="Container">
               <FilterWidget />
             </div>
-          </div>
-        }
+          </div>}
       </div>
-    )
+    );
   }
 }
 
@@ -57,15 +61,16 @@ const mapStateToProps = state => {
     dashboard_token: state.APIcalls.dashboard_token,
     fetchError: state.APIcalls.fetchError,
     isFetching: state.APIcalls.isFetching
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     connectBackend: () => dispatch(connectBackend()),
-    fetchDailyPoints: (token) => dispatch(fetchDailyPoints(token)),
-    fetchSkillsData: (token) => dispatch(fetchSkillsData(token))
-  }
-}
+    fetchDailyPoints: token => dispatch(fetchDailyPoints(token)),
+    fetchSkillsData: token => dispatch(fetchSkillsData(token)),
+    fetchLeaderBoardData: token => dispatch(fetchLeaderBoardData(token))
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
