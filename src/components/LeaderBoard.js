@@ -1,20 +1,12 @@
 import React from "react";
 import "../App.css";
+import LeaderBoardContainer from "../containers/LeaderBoardContainer";
 
-// Import React Table
-import ReactTable from "react-table";
-import "react-table/react-table.css";
-
-export const LeaderBoard = props => {
+export const LeaderBoard = () => {
   return (
     <div>
       <h2>LeaderBoard</h2>
-      <ReactTable
-        data={props.data}
-        columns={props.columns}
-        defaultPageSize={10}
-        className="-striped -highlight"
-      />
+      <LeaderBoardContainer />
     </div>
   );
 };
