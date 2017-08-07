@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import LeaderBoardContainer from '../containers/LeaderBoardContainer'
+import { LeaderBoard } from '../components/LeaderBoard'
 import { Badges } from '../components/Badges'
 import { MyPage } from '../components/MyPage'
 
@@ -10,7 +10,7 @@ class FilterWidget extends Component {
     switch (this.props.filter) {
       case "Leaderboard":
         return (
-          <LeaderBoardContainer />
+          <LeaderBoard />
         )
       case "Badget":
         return (

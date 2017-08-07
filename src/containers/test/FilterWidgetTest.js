@@ -7,7 +7,7 @@ import configureStore from "redux-mock-store";
 import sinon from "sinon";
 
 import FilterWidget from "../FilterWidget";
-import { LeaderBoard } from "../../components/LeaderBoard";
+import LeaderBoardContainer from "../../containers/LeaderBoardContainer";
 import { Badges } from "../../components/Badges";
 
 test.beforeEach(t => {
@@ -46,7 +46,7 @@ test("when state is 'Leaderboard' LeaderBoard -component renders", t => {
     </Provider>
   );
 
-  t.deepEqual(wrapper.find(LeaderBoard).length, 1);
+  t.deepEqual(wrapper.find(LeaderBoardContainer).length, 1);
 });
 
 test("when state is 'Badget' Badges -component renders", t => {
