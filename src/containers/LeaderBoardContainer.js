@@ -29,6 +29,12 @@ class LeaderBoardContainer extends Component {
         columns={columns}
         defaultPageSize={10}
         className="-striped -highlight"
+        defaultSorted={[
+          {
+            id: "points",
+            desc: true
+          }
+        ]}
       />
     );
   }
