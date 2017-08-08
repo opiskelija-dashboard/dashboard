@@ -33,11 +33,11 @@ export default class ShowcaseLayout extends Component {
   generateDOM() {
     return _.map(this.state.layouts.lg, function(l, i) {
       return (
-        <div key={i} className={l.static ? "static" : ""}>
+        <div key={i} className={l.static ? "Static" : ""}>
           {l.static
             ? <span
                 className="text"
-                title="This item is static and cannot be removed or resized."
+                title="Tämä palikka on staattinen, eikä sitä voi muokata tai siirtää."
               >
                 Static - {i}
               </span>
@@ -69,10 +69,10 @@ export default class ShowcaseLayout extends Component {
     return (
       <div>
         <div>
-          Current Breakpoint: {this.state.currentBreakpoint} ({this.props.cols[this.state.currentBreakpoint]}{" "}
-          columns)
+          Sarakkeiden määrä: {this.state.currentBreakpoint} ({this.props.cols[this.state.currentBreakpoint]}{" "}
+          saraketta)
         </div>
-        <button onClick={this.onNewLayout}>Generate New Layout</button>
+        <button onClick={this.onNewLayout}>Luo uusi järjestys</button>
         <ResponsiveReactGridLayout
           {...this.props}
           layouts={this.state.layouts}
