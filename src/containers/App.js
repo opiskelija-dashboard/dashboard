@@ -9,7 +9,7 @@ import {
   fetchLeaderBoardData
 } from "../actions/index";
 import { connect } from "react-redux";
-import { Alert } from "react-bootstrap";
+import { Segment } from "semantic-ui-react";
 import { ThreeBounce } from "better-react-spinkit";
 
 class App extends React.Component {
@@ -33,10 +33,10 @@ class App extends React.Component {
       <div className="appContainer">
         {fetchError &&
           <div className="marginTop">
-            <Alert bsStyle="warning">
+            <Segment>
               <p>Virhe ladattaessa tietoja palvelimelta!</p>
               <p>Olethan kirjautunut sisään?</p>
-            </Alert>
+            </Segment>
           </div>}
         {isFetching &&
           !fetchError &&
