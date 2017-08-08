@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import { LeaderBoard } from '../layouts/LeaderBoard'
-import { Badges } from '../layouts/Badges'
-import { MyPage } from '../layouts/MyPage'
+import { LeaderBoard } from '../layouts/LeaderBoardLayout'
+import { Badges } from '../layouts/BadgesLayout'
+import { MyPage } from '../layouts/MyPageLayout'
 
 class FilterWidget extends Component {
   render() {
