@@ -8,7 +8,7 @@ import ButtonContainer from '../ButtonContainer'
 import sinon from 'sinon';
 
 //tested components
-import { Button } from 'react-bootstrap'
+import { Button } from 'semantic-ui-react'
 import { ButtonContainer as NoRedux } from '../ButtonContainer'
 
 //tested actions

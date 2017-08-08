@@ -10,8 +10,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "nyc ava",
-    "testFast": "ava --verbose"
+    "test": "NODE_ENV=test nyc ava",
+    "testFast": "NODE_ENV=test ava --verbose"
   },
   "dependencies": {
     "axios": "^0.16.2",

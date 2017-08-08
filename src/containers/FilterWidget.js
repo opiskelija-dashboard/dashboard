@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import LeaderBoardContainer from '../containers/LeaderBoardContainer'
-import { Badges } from '../components/Badges'
-import { MyPage } from '../components/MyPage'
+import { LeaderBoard } from '../layouts/LeaderBoard'
+import { Badges } from '../layouts/Badges'
+import { MyPage } from '../layouts/MyPage'
 
 class FilterWidget extends Component {
   render() {
     switch (this.props.filter) {
       case "Leaderboard":
         return (
-          <LeaderBoardContainer />
+          <LeaderBoard />
         )
       case "Badget":
         return (
@@ -22,7 +22,7 @@ class FilterWidget extends Component {
         )
       default:
         return (
-          <p>Väärin painettu nappia</p>
+          <p>Error</p>
         )
     }
   }

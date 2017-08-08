@@ -8,7 +8,7 @@ import sinon from "sinon";
 
 import FilterWidget from "../FilterWidget";
 import LeaderBoardContainer from "../../containers/LeaderBoardContainer";
-import { Badges } from "../../components/Badges";
+import { Badges } from "../../layouts/Badges";
 
 test.beforeEach(t => {
   const mockStore = configureStore();
