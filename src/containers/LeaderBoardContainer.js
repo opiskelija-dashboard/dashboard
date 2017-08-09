@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { LeaderBoard } from "../components/LeaderBoard";
+
+// Import React Table
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 class LeaderBoardContainer extends Component {
   render() {
@@ -20,7 +23,20 @@ class LeaderBoardContainer extends Component {
       }
     ];
 
-    return <LeaderBoard data={this.props.leaderBoardData} columns={columns} />;
+    return (
+      <ReactTable
+        data={this.props.leaderBoardData}
+        columns={columns}
+        defaultPageSize={10}
+        className="-striped -highlight"
+        defaultSorted={[
+          {
+            id: "points",
+            desc: true
+          }
+        ]}
+      />
+    );
   }
 }
 

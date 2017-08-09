@@ -10,5 +10,5 @@ test('component renders', t => {
     <Badges />
   )
 
-  t.deepEqual(wrapper.find('div').length, 1);
+  t.deepEqual(wrapper.find('div').length, 2);
 });
