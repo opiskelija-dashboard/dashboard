@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { toggleVisibility } from '../actions/index';
-import { Button } from 'react-bootstrap';
+import { Button } from 'semantic-ui-react';
 
 export class ButtonContainer extends Component {
 

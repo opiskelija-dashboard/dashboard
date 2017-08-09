@@ -3,12 +3,12 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 
-import { MyPage } from '../MyPage'
+import { Badges } from '../BadgesLayout'
 
 test('component renders', t => {
   const wrapper = shallow(
-    <MyPage />
+    <Badges />
   )
 
-  t.deepEqual(wrapper.find('.center').length, 1);
+  t.deepEqual(wrapper.find('div').length, 2);
 });

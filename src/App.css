@@ -30,7 +30,7 @@ body {
 }
 
 .appContainer {
-  margin: 20px;
+  margin: 20px, auto;
   padding: 10px;
 }
 
@@ -47,7 +47,7 @@ body {
 
 .progressBarPair {
   display: table-cell;
-  width: 30vw;
+  width: 60vw;
 }
 
 /* Here starts REACT-GRID-LAYOUT COPY-PASTE */
@@ -57,6 +57,7 @@ body {
   padding: 20px;
   overflow: scroll;
 }
+
 #content {
   width: 100%;
 }

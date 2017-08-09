@@ -4,8 +4,7 @@ import LeaderBoardContainer from "../containers/LeaderBoardContainer";
 
 export const LeaderBoard = () => {
   return (
-    <div>
-      <h2>LeaderBoard</h2>
+    <div className="WidgetContainer">
       <LeaderBoardContainer />
     </div>
   );
