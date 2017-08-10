@@ -18,20 +18,21 @@ Opiskelijan dashboard on ohjelmoinnin perusteet ja - jatkokurssin materiaalisivu
 
 Kehitysvaiheessa oleva ohjelmisto löytyy osoitteista:
 - Front end: https://opiskelija-dashboard.github.io/dashboard
+- Materiaalissa oleva dashboard https://opiskelija-dashboard.github.io/dash/
 - Back end API: https://student-dashboard-api.herokuapp.com/
-- - cumulative points: https://student-dashboard-api.herokuapp.com/cumulative-points
-- - skill percentages: https://student-dashboard-api.herokuapp.com/skill-percentages
+  - cumulative points: https://student-dashboard-api.herokuapp.com/cumulative-points
+  - skill percentages: https://student-dashboard-api.herokuapp.com/skill-percentages
 
 
-## Project information
+### Project information
 
-### Documentation
+#### Documentation
 
 Dokumentaatiota ylläpidetään Google Drivessä. 
 
 [Drive linkki dokumentaatioon](https://docs.google.com/spreadsheets/d/1csD5ctKXTbZUQLHyIyn-QHGoZWYDrF1Pb6WY2hodQfk)
 
-### License
+#### License
 
 MIT License
 
