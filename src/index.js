@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers/index";
 import ReduxPromise from "redux-promise";
-import {setCourseId} from "./actions/index"
 
 let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 

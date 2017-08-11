@@ -12,13 +12,14 @@ import {
 import { connect } from "react-redux";
 import { Segment } from "semantic-ui-react";
 import { ThreeBounce } from "better-react-spinkit";
+import { COURSE_ID } from "../config";
 
 class App extends React.Component {
   componentDidMount() {
     /* this call currently sets the course id. course ids can be foud in shadow-ohpe source code
     /assets/js/student-dashboard.js and later we might use those (on the other hand, we were told
     by the customer that we can assume that we're on a certain course all the time) */
-    this.props.setCourseId('214');
+    this.props.setCourseId(COURSE_ID);
     this.props.connectBackend();
   }
 
