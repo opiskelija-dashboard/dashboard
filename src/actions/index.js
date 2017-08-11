@@ -1,15 +1,14 @@
 import axios from "axios";
 import store from "store";
 import { makeData } from "../makeData";
+import { API_BASE_URL } from "../config"
 
 export const FETCH_COURSE_POINTS = "FETCH_COURSE_POINTS";
 
-export const fetchCoursePoints = token => {
+export const fetchCoursePoints = (token, courseId) => {
   const request = axios.get(
-    "https://student-dashboard-api.herokuapp.com/points",
-    {
-      Authorization: "Bearer " + token
-    }
+    API_BASE_URL + "/points/course/" + courseId,
+    { Authorization: "Bearer " + token }
   );
   return {
     type: FETCH_COURSE_POINTS,
@@ -29,7 +28,7 @@ export const connectBackend = () => {
   }
   const user = store.get("tmc.user");
   const conn_url =
-    "https://student-dashboard-api.herokuapp.com/new-dash-session";
+    API_BASE_URL + "/new-dash-session";
   const request = axios.post(conn_url, {
     tmc_username: user.username,
     tmc_access_token: user.accessToken
@@ -42,8 +41,8 @@ export const connectBackend = () => {
 
 export const FETCH_DAILY_POINTS = "FETCH_DAILY_POINTS";
 
-export const fetchDailyPoints = token => {
-  const url = "https://student-dashboard-api.herokuapp.com/cumulative-points";
+export const fetchDailyPoints = (token, courseId) => {
+  const url = API_BASE_URL + "/cumulative-points/course/" + courseId;
   const request = axios.get(url, {
     headers: { Authorization: "Bearer " + token }
   });
@@ -55,8 +54,8 @@ export const fetchDailyPoints = token => {
 
 export const FETCH_SKILLS_DATA = "FETCH_SKILLS_DATA";
 
-export const fetchSkillsData = token => {
-  const url = "https://student-dashboard-api.herokuapp.com/skill-percentages";
+export const fetchSkillsData = (token, courseId) => {
+  const url = API_BASE_URL + "/skill-percentages/course/" + courseId;
   const request = axios.get(url, {
     headers: { Authorization: "Bearer " + token }
   });
@@ -68,9 +67,9 @@ export const fetchSkillsData = token => {
 
 export const FETCH_LEADERBOARD_DATA = "FETCH_LEADERBOARD_DATA";
 
-export const fetchLeaderBoardData = token => {
+export const fetchLeaderBoardData = (token, courseId) => {
   // TÄMÄ KÄYTTÖÖN, kun backend tuo jotain
-  // const url = "https://student-dashboard-api.herokuapp.com/JOTAIN_TÄHÄN";
+  // const url = API_BASE_URL + "/leaderboard/course/" + courseId + "/all";
   // const request = axios.get(url,
   //   { headers: { 'Authorization': 'Bearer ' + token }}
   // );
@@ -81,6 +80,15 @@ export const fetchLeaderBoardData = token => {
   };
 };
 
+export const SET_COURSE_ID = "SET_COURSE_ID";
+
+export const setCourseId = (id) => {
+  return {
+    type: SET_COURSE_ID,
+    courseId : id
+  }  
+};
+
 export const TOGGLE_WIDGET_VISIBILITY = "TOGGLE_WIDGET_VISIBILITY";
 
 export const toggleVisibility = filter => {
@@ -89,3 +97,5 @@ export const toggleVisibility = filter => {
     filter
   };
 };
+
+

@@ -4,6 +4,7 @@ import * as actions from '../../actions/index.js';
 import sinon from 'sinon';
 import axios from 'axios';
 import ReduxPromise from 'redux-promise';
+import { API_BASE_URL } from '../../config'
 
 test('fetch skills data test', t => {
   const responseStub = (url, headers) => {
@@ -25,10 +26,10 @@ test('fetch skills data test', t => {
       }
     }
   ];
-  const expectedUrl = 'https://student-dashboard-api.herokuapp.com/skill-percentages';
+  const expectedUrl = API_BASE_URL + "/skill-percentages/course/214";
   const expectedHeaders = { headers: { Authorization: 'Bearer xyzzy'}};
   const store = mockStore({});
-  return store.dispatch(actions.fetchSkillsData('xyzzy')).then(() => {
+  return store.dispatch(actions.fetchSkillsData('xyzzy', '214')).then(() => {
       t.deepEqual(store.getActions(), expectedActions);
       t.is(axiosSpy.calledWith(expectedUrl, expectedHeaders), true);
   })
