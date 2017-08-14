@@ -7,9 +7,9 @@ body {
 }
 
 .center {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
 }
 
 .Container {
@@ -105,7 +105,7 @@ body {
 .react-grid-item .add {
   cursor: pointer;
 }
-.react-grid-dragHandleExample{
+.react-grid-dragHandleExample {
   cursor: move; /* fallback if grab cursor is unsupported */
   cursor: grab;
   cursor: -moz-grab;
@@ -115,6 +115,69 @@ li b {
   font-size: 19px;
   line-height: 14px;
 }
+
+/*Calendar Setup*/
+
+.CalendarContainer {
+  padding: 40px;
+}
+/*
+ * react-calendar-heatmap styles
+ *
+ * All of the styles in this file are optional and configurable!
+ * The github and gitlab color scales are provided for reference.
+ */
+
+.react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #aaa;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: #555;
+  stroke-width: 1px;
+}
+
+/*
+ * Default color scale
+ */
+
+.react-calendar-heatmap .color-empty {
+  fill: #eeeeee;
+}
+
+.react-calendar-heatmap .color-filled {
+  fill: #8cc665;
+}
+
+
+/*
+ * Our Custom color scale
+ */
+
+.react-calendar-heatmap .color-dashboard-0 {
+  fill: #ededee;
+}
+.react-calendar-heatmap .color-dashboard-1 {
+  fill: #acd5f3;
+}
+.react-calendar-heatmap .color-dashboard-2 {
+  fill: #7fa8d2;
+}
+.react-calendar-heatmap .color-dashboard-3 {
+  fill: #49729c;
+}
+.react-calendar-heatmap .color-dashboard-4 {
+  fill: #254e78;
+}
+
+.asdasd {
+  margin: auto;
+  max-width: 200px;
+  max-height: 50px;
+}
+
+/*End of Calendar Setup*/
 
 /* Here ENDS REACT-GRID-LAYOUT COPY-PASTE */
 
