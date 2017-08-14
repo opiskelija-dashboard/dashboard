@@ -2,8 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 export const Chart = props => (
-    <div>
-      <h2>Edistyminen</h2>
+    <div style={{margin: "auto", overflow: "hidden"}}>
       <Line
         data={props.data}
         options={props.options}

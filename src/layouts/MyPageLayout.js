@@ -14,19 +14,11 @@ export const MyPage = () =>
       <ProgressBarContainer />
     </div>
 
-    <div className="WidgetContainer CalendarContainer">
-      <div className="asdasd">
-        Viikko 1
-        <CalendarContainer />
-      </div>
-      <div className="asdasd">
-        <CalendarContainer />
-      </div>
-      <div className="asdasd">
-        <CalendarContainer />
-      </div>
-      <div className="asdasd">
-        <CalendarContainer />
-      </div>
+    <div className="WidgetContainer">
+
+      <p>Päivän tummuus kertoo aktiivisuudestasi</p>
+
+      <CalendarContainer />
+
     </div>
-  </div>;
+  </div>

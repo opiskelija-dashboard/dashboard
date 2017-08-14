@@ -14,8 +14,7 @@ body {
 
 .Container {
   margin: auto;
-  max-width: 70vw;
-  max-height: 20vh;
+  /*max-width: 90vw;*/
 }
 
 .marginTop {
@@ -118,8 +117,13 @@ li b {
 
 /*Calendar Setup*/
 
-.CalendarContainer {
-  padding: 40px;
+.CalendarWeek {
+  column-count: 3;
+  margin: auto;
+}
+
+#calendarHeader {
+  column-span: all;
 }
 /*
  * react-calendar-heatmap styles
@@ -155,7 +159,7 @@ li b {
  * Our Custom color scale
  */
 
-.react-calendar-heatmap .color-dashboard-0 {
+.react-ndar-heatmap .color-dashboard-0 {
   fill: #ededee;
 }
 .react-calendar-heatmap .color-dashboard-1 {
