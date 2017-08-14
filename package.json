@@ -20,6 +20,7 @@
     "gh-pages": "^1.0.0",
     "namor": "^1.0.1",
     "react": "^15.6.1",
+    "react-calendar-heatmap": "^1.2.0",
     "react-chartjs-2": "^2.5.5",
     "react-grid-layout": "^0.14.7",
     "react-redux": "^5.0.5",
