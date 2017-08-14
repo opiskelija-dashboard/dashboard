@@ -30,7 +30,7 @@ class ProgressBarContainer extends Component {
     // lasketaan sopiva averagen ja käyttäjän pisteiden määrä
     const list = label.map((data, index) =>
       <div key={index}>
-        <div className="floatLeft">
+        <div className="headerLeft">
           <p>
             {data}
           </p>

@@ -21,8 +21,6 @@ const classForValue = value => {
 };
 
 export const Calendar = props => (
-
-
   <div className="asdasd">
     <CalendarHeatmap
       horizontal={false}
@@ -31,7 +29,7 @@ export const Calendar = props => (
       numDays={props.numDays}
       values={props.values}
       classForValue={classForValue}
-      titleForValue={props.titleForValue}
+      titleForValue={customTitleForValue}
       tooltipDataAttrs={customTooltipDataAttrs}
       onClick={customOnClick}
     />
