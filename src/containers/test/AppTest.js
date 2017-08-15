@@ -7,14 +7,15 @@ import configureStore from 'redux-mock-store'
 
 import App from '../App'
 
-import { connectBackend } from "../../actions/index";
+import { connectBackend, setCourseId } from "../../actions/index";
 import { fetchDailyPoints } from "../../actions/index";
 
 test.beforeEach(t => {
   const mockStore = configureStore();
   const initialState = {
     "widgets": { "filter": "random" },
-    "APIcalls": { "dashboard_token": "random"}
+    "APIcalls": { "dashboard_token": "random"},
+    "courseData": { "courseId": "214"} 
   };
   t.context.store = mockStore(initialState);
 
@@ -31,6 +32,6 @@ test('component renders', t => {
 
 test('component dispatches correctly', t => {
   let actions = t.context.store.getActions();
-
-  t.deepEqual(actions[0]['type'], connectBackend()['type']);
+  t.deepEqual(actions[0]['type'], setCourseId()['type']);
+  t.deepEqual(actions[1]['type'], connectBackend()['type']);
 });

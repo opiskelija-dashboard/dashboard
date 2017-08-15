@@ -6,22 +6,30 @@ import {
   connectBackend,
   fetchDailyPoints,
   fetchSkillsData,
-  fetchLeaderBoardData
+  fetchLeaderBoardData,
+  setCourseId,
+  updateLeaderboard
 } from "../actions/index";
 import { connect } from "react-redux";
 import { Segment } from "semantic-ui-react";
 import { ThreeBounce } from "better-react-spinkit";
+import { COURSE_ID } from "../config";
 
 class App extends React.Component {
   componentDidMount() {
+    /* this call currently sets the course id. course ids can be foud in shadow-ohpe source code
+    /assets/js/student-dashboard.js and later we might use those (on the other hand, we were told
+    by the customer that we can assume that we're on a certain course all the time) */
+    this.props.setCourseId(COURSE_ID);
     this.props.connectBackend();
   }
 
   componentWillUpdate(nextProps) {
-    if (nextProps.dashboard_token) {
-      this.props.fetchDailyPoints(nextProps.dashboard_token);
-      this.props.fetchSkillsData(nextProps.dashboard_token);
-      this.props.fetchLeaderBoardData(nextProps.dashboard_token);
+    if (nextProps.dashboard_token && nextProps.courseId) {
+      this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
+      this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
+      this.props.fetchLeaderBoardData(nextProps.dashboard_token, nextProps.courseId);
+      this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
     }
   }
 
@@ -60,16 +68,19 @@ const mapStateToProps = state => {
   return {
     dashboard_token: state.APIcalls.dashboard_token,
     fetchError: state.APIcalls.fetchError,
-    isFetching: state.APIcalls.isFetching
+    isFetching: state.APIcalls.isFetching,
+    courseId: state.courseData.courseId
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     connectBackend: () => dispatch(connectBackend()),
-    fetchDailyPoints: token => dispatch(fetchDailyPoints(token)),
-    fetchSkillsData: token => dispatch(fetchSkillsData(token)),
-    fetchLeaderBoardData: token => dispatch(fetchLeaderBoardData(token))
+    fetchDailyPoints: (token, courseId) => dispatch(fetchDailyPoints(token, courseId)),
+    fetchSkillsData: (token, courseId) => dispatch(fetchSkillsData(token, courseId)),
+    fetchLeaderBoardData: (token, courseId) => dispatch(fetchLeaderBoardData(token, courseId)),
+    setCourseId: (id) => dispatch(setCourseId(id)),
+    updateLeaderboard: (token, courseId) => dispatch(updateLeaderboard(token, courseId))
   };
 };
 

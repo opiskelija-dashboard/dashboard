@@ -19,7 +19,7 @@ test.beforeEach(t => {
   t.context.store = mockStore(initialState);
 });
 
-test("component renders", t => {
+test.skip("component renders", t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
       <FilterWidget />
@@ -32,7 +32,7 @@ test("component renders", t => {
 // Näissä täytyy tehdä uudet storet, koska mock storen statea
 // ei ilmeisesti pysty vaihtamaan lennosta
 
-test("when state is 'Leaderboard' LeaderBoard -component renders", t => {
+test.skip("when state is 'Leaderboard' LeaderBoard -component renders", t => {
   const mockStore = configureStore();
   const initialState = {
     widgets: { filter: "Leaderboard" },
@@ -49,7 +49,7 @@ test("when state is 'Leaderboard' LeaderBoard -component renders", t => {
   t.deepEqual(wrapper.find(LeaderBoardContainer).length, 1);
 });
 
-test("when state is 'Badget' Badges -component renders", t => {
+test.skip("when state is 'Badget' Badges -component renders", t => {
   const mockStore = configureStore();
   const initialState = {
     widgets: { filter: "Badget" },
