@@ -16,7 +16,7 @@ export default class CalendarContainer extends Component {
       { date: "2017-08-11", count: 4},
       { date: "2017-08-12", count: 2}
     ],
-    [
+    [ 
       { date: "2017-08-13", count: 3},
       { date: "2017-08-14", count: 3},
       { date: "2017-08-15", count: 2},
