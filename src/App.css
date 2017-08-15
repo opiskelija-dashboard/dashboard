@@ -6,16 +6,25 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+html body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  height: 100vh;
+}
+
 .center {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
 }
 
 .Container {
   margin: auto;
-  max-width: 70vw;
-  max-height: 20vh;
+  /*max-width: 90vw;*/
 }
 
 .marginTop {
@@ -34,7 +43,7 @@ body {
   padding: 10px;
 }
 
-.floatLeft {
+.headerLeft {
   margin-right: 50px;
   display: table-row;
   font-size: 2em;
@@ -52,11 +61,11 @@ body {
 
 /* Here starts REACT-GRID-LAYOUT COPY-PASTE */
 
-body {
+/*body {
   background: white;
   padding: 20px;
   overflow: scroll;
-}
+}*/
 
 #content {
   width: 100%;
@@ -105,7 +114,7 @@ body {
 .react-grid-item .add {
   cursor: pointer;
 }
-.react-grid-dragHandleExample{
+.react-grid-dragHandleExample {
   cursor: move; /* fallback if grab cursor is unsupported */
   cursor: grab;
   cursor: -moz-grab;
@@ -115,6 +124,75 @@ li b {
   font-size: 19px;
   line-height: 14px;
 }
+
+/*Calendar Setup*/
+
+.CalendarWeek {
+  column-count: 3;
+  margin: auto;
+  max-width: 60vw;
+}
+
+#calendarHeader {
+  column-span: all;
+}
+/*
+ * react-calendar-heatmap styles
+ *
+ * All of the styles in this file are optional and configurable!
+ * The github and gitlab color scales are provided for reference.
+ */
+
+.react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #aaa;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: #555;
+  stroke-width: 1px;
+}
+
+/*
+ * Default color scale
+ */
+
+.react-calendar-heatmap .color-empty {
+  fill: #eeeeee;
+}
+
+.react-calendar-heatmap .color-filled {
+  fill: #8cc665;
+}
+
+
+/*
+ * Our Custom color scale
+ */
+
+.react-ndar-heatmap .color-dashboard-0 {
+  fill: #ededee;
+}
+.react-calendar-heatmap .color-dashboard-1 {
+  fill: #acd5f3;
+}
+.react-calendar-heatmap .color-dashboard-2 {
+  fill: #7fa8d2;
+}
+.react-calendar-heatmap .color-dashboard-3 {
+  fill: #49729c;
+}
+.react-calendar-heatmap .color-dashboard-4 {
+  fill: #254e78;
+}
+
+.asdasd {
+  margin: auto;
+  max-width: 200px;
+  max-height: 50px;
+}
+
+/*End of Calendar Setup*/
 
 /* Here ENDS REACT-GRID-LAYOUT COPY-PASTE */
 
