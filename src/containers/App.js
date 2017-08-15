@@ -7,7 +7,8 @@ import {
   fetchDailyPoints,
   fetchSkillsData,
   fetchLeaderBoardData,
-  setCourseId
+  setCourseId,
+  updateLeaderboard
 } from "../actions/index";
 import { connect } from "react-redux";
 import { Segment } from "semantic-ui-react";
@@ -28,6 +29,7 @@ class App extends React.Component {
       this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchLeaderBoardData(nextProps.dashboard_token, nextProps.courseId);
+      this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
     }
   }
 
@@ -77,7 +79,8 @@ const mapDispatchToProps = dispatch => {
     fetchDailyPoints: (token, courseId) => dispatch(fetchDailyPoints(token, courseId)),
     fetchSkillsData: (token, courseId) => dispatch(fetchSkillsData(token, courseId)),
     fetchLeaderBoardData: (token, courseId) => dispatch(fetchLeaderBoardData(token, courseId)),
-    setCourseId: (id) => dispatch(setCourseId(id))
+    setCourseId: (id) => dispatch(setCourseId(id)),
+    updateLeaderboard: (token, courseId) => dispatch(updateLeaderboard(token, courseId))
   };
 };
 
