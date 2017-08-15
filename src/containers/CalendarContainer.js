@@ -5,7 +5,6 @@ import Moment from 'moment'
 
 export default class CalendarContainer extends Component {
   render() {
-    const endDate = new Date("2017-08-12");
     const numDays = 7;
     const weeks = [
     [
