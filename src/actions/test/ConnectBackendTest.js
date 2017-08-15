@@ -5,6 +5,7 @@ import sinon from 'sinon';
 import axios from 'axios';
 import ReduxPromise from 'redux-promise';
 import storage from 'store';
+import { API_BASE_URL } from '../../config';
 
 
 test('connect backend action test', t => {
@@ -17,7 +18,7 @@ test('connect backend action test', t => {
   const mockStore = configureMockStore(middlewares);
   const store = mockStore({});
   const expectedActions = [{ type: 'CONNECT_BACKEND', payload: { data: { data: { token: 'xyzzy.2nD_' }}}}];
-  const expectedUrl = 'https://student-dashboard-api.herokuapp.com/new-dash-session';
+  const expectedUrl = API_BASE_URL + '/new-dash-session';
   const expectedBody = {tmc_username: 'x', tmc_access_token:'y'};
   return store.dispatch(actions.connectBackend()).then(() => {
     t.deepEqual(store.getActions(), expectedActions);

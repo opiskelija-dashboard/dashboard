@@ -3,7 +3,8 @@ import {
   CONNECT_BACKEND,
   FETCH_DAILY_POINTS,
   FETCH_SKILLS_DATA,
-  FETCH_LEADERBOARD_DATA
+  FETCH_LEADERBOARD_DATA,
+  UPDATE_LEADERBOARD
 } from "../actions/index";
 
 export default function APIcalls(
@@ -11,7 +12,8 @@ export default function APIcalls(
     dashboard_token: null,
     skillsData: [],
     fetchError: false,
-    isFetching: true
+    isFetching: true,
+    leaderboardUpdated: false
   },
   action
 ) {
@@ -43,8 +45,12 @@ export default function APIcalls(
       });
     case FETCH_LEADERBOARD_DATA:
       return Object.assign({}, state, {
-        leaderBoardData: action.payload
+        leaderBoardData: action.payload.data.data
       });
+    case UPDATE_LEADERBOARD:
+      return Object.assign({}, state,
+        { leaderboardUpdated: true }
+      );
     case "HANDLE_ERROR":
       console.log("an error occurred during a http request");
       return Object.assign({}, state, { fetchError: true });
