@@ -1,6 +1,5 @@
 import axios from "axios";
 import store from "store";
-//import { makeData } from "../makeData";
 import { API_BASE_URL } from "../config"
 
 export const FETCH_COURSE_POINTS = "FETCH_COURSE_POINTS";
@@ -15,6 +14,7 @@ export const fetchCoursePoints = (token, courseId) => {
     payload: request
   };
 };
+
 
 export const CONNECT_BACKEND = "CONNECT_BACKEND";
 
@@ -39,10 +39,11 @@ export const connectBackend = () => {
   };
 };
 
+
 export const FETCH_DAILY_POINTS = "FETCH_DAILY_POINTS";
 
 export const fetchDailyPoints = (token, courseId) => {
-  const url = API_BASE_URL + "/cumulative-points"/*course/" + courseId*/;
+  const url = API_BASE_URL + "/cumulative-points"/*/course/" + courseId*/;
   const request = axios.get(url, {
     headers: { Authorization: "Bearer " + token }
   });
@@ -56,7 +57,7 @@ export const fetchDailyPoints = (token, courseId) => {
 export const FETCH_SKILLS_DATA = "FETCH_SKILLS_DATA";
 
 export const fetchSkillsData = (token, courseId) => {
-  const url = API_BASE_URL + "/skill-percentages"/*course/" + courseId*/;
+  const url = API_BASE_URL + "/skill-percentages"/*/course/" + courseId*/;
   const request = axios.get(url, {
     headers: { Authorization: "Bearer " + token }
   });
@@ -87,12 +88,12 @@ export const fetchLeaderBoardData = (token, courseId) => {
   const request = axios.get(url,
     { headers: { 'Authorization': 'Bearer ' + token }}
   );
-  //const request = makeData();
   return {
     type: FETCH_LEADERBOARD_DATA,
     payload: request
   };
 };
+
 
 export const SET_COURSE_ID = "SET_COURSE_ID";
 
@@ -102,6 +103,7 @@ export const setCourseId = (id) => {
     courseId : id
   }  
 };
+
 
 export const TOGGLE_WIDGET_VISIBILITY = "TOGGLE_WIDGET_VISIBILITY";
 
