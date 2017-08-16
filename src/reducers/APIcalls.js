@@ -44,6 +44,7 @@ export default function APIcalls(
         skillsData: action.payload.data.skill_percentage
       });
     case FETCH_LEADERBOARD_DATA:
+      console.log("received leaderboard data");
       return Object.assign({}, state, {
         leaderBoardData: action.payload.data.data
       });

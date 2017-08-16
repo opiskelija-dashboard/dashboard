@@ -1,7 +1,11 @@
 
 import store from "store";
+<<<<<<< HEAD
 //import { makeData } from "../makeData";
 import { GET, POST } from '../API'
+=======
+import { API_BASE_URL } from "../config"
+>>>>>>> deafbe172211602a030dfc20f00c3e4f12236695
 
 export const FETCH_COURSE_POINTS = "FETCH_COURSE_POINTS";
 
@@ -15,6 +19,7 @@ export const FETCH_COURSE_POINTS = "FETCH_COURSE_POINTS";
 //     payload: request
 //   };
 // };
+
 
 export const CONNECT_BACKEND = "CONNECT_BACKEND";
 
@@ -39,11 +44,19 @@ export const connectBackend = () => {
   };
 };
 
+
 export const FETCH_DAILY_POINTS = "FETCH_DAILY_POINTS";
 
 export const fetchDailyPoints = (token, courseId) => {
+<<<<<<< HEAD
   /*course/" + courseId*/
   const request = GET("/cumulative-points", token);
+=======
+  const url = API_BASE_URL + "/cumulative-points"/*/course/" + courseId*/;
+  const request = axios.get(url, {
+    headers: { Authorization: "Bearer " + token }
+  });
+>>>>>>> deafbe172211602a030dfc20f00c3e4f12236695
   return {
     type: FETCH_DAILY_POINTS,
     payload: request
@@ -54,8 +67,15 @@ export const fetchDailyPoints = (token, courseId) => {
 export const FETCH_SKILLS_DATA = "FETCH_SKILLS_DATA";
 
 export const fetchSkillsData = (token, courseId) => {
+<<<<<<< HEAD
   /*course/" + courseId*/;
   const request = GET("/skill-percentages", token);
+=======
+  const url = API_BASE_URL + "/skill-percentages"/*/course/" + courseId*/;
+  const request = axios.get(url, {
+    headers: { Authorization: "Bearer " + token }
+  });
+>>>>>>> deafbe172211602a030dfc20f00c3e4f12236695
   return {
     type: FETCH_SKILLS_DATA,
     payload: request
@@ -78,14 +98,22 @@ export const updateLeaderboard = (token, courseId) => {
 export const FETCH_LEADERBOARD_DATA = "FETCH_LEADERBOARD_DATA";
 
 export const fetchLeaderBoardData = (token, courseId) => {
+<<<<<<< HEAD
   const url = "/leaderboard/course/" + courseId + "/all";
   const request = GET(url, token);
   //const request = makeData();
+=======
+  const url = API_BASE_URL + "/leaderboard/course/" + courseId + "/all";
+  const request = axios.get(url,
+    { headers: { 'Authorization': 'Bearer ' + token }}
+  );
+>>>>>>> deafbe172211602a030dfc20f00c3e4f12236695
   return {
     type: FETCH_LEADERBOARD_DATA,
     payload: request
   };
 };
+
 
 export const SET_COURSE_ID = "SET_COURSE_ID";
 
@@ -95,6 +123,7 @@ export const setCourseId = (id) => {
     courseId : id
   }
 };
+
 
 export const TOGGLE_WIDGET_VISIBILITY = "TOGGLE_WIDGET_VISIBILITY";
 
