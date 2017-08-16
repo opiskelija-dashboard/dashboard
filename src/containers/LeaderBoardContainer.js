@@ -8,8 +8,32 @@ import 'react-table/react-table.css';
 
 class LeaderBoardContainer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {tableData: this.modifyTableData()}
+  }
+
+  modifyTableData() {
+    let ownData = null;
+    let ownIndex = 100;
+    for(var i=0; i < this.props.leaderBoardData.length; i++) {
+      if(this.props.leaderBoardData[i].user_id === 15653) {
+        ownData = this.props.leaderBoardData[i];
+        ownIndex = i;
+      }
+    }
+    if(this.props.leaderBoardData.length > 9) {
+      let data = this.props.leaderBoardData.slice(0,10);
+      if(ownIndex > 9) data.push(ownData);
+      return data;
+    } else {
+      return this.props.leaderBoardData.slice(0);
+    }
+  }
+ 
   componentDidMount() {
     if(this.props.leaderboardUpdated === true) {
+      console.log('didMount fetches leaderboard');
       this.props.fetchLeaderboard(this.props.dashboard_token, this.props.courseId);
     }
   }
@@ -17,6 +41,9 @@ class LeaderBoardContainer extends Component {
   componentWillReceiveProps(nextProps) {
     if(this.props.leaderboardUpdated === false && nextProps.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(nextProps.dashboard_token, nextProps.courseId);
+    }
+    if(this.props.leaderBoardData !== nextProps.leaderBoardData) {
+      this.setState({tableData: this.modifyTableData()})
     }
   }
 
@@ -73,11 +100,11 @@ class LeaderBoardContainer extends Component {
             }
           }
         }}
-        data={this.props.leaderBoardData}
+        data={this.state.chartData}
         columns={columns}
         showPagination={false}
-        pageSizeOptions={[this.props.leaderBoardData.length]}
-        defaultPageSize={this.props.leaderBoardData.length}
+        pageSizeOptions={[this.state.tableData.length]}
+        defaultPageSize={this.state.tableData.length}
         className="-striped -highlight"
         defaultSorted={[
           {
@@ -96,24 +123,7 @@ class LeaderBoardContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    leaderBoardData: (() => {
-      let ownData = null;
-      let ownIndex = 100;
-      for(var i=0; i<state.APIcalls.leaderBoardData.length; i++) {
-        if(state.APIcalls.leaderBoardData[i].user_id === 15653) {
-          ownData = state.APIcalls.leaderBoardData[i];
-          ownIndex = i;
-        }
-      }
-      if(state.APIcalls.leaderBoardData.length > 9) {
-        let data = state.APIcalls.leaderBoardData.slice(0,10);
-        if(ownIndex > 9) data.push(ownData);
-        return data;
-      } else {
-        return state.APIcalls.leaderBoardData
-      }
-    })(),
-
+    leaderBoardData: state.APIcalls.leaderBoardData,
     courseId : state.courseData.courseId,
     dashboard_token: state.APIcalls.dashboard_token,
     leaderboardUpdated: state.APIcalls.leaderboardUpdated
