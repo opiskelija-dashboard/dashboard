@@ -2,17 +2,32 @@ import test from 'ava';
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
 
-import Calendar from '../Calendar';
+import CalendarContainer from '../CalendarContainer';
 
-test.skip('renders without crashing', t => {
-  const wrapper = shallow(
-    <Calendar
-      endDate={new Date()}
-      numDays={7}
-      values={[]}
-    />
+
+test.beforeEach(t => {
+  const mockStore = configureStore();
+
+  const initialState = {
+    APIcalls: {
+      progressData: [],
+      progressLabels: [],
+      maxpoints: 20
+    }
+  };
+
+  t.context.store = mockStore(initialState);
+});
+
+test('renders without crashing', t => {
+  const wrapper = mount(
+    <Provider store={t.context.store}>
+      <CalendarContainer />
+    </Provider>
   )
 
-  t.deepEqual(wrapper.find('.asdasd').length(), 1);
+  t.truthy(wrapper.find('.CalendarWeek'));
 });

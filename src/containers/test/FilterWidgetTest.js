@@ -7,7 +7,7 @@ import configureStore from "redux-mock-store";
 import sinon from "sinon";
 
 import FilterWidget from "../FilterWidget";
-import LeaderBoardContainer from "../../containers/LeaderBoardContainer";
+import { LeaderBoard } from "../../layouts/LeaderBoardLayout";
 import { Badges } from "../../layouts/BadgesLayout";
 
 test.beforeEach(t => {
@@ -19,7 +19,7 @@ test.beforeEach(t => {
   t.context.store = mockStore(initialState);
 });
 
-test.skip("component renders", t => {
+test("component renders", t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
       <FilterWidget />
@@ -32,11 +32,18 @@ test.skip("component renders", t => {
 // Näissä täytyy tehdä uudet storet, koska mock storen statea
 // ei ilmeisesti pysty vaihtamaan lennosta
 
-test.skip("when state is 'Leaderboard' LeaderBoard -component renders", t => {
+test("when state is 'Leaderboard' LeaderBoard -component renders", t => {
   const mockStore = configureStore();
   const initialState = {
     widgets: { filter: "Leaderboard" },
-    APIcalls: { id: "joku", points: "10" }
+    APIcalls: {
+      leaderBoardData: [{ user_id: "joku", points: "10" }],
+      dashboard_token: "adasd",
+      leaderboardUpdated: "asd"
+    },
+    courseData: {
+      courseId: 200
+    }
    };
   const store = mockStore(initialState);
 
@@ -46,10 +53,10 @@ test.skip("when state is 'Leaderboard' LeaderBoard -component renders", t => {
     </Provider>
   );
 
-  t.deepEqual(wrapper.find(LeaderBoardContainer).length, 1);
+  t.deepEqual(wrapper.find(LeaderBoard).length, 1);
 });
 
-test.skip("when state is 'Badget' Badges -component renders", t => {
+test("when state is 'Badget' Badges -component renders", t => {
   const mockStore = configureStore();
   const initialState = {
     widgets: { filter: "Badget" },
