@@ -10,24 +10,24 @@ class LeaderBoardContainer extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {tableData: this.modifyTableData()}
+    this.state = {tableData: this.modifyTableData(this.props.leaderBoardData)}
   }
 
-  modifyTableData() {
+  modifyTableData(storeData) {
     let ownData = null;
     let ownIndex = 100;
-    for(var i=0; i < this.props.leaderBoardData.length; i++) {
-      if(this.props.leaderBoardData[i].user_id === 15653) {
-        ownData = this.props.leaderBoardData[i];
+    for(var i=0; i < storeData.length; i++) {
+      if(storeData[i].user_id === 15653) {
+        ownData = storeData[i];
         ownIndex = i;
       }
     }
-    if(this.props.leaderBoardData.length > 9) {
-      let data = this.props.leaderBoardData.slice(0,10);
+    if(storeData.length > 9) {
+      let data = storeData.slice(0,10);
       if(ownIndex > 9) data.push(ownData);
       return data;
     } else {
-      return this.props.leaderBoardData.slice(0);
+      return storeData.slice(0);
     }
   }
  
@@ -43,7 +43,7 @@ class LeaderBoardContainer extends Component {
       this.props.fetchLeaderboard(nextProps.dashboard_token, nextProps.courseId);
     }
     if(this.props.leaderBoardData !== nextProps.leaderBoardData) {
-      this.setState({tableData: this.modifyTableData()})
+      this.setState({tableData: this.modifyTableData(nextProps.leaderBoardData)});
     }
   }
 
@@ -100,7 +100,7 @@ class LeaderBoardContainer extends Component {
             }
           }
         }}
-        data={this.state.chartData}
+        data={this.state.tableData}
         columns={columns}
         showPagination={false}
         pageSizeOptions={[this.state.tableData.length]}
