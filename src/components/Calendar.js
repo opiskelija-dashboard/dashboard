@@ -1,17 +1,6 @@
 import React from 'react';
 import CalendarHeatmap from "react-calendar-heatmap";
-
-const customTooltipDataAttrs = { 'data-toggle': 'tooltip' };
-
-const customOnClick = value => {
-  if (value) {
-    alert(`Clicked on ${value.date} with value ${value.count}`);
-  }
-}
-
-const customTitleForValue = value => {
-  return value ? `${value.date} with value ${value.count}` : null;
-}
+import { Popup } from 'semantic-ui-react'
 
 const classForValue = value => {
   if (!value) {
@@ -20,8 +9,8 @@ const classForValue = value => {
   return `color-dashboard-${value.count}`;
 };
 
-export const Calendar = props => (
-  <div className="asdasd">
+export const Calendar = props => {
+  const map = (
     <CalendarHeatmap
       horizontal={false}
       showMonthLabels={false}
@@ -29,11 +18,14 @@ export const Calendar = props => (
       numDays={props.numDays}
       values={props.values}
       classForValue={classForValue}
-      titleForValue={customTitleForValue}
-      tooltipDataAttrs={customTooltipDataAttrs}
-      onClick={customOnClick}
     />
-  </div>
+  )
 
-
-)
+  return (
+    <div className="asdasd">
+      <Popup trigger={map} >
+        TESTITESTI
+      </Popup>
+    </div>
+  )
+}
