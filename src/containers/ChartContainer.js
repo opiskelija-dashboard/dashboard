@@ -25,8 +25,9 @@ class ChartContainer extends Component {
         ]
       }
     };
+    console.log("chart renders with progressData ", this.props.progressData);
     const data = {
-      labels: this.props.progressLabels,
+      labels: this.props.progressData.map(function(item){return item.day}),
       datasets: [
         {
           label: "Omat pisteet",
@@ -47,7 +48,7 @@ class ChartContainer extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.props.progressData
+          data: this.props.progressData.map(function(item){return item.points})
         },
         {
           label: "Läpipääsyraja",

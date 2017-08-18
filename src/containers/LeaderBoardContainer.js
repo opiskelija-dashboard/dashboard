@@ -42,8 +42,10 @@ class LeaderBoardContainer extends Component {
     if(this.props.leaderboardUpdated === false && nextProps.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(nextProps.dashboard_token, nextProps.courseId);
     }
-    if(this.props.leaderBoardData !== nextProps.leaderBoardData) {
+    if(nextProps.leaderBoardData) {
+      console.log("sets new board data");
       this.setState({tableData: this.modifyTableData(nextProps.leaderBoardData)});
+      console.log(this.state.tableData);
     }
   }
 
@@ -74,6 +76,7 @@ class LeaderBoardContainer extends Component {
         ]
       }
     ];
+    console.log("leaderboard renders data ", this.state.tableData);
 
     return (
       <ReactTable

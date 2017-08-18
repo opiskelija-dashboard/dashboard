@@ -43,7 +43,7 @@ export const connectBackend = () => {
 export const FETCH_DAILY_POINTS = "FETCH_DAILY_POINTS";
 
 export const fetchDailyPoints = (token, courseId) => {
-  const url = API_BASE_URL + "/cumulative-points"/*/course/" + courseId*/;
+  const url = API_BASE_URL + "/cumulative-points/course/"+courseId;
   const request = axios.get(url, {
     headers: { Authorization: "Bearer " + token }
   });
@@ -57,7 +57,7 @@ export const fetchDailyPoints = (token, courseId) => {
 export const FETCH_SKILLS_DATA = "FETCH_SKILLS_DATA";
 
 export const fetchSkillsData = (token, courseId) => {
-  const url = API_BASE_URL + "/skill-percentages"/*/course/" + courseId*/;
+  const url = API_BASE_URL + "/skill-percentages/course/"+courseId;
   const request = axios.get(url, {
     headers: { Authorization: "Bearer " + token }
   });
@@ -71,7 +71,7 @@ export const fetchSkillsData = (token, courseId) => {
 export const UPDATE_LEADERBOARD = "UPDATE_LEADERBOARD";
 
 export const updateLeaderboard = (token, courseId) => {
-  const url = API_BASE_URL + "/leaderboard/course/" + courseId + "/update";
+  const url = API_BASE_URL + "/leaderboard/course/" + courseId+"/update";
   const request = axios.get(url,
     { headers: { 'Authorization': 'Bearer ' + token }})
   return {

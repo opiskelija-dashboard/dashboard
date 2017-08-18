@@ -1,2 +1,2 @@
-export const API_BASE_URL = "https://student-dashboard-api.herokuapp.com";
+export const API_BASE_URL = "http://localhost:8000";
 export const COURSE_ID = '214';
