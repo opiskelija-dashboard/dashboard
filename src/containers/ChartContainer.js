@@ -18,7 +18,8 @@ class ChartContainer extends Component {
         yAxes: [
           {
             ticks: {
-              max: this.props.maxPoints,
+              //props.maxPoints ei toimi
+              max: 100000,
               min: 0
             }
           }
@@ -26,7 +27,7 @@ class ChartContainer extends Component {
       }
     };
     const data = {
-      labels: this.props.progressLabels,
+      labels: this.props.progressData.map(function(item){return item.day}),
       datasets: [
         {
           label: "Omat pisteet",
@@ -47,17 +48,15 @@ class ChartContainer extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.props.progressData
+          data: this.props.progressData.map(function(item){return item.points})
         },
         {
-          label: "Läpipääsyraja",
+          label: "Kurssin keskiarvo",
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(150,150,150,1)",
           borderColor: "rgba(150,150,150,1)",
           borderCapStyle: "butt",
-          borderDash: [20],
-          borderDashOffset: 0.0,
           borderJoinStyle: "miter",
           pointBackgroundColor: "#fff",
           pointBorderWidth: 0,
