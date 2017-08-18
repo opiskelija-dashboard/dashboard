@@ -50,14 +50,14 @@ class ChartContainer extends Component {
           data: this.props.progressData.map(function(item){return item.points})
         },
         {
-          label: "Läpipääsyraja",
+          label: "Kurssin keskiarvo",
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(150,150,150,1)",
           borderColor: "rgba(150,150,150,1)",
           borderCapStyle: "butt",
-          borderDash: [20],
-          borderDashOffset: 0.0,
+          //borderDash: [20],
+          //borderDashOffset: 0.0,
           borderJoinStyle: "miter",
           pointBackgroundColor: "#fff",
           pointBorderWidth: 0,
