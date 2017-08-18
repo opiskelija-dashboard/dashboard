@@ -6,7 +6,7 @@ import axios from 'axios';
 import ReduxPromise from 'redux-promise';
 import { API_BASE_URL } from '../../config'
 
-test.skip('fetch skills data test', t => {
+test('fetch skills data test', t => {
   const responseStub = (url, headers) => {
     return new Promise((r) => r({
       data: {
