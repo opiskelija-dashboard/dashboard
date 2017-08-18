@@ -6,13 +6,13 @@ export const ProgressBar = props =>
   <div className="progressBarPair">
     <Progress
     percent={props.firstBar}
-    label={props.firstBar + '%'}
+    label={'Oma edistyminen ' + props.firstBar + '%'}
     indicating
     autoSuccess
    />
     <Progress
       percent={props.secondBar}
-      label={props.secondBar + '%'}
+      label={'Keskiarvo edistyminen ' + props.secondBar + '%'}
       color='teal'
     />
   </div>
