@@ -56,8 +56,6 @@ class ChartContainer extends Component {
           backgroundColor: "rgba(150,150,150,1)",
           borderColor: "rgba(150,150,150,1)",
           borderCapStyle: "butt",
-          //borderDash: [20],
-          //borderDashOffset: 0.0,
           borderJoinStyle: "miter",
           pointBackgroundColor: "#fff",
           pointBorderWidth: 0,
