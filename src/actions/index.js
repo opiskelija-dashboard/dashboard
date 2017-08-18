@@ -45,7 +45,7 @@ export const FETCH_DAILY_POINTS = "FETCH_DAILY_POINTS";
 
 export const fetchDailyPoints = (token, courseId) => {
   /*course/" + courseId*/
-  const request = GET("/cumulative-points", token);
+  const request = GET("/cumulative-points/course/" + courseId, token);
   return {
     type: FETCH_DAILY_POINTS,
     payload: request
@@ -56,8 +56,7 @@ export const fetchDailyPoints = (token, courseId) => {
 export const FETCH_SKILLS_DATA = "FETCH_SKILLS_DATA";
 
 export const fetchSkillsData = (token, courseId) => {
-  /*course/" + courseId*/;
-  const request = GET("/skill-percentages", token);
+  const request = GET("/skill-percentages/course/" + courseId, token);
   return {
     type: FETCH_SKILLS_DATA,
     payload: request
@@ -82,7 +81,6 @@ export const FETCH_LEADERBOARD_DATA = "FETCH_LEADERBOARD_DATA";
 export const fetchLeaderBoardData = (token, courseId) => {
   const url = "/leaderboard/course/" + courseId + "/all";
   const request = GET(url, token);
-  //const request = makeData();
   return {
     type: FETCH_LEADERBOARD_DATA,
     payload: request

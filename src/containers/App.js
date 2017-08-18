@@ -17,15 +17,19 @@ import { COURSE_ID } from "../config";
 
 class App extends React.Component {
   componentDidMount() {
-    /* this call currently sets the course id. course ids can be foud in shadow-ohpe source code
+    /* this call currently sets the course id (from config file). course ids can be foud in shadow-ohpe source code
     /assets/js/student-dashboard.js and later we might use those (on the other hand, we were told
     by the customer that we can assume that we're on a certain course all the time) */
     this.props.setCourseId(COURSE_ID);
     this.props.connectBackend();
   }
 
-  componentWillUpdate(nextProps) {
-    if (nextProps.dashboard_token && nextProps.courseId) {
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.isFetching !== this.props.isFetching ||
+      nextProps.fetchError !== this.props.fetchError) {
+      return;
+    }
+    if(nextProps.dashboard_token && nextProps.courseId) {
       this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchLeaderBoardData(nextProps.dashboard_token, nextProps.courseId);

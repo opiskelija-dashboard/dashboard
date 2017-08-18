@@ -8,7 +8,6 @@ test('APIcalls reducer handles daily points & course average correctly', reducer
   //initial state
   {
     progressData: null,
-    progressLabels: null,
     progressAverage: null,
     courseMaxPoints: 0,
     isFetching: true
@@ -18,18 +17,25 @@ test('APIcalls reducer handles daily points & course average correctly', reducer
     type: 'FETCH_DAILY_POINTS',
     payload: { 
       data: {
-        points: [0,2,4],
-        days: ["2017-02-10", "2017-02-11", "2017-02-12"],
-        average: 5 
+        data: {
+          user: [{
+            points: 0,
+            day: "2017-02-10"
+          }],
+          average: {
+            "2017-02-10": 5,
+            "2017-02-11": 8,
+            "2017-02-12": 10
+          }
+        }
       }
     }
   },
   //expected state after the reducer code has run
   {
-    progressData: [0,2,4],
-    progressLabels: ["2017-02-10", "2017-02-11", "2017-02-12"],
-    progressAverage: 5,
-    courseMaxPoints: 50,
+    progressData: [{ points: 0, day: "2017-02-10" }],
+    progressAverage: 10,
+    courseMaxPoints: 1000,
     isFetching: false
   }
 ));

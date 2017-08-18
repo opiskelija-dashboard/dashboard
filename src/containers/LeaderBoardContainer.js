@@ -8,6 +8,29 @@ import 'react-table/react-table.css';
 
 class LeaderBoardContainer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {tableData: this.modifyTableData(this.props.leaderBoardData)}
+  }
+
+  modifyTableData(storeData) {
+    let ownData = null;
+    let ownIndex = 100;
+    for(var i=0; i < storeData.length; i++) {
+      if(storeData[i].user_id === 15653) {
+        ownData = storeData[i];
+        ownIndex = i;
+      }
+    }
+    if(storeData.length > 9) {
+      let data = storeData.slice(0,10);
+      if(ownIndex > 9) data.push(ownData);
+      return data;
+    } else {
+      return storeData.slice(0);
+    }
+  }
+ 
   componentDidMount() {
     if(this.props.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(this.props.dashboard_token, this.props.courseId);
@@ -17,6 +40,9 @@ class LeaderBoardContainer extends Component {
   componentWillReceiveProps(nextProps) {
     if(this.props.leaderboardUpdated === false && nextProps.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(nextProps.dashboard_token, nextProps.courseId);
+    }
+    if(nextProps.leaderBoardData[0]) {
+      this.setState({tableData: this.modifyTableData(nextProps.leaderBoardData)});
     }
   }
 
@@ -73,12 +99,11 @@ class LeaderBoardContainer extends Component {
             }
           }
         }}
-        data={this.props.leaderBoardData}
+        data={this.state.tableData}
         columns={columns}
         showPagination={false}
-        pageSizeOptions={[this.props.leaderBoardData.length]}
-        defaultPageSize={this.props.leaderBoardData.length}
-        className="-striped -highlight"
+        pageSizeOptions={[this.state.tableData.length]}
+        defaultPageSize={this.state.tableData.length}
         defaultSorted={[
           {
             id: "points",
@@ -96,24 +121,7 @@ class LeaderBoardContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    leaderBoardData: (() => {
-      let ownData = null;
-      let ownIndex = 100;
-      for(var i=0; i<state.APIcalls.leaderBoardData.length; i++) {
-        if(state.APIcalls.leaderBoardData[i].user_id === 15653) {
-          ownData = state.APIcalls.leaderBoardData[i];
-          ownIndex = i;
-        }
-      }
-      if(state.APIcalls.leaderBoardData.length > 9) {
-        let data = state.APIcalls.leaderBoardData.slice(0,10);
-        if(ownIndex > 9) data.push(ownData);
-        return data;
-      } else {
-        return state.APIcalls.leaderBoardData
-      }
-    })(),
-
+    leaderBoardData: state.APIcalls.leaderBoardData,
     courseId : state.courseData.courseId,
     dashboard_token: state.APIcalls.dashboard_token,
     leaderboardUpdated: state.APIcalls.leaderboardUpdated
