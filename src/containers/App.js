@@ -54,7 +54,7 @@ class App extends React.Component {
 
         {!isFetching &&
           <div>
-            <NavBar />
+            <NavBar admin={true} />
             <div className="Container">
               <FilterWidget />
             </div>

@@ -11,8 +11,8 @@ export default function APIcalls(
   state = {
     dashboard_token: null,
     skillsData: [],
-    fetchError: false,
-    isFetching: true,
+    // fetchError: false,
+    // isFetching: true,
     leaderboardUpdated: false
   },
   action
@@ -37,7 +37,7 @@ export default function APIcalls(
         { progressLabels: action.payload.data.days },
         { progressAverage: action.payload.data.average },
         { courseMaxPoints: 50 },
-        { isFetching: false }
+        // { isFetching: false }
       );
     case FETCH_SKILLS_DATA:
       return Object.assign({}, state, {
@@ -54,7 +54,7 @@ export default function APIcalls(
       );
     case "HANDLE_ERROR":
       console.log("an error occurred during a http request");
-      return Object.assign({}, state, { fetchError: true });
+      return Object.assign({}, state, { fetchError: false });
     default:
       return state;
   }

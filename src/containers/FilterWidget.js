@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { LeaderBoard } from '../layouts/LeaderBoardLayout'
 import { Badges } from '../layouts/BadgesLayout'
 import { MyPage } from '../layouts/MyPageLayout'
+import { AdminPage } from '../layouts/AdminPageLayout'
 
 class FilterWidget extends Component {
   render() {
@@ -19,6 +20,10 @@ class FilterWidget extends Component {
       case "Oma sivu":
         return (
           <MyPage />
+        )
+      case "Admin page":
+        return (
+          <AdminPage />
         )
       default:
         return (
