@@ -42,7 +42,7 @@ class LeaderBoardContainer extends Component {
     if(this.props.leaderboardUpdated === false && nextProps.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(nextProps.dashboard_token, nextProps.courseId);
     }
-    if(nextProps.leaderBoardData) {
+    if(nextProps.leaderBoardData[0]) {
       console.log("sets new board data");
       this.setState({tableData: this.modifyTableData(nextProps.leaderBoardData)});
       console.log(this.state.tableData);
@@ -108,7 +108,6 @@ class LeaderBoardContainer extends Component {
         showPagination={false}
         pageSizeOptions={[this.state.tableData.length]}
         defaultPageSize={this.state.tableData.length}
-        className="-striped -highlight"
         defaultSorted={[
           {
             id: "points",

@@ -1,19 +1,20 @@
-import axios from "axios";
+
 import store from "store";
-import { API_BASE_URL } from "../config"
+//import { makeData } from "../makeData";
+import { GET, POST } from '../API'
 
 export const FETCH_COURSE_POINTS = "FETCH_COURSE_POINTS";
 
-export const fetchCoursePoints = (token, courseId) => {
-  const request = axios.get(
-    API_BASE_URL + "/points/course/" + courseId,
-    { Authorization: "Bearer " + token }
-  );
-  return {
-    type: FETCH_COURSE_POINTS,
-    payload: request
-  };
-};
+// not in use at the moment
+// export const fetchCoursePoints = (token, courseId) => {
+//   const request = GET("/points/course/" + courseId,
+//   { Authorization: "Bearer " + token })
+//
+//   return {
+//     type: FETCH_COURSE_POINTS,
+//     payload: request
+//   };
+// };
 
 
 export const CONNECT_BACKEND = "CONNECT_BACKEND";
@@ -27,12 +28,12 @@ export const connectBackend = () => {
     });
   }
   const user = store.get("tmc.user");
-  const conn_url =
-    API_BASE_URL + "/new-dash-session";
-  const request = axios.post(conn_url, {
-    tmc_username: user.username,
-    tmc_access_token: user.accessToken
-  });
+  const request = POST("/new-dash-session", {
+      tmc_username: user.username,
+      tmc_access_token: user.accessToken
+    }
+  );
+
   return {
     type: CONNECT_BACKEND,
     payload: request
@@ -43,10 +44,8 @@ export const connectBackend = () => {
 export const FETCH_DAILY_POINTS = "FETCH_DAILY_POINTS";
 
 export const fetchDailyPoints = (token, courseId) => {
-  const url = API_BASE_URL + "/cumulative-points/course/"+courseId;
-  const request = axios.get(url, {
-    headers: { Authorization: "Bearer " + token }
-  });
+  /*course/" + courseId*/
+  const request = GET("/cumulative-points/course/" + courseId, token);
   return {
     type: FETCH_DAILY_POINTS,
     payload: request
@@ -57,10 +56,8 @@ export const fetchDailyPoints = (token, courseId) => {
 export const FETCH_SKILLS_DATA = "FETCH_SKILLS_DATA";
 
 export const fetchSkillsData = (token, courseId) => {
-  const url = API_BASE_URL + "/skill-percentages/course/"+courseId;
-  const request = axios.get(url, {
-    headers: { Authorization: "Bearer " + token }
-  });
+  /*course/" + courseId*/;
+  const request = GET("/skill-percentages/course/" + courseId, token);
   return {
     type: FETCH_SKILLS_DATA,
     payload: request
@@ -71,9 +68,8 @@ export const fetchSkillsData = (token, courseId) => {
 export const UPDATE_LEADERBOARD = "UPDATE_LEADERBOARD";
 
 export const updateLeaderboard = (token, courseId) => {
-  const url = API_BASE_URL + "/leaderboard/course/" + courseId+"/update";
-  const request = axios.get(url,
-    { headers: { 'Authorization': 'Bearer ' + token }})
+  const url = "/leaderboard/course/" + courseId + "/update";
+  const request = GET(url, token)
   return {
     type: UPDATE_LEADERBOARD,
     payload: request
@@ -84,10 +80,8 @@ export const updateLeaderboard = (token, courseId) => {
 export const FETCH_LEADERBOARD_DATA = "FETCH_LEADERBOARD_DATA";
 
 export const fetchLeaderBoardData = (token, courseId) => {
-  const url = API_BASE_URL + "/leaderboard/course/" + courseId + "/all";
-  const request = axios.get(url,
-    { headers: { 'Authorization': 'Bearer ' + token }}
-  );
+  const url = "/leaderboard/course/" + courseId + "/all";
+  const request = GET(url, token);
   return {
     type: FETCH_LEADERBOARD_DATA,
     payload: request
@@ -101,7 +95,7 @@ export const setCourseId = (id) => {
   return {
     type: SET_COURSE_ID,
     courseId : id
-  }  
+  }
 };
 
 
@@ -113,5 +107,3 @@ export const toggleVisibility = filter => {
     filter
   };
 };
-
-
