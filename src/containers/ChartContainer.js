@@ -25,7 +25,6 @@ class ChartContainer extends Component {
         ]
       }
     };
-    console.log("chart renders with progressData ", this.props.progressData);
     const data = {
       labels: this.props.progressData.map(function(item){return item.day}),
       datasets: [

@@ -56,7 +56,6 @@ export const fetchDailyPoints = (token, courseId) => {
 export const FETCH_SKILLS_DATA = "FETCH_SKILLS_DATA";
 
 export const fetchSkillsData = (token, courseId) => {
-  /*course/" + courseId*/;
   const request = GET("/skill-percentages/course/" + courseId, token);
   return {
     type: FETCH_SKILLS_DATA,

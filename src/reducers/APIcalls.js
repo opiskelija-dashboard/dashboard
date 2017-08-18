@@ -34,7 +34,6 @@ export default function APIcalls(
         {},
         state,
         { progressData: action.payload.data.data.user },
-        { progressLabels: [] },
         { progressAverage: 10 },
         { courseMaxPoints: 1000 },
         { isFetching: false }
@@ -44,7 +43,6 @@ export default function APIcalls(
         skillsData: action.payload.data.skill_percentage
       });
     case FETCH_LEADERBOARD_DATA:
-      console.log("received leaderboard data");
       return Object.assign({}, state, {
         leaderBoardData: action.payload.data.data
       });

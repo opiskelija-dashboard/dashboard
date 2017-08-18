@@ -33,7 +33,6 @@ class LeaderBoardContainer extends Component {
  
   componentDidMount() {
     if(this.props.leaderboardUpdated === true) {
-      console.log('didMount fetches leaderboard');
       this.props.fetchLeaderboard(this.props.dashboard_token, this.props.courseId);
     }
   }
@@ -43,9 +42,7 @@ class LeaderBoardContainer extends Component {
       this.props.fetchLeaderboard(nextProps.dashboard_token, nextProps.courseId);
     }
     if(nextProps.leaderBoardData[0]) {
-      console.log("sets new board data");
       this.setState({tableData: this.modifyTableData(nextProps.leaderBoardData)});
-      console.log(this.state.tableData);
     }
   }
 
@@ -76,7 +73,6 @@ class LeaderBoardContainer extends Component {
         ]
       }
     ];
-    console.log("leaderboard renders data ", this.state.tableData);
 
     return (
       <ReactTable

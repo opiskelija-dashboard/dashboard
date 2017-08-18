@@ -39,10 +39,10 @@ test("when state is 'Leaderboard' LeaderBoard -component renders", t => {
     APIcalls: {
       leaderBoardData: [{ user_id: "joku", points: "10" }],
       dashboard_token: "adasd",
-      leaderboardUpdated: "asd"
+      leaderboardUpdated: false
     },
     courseData: {
-      courseId: 200
+      courseId: 214
     }
    };
   const store = mockStore(initialState);
