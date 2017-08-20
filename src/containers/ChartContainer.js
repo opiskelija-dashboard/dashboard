@@ -3,15 +3,7 @@ import { Chart } from "../components/Chart";
 import { connect } from "react-redux";
 
 class ChartContainer extends Component {
-  averageLine() {
-    if (this.props.progressData) {
-      return new Array(this.props.progressData.length).fill(this.props.average);
-    }
-    return [];
-  }
-
   render() {
-    //dummy data
     const options = {
       maintainAspectRatio: true,
       scales: {
@@ -19,7 +11,7 @@ class ChartContainer extends Component {
           {
             ticks: {
               //props.maxPoints ei toimi
-              max: 100000,
+              max: 100,
               min: 0
             }
           }
@@ -27,7 +19,7 @@ class ChartContainer extends Component {
       }
     };
     const data = {
-      labels: this.props.progressData.map(function(item){return item.day}),
+      labels: this.props.progressData.map(function(item){return item.date}),
       datasets: [
         {
           label: "Omat pisteet",
@@ -48,7 +40,7 @@ class ChartContainer extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.props.progressData.map(function(item){return item.points})
+          data: this.props.progressData.map(function(item){return item.users_points})
         },
         {
           label: "Kurssin keskiarvo",
@@ -66,7 +58,7 @@ class ChartContainer extends Component {
           pointHoverBorderWidth: 0,
           pointRadius: 0,
           pointHitRadius: 0,
-          data: this.averageLine()
+          data: this.props.progressData.map(function(item){return item.everyones_average})
         }
       ]
     };
@@ -79,10 +71,8 @@ class ChartContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    progressLabels: state.APIcalls.progressLabels,
-    progressData: state.APIcalls.progressData,
+    progressData: state.APIcalls.progressData.data,
     maxPoints: state.APIcalls.courseMaxPoints,
-    average: state.APIcalls.progressAverage
   };
 };
 
