@@ -11,7 +11,7 @@ class ChartContainer extends Component {
           {
             ticks: {
               //props.maxPoints ei toimi
-              max: 100,
+              max: 300,
               min: 0
             }
           }
@@ -19,7 +19,7 @@ class ChartContainer extends Component {
       }
     };
     const data = {
-      labels: this.props.progressData.map(function(item){return item.date}),
+      labels: this.props.progressData.map((item) => item.date),
       datasets: [
         {
           label: "Omat pisteet",
@@ -40,7 +40,7 @@ class ChartContainer extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.props.progressData.map(function(item){return item.users_points})
+          data: this.props.progressData.map((item) => item.users_points)
         },
         {
           label: "Kurssin keskiarvo",
@@ -58,7 +58,7 @@ class ChartContainer extends Component {
           pointHoverBorderWidth: 0,
           pointRadius: 0,
           pointHitRadius: 0,
-          data: this.props.progressData.map(function(item){return item.everyones_average})
+          data: this.props.progressData.map((item) => item.everyones_average)
         }
       ]
     };
