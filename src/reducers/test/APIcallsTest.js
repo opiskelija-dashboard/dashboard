@@ -8,7 +8,6 @@ test('APIcalls reducer handles daily points & course average correctly', reducer
   //initial state
   {
     progressData: null,
-    courseMaxPoints: 0,
     isFetching: true
   },
   //action received in the reducer
@@ -37,7 +36,6 @@ test('APIcalls reducer handles daily points & course average correctly', reducer
       {users_points: 1,  everyones_average: 20, date: "2017-02-10"},
       {users_points: 2, everyones_average: 30, date: "2017-02-11"}
     ]},
-    courseMaxPoints: 1000,
     isFetching: false
   }
 ));
