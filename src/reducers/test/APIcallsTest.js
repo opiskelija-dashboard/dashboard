@@ -94,3 +94,19 @@ test('APIcalls reducer handles http error correctly', reducerTest(
     fetchError: true
   } 
 ))
+
+test('APIcalls reducer handles initial leaderboard data update correctly', reducerTest(
+  reducer,
+  {
+    leaderboardUpdated: false
+  },
+  {
+    type: 'UPDATE_LEADERBOARD',
+    payload: {
+      data: ["Leaderboard data updated"]
+    }
+  },
+  {
+    leaderboardUpdated: true
+  }
+))
