@@ -51,7 +51,7 @@ export default function APIcalls(
       );
     case "HANDLE_ERROR":
       console.log("an error occurred during a http request");
-      return Object.assign({}, state, { fetchError: true });
+      return Object.assign({}, state, { fetchError: false });
     default:
       return state;
   }

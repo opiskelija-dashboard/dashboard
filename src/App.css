@@ -6,6 +6,10 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.CodeMirror {
+  text-align: left;
+}
+
 html body {
   min-height: 100vh;
   padding: 0;

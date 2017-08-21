@@ -50,6 +50,7 @@ class App extends React.Component {
               <p>Olethan kirjautunut sisään?</p>
             </Segment>
           </div>}
+          
         {isFetching &&
           !fetchError &&
           <div className="marginTop">
@@ -57,12 +58,13 @@ class App extends React.Component {
           </div>}
 
         {!isFetching &&
-          <div>
-            <NavBar />
-            <div className="Container">
-              <FilterWidget />
-            </div>
-          </div>}
+          !fetchError &&
+            <div>
+              <NavBar admin={true} />
+              <div className="Container">
+                <FilterWidget />
+              </div>
+            </div>}
       </div>
     );
   }
