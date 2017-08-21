@@ -11,8 +11,8 @@ export default function APIcalls(
   state = {
     dashboard_token: null,
     skillsData: [],
-    // fetchError: false,
-    // isFetching: true,
+    fetchError: false,
+    isFetching: true,
     leaderboardUpdated: false
   },
   action
