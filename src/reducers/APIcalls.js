@@ -33,8 +33,7 @@ export default function APIcalls(
       return Object.assign(
         {},
         state,
-        { progressData: action.payload.data.data.user },
-        { progressAverage: 10 },
+        { progressData: action.payload.data },
         { courseMaxPoints: 1000 },
         { isFetching: false }
       );
