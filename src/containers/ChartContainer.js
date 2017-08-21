@@ -3,6 +3,19 @@ import { Chart } from "../components/Chart";
 import { connect } from "react-redux";
 
 class ChartContainer extends Component {
+  
+  chartMax() {
+    var maxVal = 0;
+    for(var i=0; i < this.props.progressData.length; i++) {
+      maxVal = Math.max(
+        maxVal,
+        this.props.progressData[i].users_points,
+        this.props.progressData[i].everyones_average
+      );
+    }
+    return (10 * Math.ceil(maxVal / 10));
+  }
+
   render() {
     const options = {
       maintainAspectRatio: true,
@@ -10,8 +23,7 @@ class ChartContainer extends Component {
         yAxes: [
           {
             ticks: {
-              //props.maxPoints ei toimi
-              max: 300,
+              max: this.chartMax(),
               min: 0
             }
           }
@@ -71,8 +83,7 @@ class ChartContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    progressData: state.APIcalls.progressData.data,
-    maxPoints: state.APIcalls.courseMaxPoints,
+    progressData: state.APIcalls.progressData.data
   };
 };
 

@@ -34,7 +34,6 @@ export default function APIcalls(
         {},
         state,
         { progressData: action.payload.data },
-        { courseMaxPoints: 1000 },
         { isFetching: false }
       );
     case FETCH_SKILLS_DATA:
