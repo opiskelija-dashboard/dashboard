@@ -16,6 +16,7 @@ import { ThreeBounce } from "better-react-spinkit";
 import { COURSE_ID } from "../config";
 
 class App extends React.Component {
+  
   componentDidMount() {
     /* this call currently sets the course id (from config file). course ids can be foud in shadow-ohpe source code
     /assets/js/student-dashboard.js and later we might use those (on the other hand, we were told

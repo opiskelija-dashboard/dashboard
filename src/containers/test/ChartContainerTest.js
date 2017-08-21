@@ -15,9 +15,8 @@ test.beforeEach(t => {
 
   const initialState = {
     APIcalls: {
-      progressData: [],
-      progressLabels: [],
-      maxpoints: 20
+      progressData: {data: []},
+      courseMaxPoints: 20
     }
   };
 
@@ -33,7 +32,7 @@ test("renders without crashing", t => {
   t.deepEqual(wrapper.find(ChartContainer).length, 1);
 });
 
-test.skip("chartcontainer renders chart", t => {
+test("chartcontainer renders chart", t => {
   window.HTMLCanvasElement.prototype.getContext = null;
 
   const wrapper = mount(
@@ -41,5 +40,5 @@ test.skip("chartcontainer renders chart", t => {
       <ChartContainer />
     </Provider>
   );
-  t.deepEqual(wrapper.find(Chart).length, 1);
+  t.deepEqual(wrapper.find('Chart').length, 1);
 });
