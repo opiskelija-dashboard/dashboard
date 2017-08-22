@@ -121,10 +121,10 @@ class LeaderBoardContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    leaderBoardData: state.APIcalls.leaderBoardData,
+    leaderBoardData: state.points.leaderBoardData,
     courseId : state.courseData.courseId,
-    dashboard_token: state.APIcalls.dashboard_token,
-    leaderboardUpdated: state.APIcalls.leaderboardUpdated
+    dashboard_token: state.points.dashboard_token,
+    leaderboardUpdated: state.points.leaderboardUpdated
   };
 };
 

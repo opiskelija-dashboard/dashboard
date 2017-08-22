@@ -1,6 +1,5 @@
 import {
   CONNECT_BACKEND,
-  FETCH_LEADERBOARD_DATA,
   UPDATE_LEADERBOARD
 } from "../actions/index";
 
@@ -20,10 +19,6 @@ export default function APIcalls(
     case CONNECT_BACKEND:
       return Object.assign({}, state, {
         dashboard_token: action.payload.data.data.token
-      });
-    case FETCH_LEADERBOARD_DATA:
-      return Object.assign({}, state, {
-        leaderBoardData: action.payload.data.data
       });
     case UPDATE_LEADERBOARD:
       return Object.assign({}, state,
