@@ -11,12 +11,11 @@ import {
   updateLeaderboard
 } from "../actions/index";
 import { connect } from "react-redux";
-import { Segment } from "semantic-ui-react";
-import { ThreeBounce } from "better-react-spinkit";
+// import { ThreeBounce } from "better-react-spinkit";
 import { COURSE_ID } from "../config";
 
 class App extends React.Component {
-  
+
   componentDidMount() {
     /* this call currently sets the course id (from config file). course ids can be foud in shadow-ohpe source code
     /assets/js/student-dashboard.js and later we might use those (on the other hand, we were told
@@ -39,31 +38,12 @@ class App extends React.Component {
   }
 
   render() {
-    const fetchError = this.props.fetchError;
-    const isFetching = this.props.isFetching;
-
     return (
       <div className="appContainer">
-        {fetchError &&
-          <div className="marginTop">
-            <Segment>
-              <p>Virhe ladattaessa tietoja palvelimelta!</p>
-              <p>Olethan kirjautunut sisään?</p>
-            </Segment>
-          </div>}
-        {isFetching &&
-          !fetchError &&
-          <div className="marginTop">
-            <ThreeBounce size={40} />
-          </div>}
-
-        {!isFetching &&
-          <div>
-            <NavBar />
-            <div className="Container">
-              <FilterWidget />
-            </div>
-          </div>}
+        <NavBar />
+        <div className="Container">
+          <FilterWidget />
+        </div>
       </div>
     );
   }

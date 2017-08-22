@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import { ProgressBar } from "../components/ProgressBar";
 import { connect } from "react-redux";
+import { ThreeBounce } from "better-react-spinkit";
 
 class ProgressBarContainer extends Component {
   countPercentages(average, userPoints) {
@@ -41,21 +42,34 @@ class ProgressBarContainer extends Component {
       </div>
     );
 
+    const isFetching = this.props.isFetching;
+
     return (
-      <div className="progressBarContainer">
-        <p>
-          Ylempi palkki kuvaa omaa edistymistäsi, alempi palkki on kurssin
-          opiskelijoiden keskiarvo.
-        </p>
-        {list}
+      <div>
+        {isFetching &&
+          <ThreeBounce size={40} />
+        }
+
+        {!isFetching &&
+          <div className="progressBarContainer">
+            <p>
+              Ylempi palkki kuvaa omaa edistymistäsi, alempi palkki on kurssin
+              opiskelijoiden keskiarvo.
+            </p>
+            {list}
+          </div>
+
+        }
       </div>
+
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    skillsData: state.points.skillsData
+    skillsData: state.points.skillsData,
+    isFetching: state.points.skillsFetch
   };
 };
 

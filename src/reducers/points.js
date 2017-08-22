@@ -9,7 +9,9 @@ export default function points(
     dashboard_token: null,
     skillsData: [],
     fetchError: false,
-    isFetching: true
+    chartFetch: true,
+    skillsFetch: true,
+    progressData: []
   },
   action
 ) {
@@ -22,11 +24,12 @@ export default function points(
         {},
         state,
         { progressData: action.payload.data },
-        { isFetching: false }
+        { chartFetch: false }
       );
     case FETCH_SKILLS_DATA:
       return Object.assign({}, state, {
-        skillsData: action.payload.data.skill_percentage
+        skillsData: action.payload.data.skill_percentage,
+        skillsFetch: false
       });
     case FETCH_LEADERBOARD_DATA:
       return Object.assign({}, state, {
