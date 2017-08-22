@@ -11,7 +11,9 @@ export default function points(
     fetchError: false,
     chartFetch: true,
     skillsFetch: true,
-    progressData: []
+    leaderBoardFetch: true,
+    progressData: [],
+    leaderBoardData: []
   },
   action
 ) {
@@ -33,7 +35,8 @@ export default function points(
       });
     case FETCH_LEADERBOARD_DATA:
       return Object.assign({}, state, {
-        leaderBoardData: action.payload.data.data
+        leaderBoardData: action.payload.data.data,
+        leaderBoardFetch: false
       });
     case "HANDLE_ERROR":
       console.log("an error occurred during a http request");
