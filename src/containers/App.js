@@ -72,8 +72,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     dashboard_token: state.APIcalls.dashboard_token,
-    fetchError: state.APIcalls.fetchError,
-    isFetching: state.APIcalls.isFetching,
+    fetchError: state.points.fetchError,
+    isFetching: state.points.isFetching,
     courseId: state.courseData.courseId
   };
 };

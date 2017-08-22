@@ -1,13 +1,14 @@
-import APIcalls from './APIcalls'
-import widgets from './widgets'
-import courseData from './courseData'
-import { combineReducers } from 'redux'
-
+import APIcalls from "./APIcalls";
+import widgets from "./widgets";
+import courseData from "./courseData";
+import points from "./points";
+import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   APIcalls,
   widgets,
-  courseData
-})
+  courseData,
+  points
+});
 
-export default rootReducer
+export default rootReducer;

@@ -55,7 +55,7 @@ class ProgressBarContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    skillsData: state.APIcalls.skillsData
+    skillsData: state.points.skillsData
   };
 };
 

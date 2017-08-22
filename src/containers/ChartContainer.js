@@ -83,7 +83,7 @@ class ChartContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    progressData: state.APIcalls.progressData.data
+    progressData: state.points.progressData.data
   };
 };
 
