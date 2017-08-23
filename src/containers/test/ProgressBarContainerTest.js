@@ -11,7 +11,7 @@ test.beforeEach(t => {
   const mockStore = configureStore();
 
   const initialState = {
-    APIcalls: {
+    points: {
       skillsData: ["random"]
     }
   };

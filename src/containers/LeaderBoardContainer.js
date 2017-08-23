@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchLeaderBoardData } from '../actions/index' 
+import { fetchLeaderBoardData } from '../actions/index'
+import { ThreeBounce } from "better-react-spinkit";
 
 // Import React Table
 import ReactTable from 'react-table';
@@ -30,7 +31,7 @@ class LeaderBoardContainer extends Component {
       return storeData.slice(0);
     }
   }
- 
+
   componentDidMount() {
     if(this.props.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(this.props.dashboard_token, this.props.courseId);
@@ -74,7 +75,7 @@ class LeaderBoardContainer extends Component {
       }
     ];
 
-    return (
+    const table = (
       <ReactTable
         getTrProps = {(state, rowInfo, column) => {
           if(rowInfo) {
@@ -87,7 +88,7 @@ class LeaderBoardContainer extends Component {
                     return 'rgb(240, 240, 240)'
                   } else {
                     return 'rgb(247,247,247)';
-                  } 
+                  }
                 })()
               }
             }
@@ -115,16 +116,31 @@ class LeaderBoardContainer extends Component {
           }
         ]}
       />
+    )
+
+    const isFetching = this.props.isFetching;
+
+    return (
+      <div>
+        {isFetching &&
+          <ThreeBounce size={40} />
+        }
+
+        {!isFetching &&
+          table
+        }
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    leaderBoardData: state.APIcalls.leaderBoardData,
+    leaderBoardData: state.points.leaderBoardData,
     courseId : state.courseData.courseId,
-    dashboard_token: state.APIcalls.dashboard_token,
-    leaderboardUpdated: state.APIcalls.leaderboardUpdated
+    dashboard_token: state.points.dashboard_token,
+    leaderboardUpdated: state.points.leaderboardUpdated,
+    isFetching: state.points.leaderBoardFetch
   };
 };
 

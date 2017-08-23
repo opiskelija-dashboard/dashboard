@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Chart } from "../components/Chart";
 import { connect } from "react-redux";
+import { ThreeBounce } from "better-react-spinkit";
 
 class ChartContainer extends Component {
-  
+
   chartMax() {
+
     var maxVal = 0;
     for(var i=0; i < this.props.progressData.length; i++) {
       maxVal = Math.max(
@@ -17,65 +19,22 @@ class ChartContainer extends Component {
   }
 
   render() {
-    const options = {
-      maintainAspectRatio: true,
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              max: this.chartMax(),
-              min: 0
-            }
-          }
-        ]
-      }
-    };
-    const data = {
-      labels: this.props.progressData.map((item) => item.date),
-      datasets: [
-        {
-          label: "Omat pisteet",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgba(75,192,192,0.4)",
-          borderColor: "rgba(75,192,192,1)",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(75,192,192,1)",
-          pointBackgroundColor: "#fff",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: this.props.progressData.map((item) => item.users_points)
-        },
-        {
-          label: "Kurssin keskiarvo",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgba(150,150,150,1)",
-          borderColor: "rgba(150,150,150,1)",
-          borderCapStyle: "butt",
-          borderJoinStyle: "miter",
-          pointBackgroundColor: "#fff",
-          pointBorderWidth: 0,
-          pointHoverRadius: 0,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
-          pointHoverBorderWidth: 0,
-          pointRadius: 0,
-          pointHitRadius: 0,
-          data: this.props.progressData.map((item) => item.everyones_average)
-        }
-      ]
-    };
+    const isFetching = this.props.isFetching;
 
-    return <Chart data={data} options={options} />;
+    return(
+      <div>
+        {isFetching &&
+          <ThreeBounce size={40} />
+        }
+
+        {!isFetching &&
+          <Chart
+            progressData={this.props.progressData}
+            chartMax={this.chartMax()}
+          />
+        }
+      </div>
+    );
   }
 }
 
@@ -83,7 +42,8 @@ class ChartContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    progressData: state.APIcalls.progressData.data
+    progressData: state.points.progressData.data,
+    isFetching: state.points.chartFetch
   };
 };
 

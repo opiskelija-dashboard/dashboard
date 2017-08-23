@@ -3,8 +3,6 @@ import store from "store";
 //import { makeData } from "../makeData";
 import { GET, POST } from '../API'
 
-export const FETCH_COURSE_POINTS = "FETCH_COURSE_POINTS";
-
 // not in use at the moment
 // export const fetchCoursePoints = (token, courseId) => {
 //   const request = GET("/points/course/" + courseId,
