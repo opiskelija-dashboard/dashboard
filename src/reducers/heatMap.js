@@ -3,10 +3,13 @@ import {
   FETCH_HEAT_MAP_AVERAGE_DATA
 } from "../actions/index";
 
-export default function heatMapData(
+export default function heatMap(
   state = {
     userData: {},
-    averageData: {}
+    averageData: {},
+    userIsFetching: true,
+    averageIsFetching: true,
+    fetchError: false
   }, action ) {
       
   if(action.error) {
@@ -15,14 +18,18 @@ export default function heatMapData(
   switch(action.type) {
     case FETCH_HEAT_MAP_DATA:
       return Object.assign({}, state,
-        { userData: action.payload.data.data }
+        { userData: action.payload.data.data },
+        { userIsFetching: false }
       );
     case FETCH_HEAT_MAP_AVERAGE_DATA:
       return Object.assign({}, state,
-        { averageData: action.payload.data.data }
+        { averageData: action.payload.data.data },
+        { averageIsFetching: false }
       );
     case "HEAT_MAP_FETCH_ERROR":
-      console.log("http error fetching heat map data");
+      Object.assign({}, state,
+        { fetchError: true }
+      );
       return state;
     default:
       return state;

@@ -1,7 +1,7 @@
 import APIcalls from "./APIcalls";
 import widgets from "./widgets";
 import courseData from "./courseData";
-import heatMapData from "./heatMapData";
+import heatMap from "./heatMap";
 import points from "./points";
 import { combineReducers } from "redux";
 
@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   widgets,
   courseData,
   points,
-  heatMapData
+  heatMap
 });
 
 export default rootReducer;
