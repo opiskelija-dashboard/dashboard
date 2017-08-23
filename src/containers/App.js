@@ -32,6 +32,8 @@ class App extends React.Component {
       return;
     }
     if(nextProps.dashboard_token && nextProps.courseId) {
+      this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+      this.props.fetchHeatMapData(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchLeaderBoardData(nextProps.dashboard_token, nextProps.courseId);

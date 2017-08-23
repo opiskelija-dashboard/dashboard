@@ -27,7 +27,6 @@ class CalendarContainer extends Component {
     return arr;
   };
 
-
   averageData(data) {
     let wks = [];
     let keys = Object.keys(data);
@@ -94,18 +93,30 @@ class CalendarContainer extends Component {
           <p>Oma aktiivisuutesi</p>
           <p>Kurssin keskiarvoaktiivisuus</p>
         </div>
-        <div>
-          <div></div>
-          <div style="column-count:7">
-            <div style="width:30%">Su</div>
-            <div>Ma</div>
-            <div>Ti</div>
-            <div>Ke</div>
-            <div>To</div>
-            <div>Pe</div>
-            <div>La</div>
+        <div className="CalendarWeek">
+          <div>&nbsp;</div>
+          <div>
+          <div className="day-labels">
+            <div className="day">Su</div>
+            <div className="day">Ma</div>
+            <div className="day">Ti</div>
+            <div className="day">Ke</div>
+            <div className="day">To</div>
+            <div className="day">Pe</div>
+            <div className="day">La</div>
           </div>
-          <div></div>
+          </div>
+          <div>
+            <div className="day-labels">
+            <div className="day">Su</div>
+            <div className="day">Ma</div>
+            <div className="day">Ti</div>
+            <div className="day">Ke</div>
+            <div className="day">To</div>
+            <div className="day">Pe</div>
+            <div className="day">La</div>
+          </div>
+          </div>
         </div>
         {renderCalendars()}
       </div>
@@ -117,20 +128,8 @@ const mapStateToProps = state => {
   return {
     heatMapData: state.heatMapData.userData,
     heatMapAverageData: state.heatMapData.averageData,
-    dashboard_token: state.APIcalls.dashboard_token,
-    courseId: state.courseData.courseId
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchHeatMapData: (token, courseId) => {
-      dispatch(fetchHeatMapData(token, courseId))
-    },
-    fetchHeatMapAverageData: (token, courseId) => {
-      dispatch(fetchHeatMapAverageData(token, courseId))
-    }
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(CalendarContainer);
+export default connect(mapStateToProps, null)(CalendarContainer);
