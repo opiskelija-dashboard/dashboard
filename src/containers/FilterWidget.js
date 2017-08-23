@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { LeaderBoard } from '../layouts/LeaderBoardLayout'
 import { Badges } from '../layouts/BadgesLayout'
 import { MyPage } from '../layouts/MyPageLayout'
+import MyPageGrid from '../components/MyPageGrid'
 
 class FilterWidget extends Component {
   render() {
@@ -18,7 +19,7 @@ class FilterWidget extends Component {
         )
       case "Oma sivu":
         return (
-          <MyPage />
+          <MyPageGrid />
         )
       default:
         return (

@@ -33,7 +33,7 @@ export default class ShowcaseLayout extends Component {
   generateDOM() {
     return _.map(this.state.layouts.lg, function(l, i) {
       return (
-        <div key={i} className={l.static ? "Static" : ""}>
+        <div key={i} >
           {l.static
             ? <span
                 className="text"
