@@ -49,47 +49,40 @@ class CalendarContainer extends Component {
   render() {
     const averageWeeks = this.averageData(this.props.heatMapAverageData);
     const userWeeks = this.userData(this.props.heatMapAverageData, this.props.heatMapData);
-    /*const renderCalendars = averageWeeks.map((v, index) => {
-      return (<div key={index} className="CalendarWeek">
-        <p style={{fontSize: 20}}>{Moment(v[0].date, "YYYY-MM-DD").week()}</p>
-        <Calendar
-          endDate={v[v.length-1].date}
-          numDays={v.length}
-          values={v}
-        />
-        <Calendar
-          endDate={v[v.length-1].date}
-          numDays={v.length}
-          values={v}
-        />
-      </div>)
-    }
-    )*/
+
     const renderCalendars = () => {
       let calendars = [];
       for(let i = 0; i < averageWeeks.length; i++) {
+        let start = Moment(averageWeeks[i][0].date, "YYYY-MM-DD");
+        let end = Moment(averageWeeks[i][averageWeeks[i].length-1].date, "YYYY-MM-DD");
+
         calendars.push(
-        <div key={i} className="CalendarWeek">
-          <p style={{fontSize: 20}}>{Moment(averageWeeks[i][0].date, "YYYY-MM-DD").week()}</p>
-          <Calendar
-            endDate={userWeeks[i][userWeeks[i].length-1].date}
-            numDays={userWeeks[i].length}
-            values={userWeeks[i]}
-          />
-          <Calendar
-            endDate={averageWeeks[i][averageWeeks[i].length-1].date}
-            numDays={averageWeeks[i].length}
-            values={averageWeeks[i]}
-          />
-        </div>)
+          <div key={i} className="CalendarWeek">
+            <p style={{fontSize: 20}}>{start.week() +' '} 
+              <span style={{fontSize: 16}}>
+                 ({start.format("DD.MM")} - 
+                 {' '+ end.format("DD.MM")})
+              </span>
+            </p>
+            <Calendar
+              endDate={userWeeks[i][userWeeks[i].length-1].date}
+              numDays={userWeeks[i].length}
+              values={userWeeks[i]}
+            />
+            <Calendar
+              endDate={averageWeeks[i][averageWeeks[i].length-1].date}
+              numDays={averageWeeks[i].length}
+              values={averageWeeks[i]}
+            />
+          </div>)
       }
-     return calendars;
+      return calendars;
     }
 
     return (
       <div>
         <div className="CalendarWeek">
-          <p>Viikkonumero</p>
+          <p>Viikko</p>
           <p>Oma aktiivisuutesi</p>
           <p>Kurssin keskiarvoaktiivisuus</p>
         </div>
