@@ -1,47 +1,91 @@
 import React, { Component } from "react";
 import {Calendar} from '../components/Calendar'
 import Moment from 'moment'
-// import { connect } from "react-redux";
+import { connect } from 'react-redux'
 
-export default class CalendarContainer extends Component {
+class CalendarContainer extends Component {
+
+  userData(avgData, userData) {
+    let arr = [];
+    let keys = Object.keys(avgData);
+    keys.sort();
+    let startDow = Moment(keys[0]).day();
+    while(keys[0]){
+      let daysInWeek = 7-startDow;
+      let nextWeek = keys.splice(0, daysInWeek);
+      let week = [];
+      for(let i = 0 ; i < nextWeek.length; i++) {
+        if(userData[nextWeek[i]]) {
+          week.push({ date: nextWeek[i] , count: userData[nextWeek[i]]});
+        } else {
+          week.push({ date: nextWeek[i], count: 0})
+        }
+      }
+      arr.push(week);
+      startDow = 0;
+    }
+    return arr;
+  };
+
+
+  averageData(data) {
+    let wks = [];
+    let keys = Object.keys(data);
+    keys.sort();
+    let startDow = Moment(keys[0]).day();
+    while(keys[0]){
+      let daysInWeek = 7-startDow;
+      let nextWeek = keys.splice(0, daysInWeek);
+      let week = [];
+      for(let i = 0 ; i < nextWeek.length; i++) {
+        week.push({ date: nextWeek[i] , count: data[nextWeek[i]]});
+      }
+      wks.push(week);
+      startDow = 0;
+    }
+    return wks;
+  };
+
+
   render() {
-    const numDays = 7;
-    const weeks = [
-    [
-      { date: "2017-08-06", count: 1},
-      { date: "2017-08-07", count: 1},
-      { date: "2017-08-08", count: 4},
-      { date: "2017-08-09", count: 3},
-      { date: "2017-08-10", count: 2},
-      { date: "2017-08-11", count: 4},
-      { date: "2017-08-12", count: 2}
-    ],
-    [ 
-      { date: "2017-08-13", count: 3},
-      { date: "2017-08-14", count: 3},
-      { date: "2017-08-15", count: 2},
-      { date: "2017-08-16", count: 1},
-      { date: "2017-08-17", count: 4},
-      { date: "2017-08-18", count: 2},
-      { date: "2017-08-19", count: 1}
-    ]];
-
-    const renderCalendars = weeks.map((v, index) =>
-      <div key={index} className="CalendarWeek">
+    const averageWeeks = this.averageData(this.props.heatMapAverageData);
+    const userWeeks = this.userData(this.props.heatMapAverageData, this.props.heatMapData);
+    /*const renderCalendars = averageWeeks.map((v, index) => {
+      return (<div key={index} className="CalendarWeek">
         <p style={{fontSize: 20}}>{Moment(v[0].date, "YYYY-MM-DD").week()}</p>
         <Calendar
-          endDate={v[6].date}
-          numDays={numDays}
+          endDate={v[v.length-1].date}
+          numDays={v.length}
           values={v}
         />
         <Calendar
-          endDate={v[6].date}
-          numDays={numDays}
+          endDate={v[v.length-1].date}
+          numDays={v.length}
           values={v}
         />
-      </div>
-    )
-
+      </div>)
+    }
+    )*/
+    const renderCalendars = () => {
+      let calendars = [];
+      for(let i = 0; i < averageWeeks.length; i++) {
+        calendars.push(
+        <div key={i} className="CalendarWeek">
+          <p style={{fontSize: 20}}>{Moment(averageWeeks[i][0].date, "YYYY-MM-DD").week()}</p>
+          <Calendar
+            endDate={userWeeks[i][userWeeks[i].length-1].date}
+            numDays={userWeeks[i].length}
+            values={userWeeks[i]}
+          />
+          <Calendar
+            endDate={averageWeeks[i][averageWeeks[i].length-1].date}
+            numDays={averageWeeks[i].length}
+            values={averageWeeks[i]}
+          />
+        </div>)
+      }
+     return calendars;
+    }
 
     return (
       <div>
@@ -50,9 +94,43 @@ export default class CalendarContainer extends Component {
           <p>Oma aktiivisuutesi</p>
           <p>Kurssin keskiarvoaktiivisuus</p>
         </div>
-
-        {renderCalendars}
+        <div>
+          <div></div>
+          <div style="column-count:7">
+            <div style="width:30%">Su</div>
+            <div>Ma</div>
+            <div>Ti</div>
+            <div>Ke</div>
+            <div>To</div>
+            <div>Pe</div>
+            <div>La</div>
+          </div>
+          <div></div>
+        </div>
+        {renderCalendars()}
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    heatMapData: state.heatMapData.userData,
+    heatMapAverageData: state.heatMapData.averageData,
+    dashboard_token: state.APIcalls.dashboard_token,
+    courseId: state.courseData.courseId
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchHeatMapData: (token, courseId) => {
+      dispatch(fetchHeatMapData(token, courseId))
+    },
+    fetchHeatMapAverageData: (token, courseId) => {
+      dispatch(fetchHeatMapAverageData(token, courseId))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarContainer);
