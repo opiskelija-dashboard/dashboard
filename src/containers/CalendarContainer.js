@@ -58,10 +58,10 @@ class CalendarContainer extends Component {
 
         calendars.push(
           <div key={i} className="CalendarWeek">
-            <p style={{fontSize: 20}}>{start.week() +' '} 
-              <span style={{fontSize: 16}}>
-                 ({start.format("DD.MM")} - 
-                 {' '+ end.format("DD.MM")})
+            <p className="week-label">{start.week() +' '} 
+              <span className="date-range">
+                 ({start.format("DD.MM.")} - 
+                 {' '+ end.format("DD.MM.")})
               </span>
             </p>
             <Calendar

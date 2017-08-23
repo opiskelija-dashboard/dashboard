@@ -140,15 +140,22 @@ li b {
   font-weight: bold;
 }
 
+.week-label {
+  font-size: 1.3vw;
+}
+
+.date-range {
+  font-size: 1.0vw;
+}
+
 .day-labels {
   column-count: 7;
-  width: 13vw;
+  width: 12.8vw;
   margin: 0 auto;
 }
 
 .day {
-  font-size: 0.7vw;
-  text-align: center;
+  font-size: 0.8vw;
 }
 
 #calendarHeader {
