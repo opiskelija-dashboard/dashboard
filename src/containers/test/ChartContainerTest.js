@@ -14,7 +14,7 @@ test.beforeEach(t => {
   const mockStore = configureStore();
 
   const initialState = {
-    APIcalls: {
+    points: {
       progressData: {data: []},
       courseMaxPoints: 20
     }

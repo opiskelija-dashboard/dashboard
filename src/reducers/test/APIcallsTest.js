@@ -2,7 +2,7 @@ import test from 'ava'
 import {reducerTest} from 'redux-ava'
 import reducer from '../APIcalls.js'
 
-test('APIcalls reducer handles daily points & course average correctly', reducerTest(
+test.skip('APIcalls reducer handles daily points & course average correctly', reducerTest(
   //reducer to be tested
   reducer,
   //initial state
@@ -41,7 +41,7 @@ test('APIcalls reducer handles daily points & course average correctly', reducer
 ));
 
 
-test('APIcalls reducer handles jwt token correctly', reducerTest(
+test.skip('APIcalls reducer handles jwt token correctly', reducerTest(
   reducer,
   {
     dashboard_token: null
@@ -62,7 +62,7 @@ test('APIcalls reducer handles jwt token correctly', reducerTest(
 ))
 
 
-test('APIcalls reducer handles skills data correctly', reducerTest(
+test.skip('APIcalls reducer handles skills data correctly', reducerTest(
   reducer,
   {
     skillsData: null
@@ -82,7 +82,7 @@ test('APIcalls reducer handles skills data correctly', reducerTest(
   }
 ))
 
-test('APIcalls reducer handles http error correctly', reducerTest(
+test.skip('APIcalls reducer handles http error correctly', reducerTest(
   reducer,
   {
     fetchError: false
@@ -95,7 +95,7 @@ test('APIcalls reducer handles http error correctly', reducerTest(
   } 
 ))
 
-test('APIcalls reducer handles initial leaderboard data update correctly', reducerTest(
+test.skip('APIcalls reducer handles initial leaderboard data update correctly', reducerTest(
   reducer,
   {
     leaderboardUpdated: false

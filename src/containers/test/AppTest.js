@@ -15,7 +15,8 @@ test.beforeEach(t => {
   const initialState = {
     "widgets": { "filter": "random" },
     "APIcalls": { "dashboard_token": "random"},
-    "courseData": { "courseId": "214"} 
+    "courseData": { "courseId": "214"},
+    "points": { "fetchError": false, "isFetching": false } 
   };
   t.context.store = mockStore(initialState);
 

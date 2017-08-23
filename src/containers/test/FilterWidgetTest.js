@@ -14,7 +14,7 @@ test.beforeEach(t => {
   const mockStore = configureStore();
   const initialState = {
     widgets: { filter: "random" },
-    APIcalls: { id: "joku", points: "10" }
+    points: { id: "joku", points: "10" }
    };
   t.context.store = mockStore(initialState);
 });
@@ -36,7 +36,7 @@ test("when state is 'Leaderboard' LeaderBoard -component renders", t => {
   const mockStore = configureStore();
   const initialState = {
     widgets: { filter: "Leaderboard" },
-    APIcalls: {
+    points: {
       leaderBoardData: [{ user_id: "joku", points: "10" }],
       dashboard_token: "adasd",
       leaderboardUpdated: false
