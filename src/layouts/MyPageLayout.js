@@ -15,10 +15,6 @@ export const MyPage = () =>
     </div>
 
     <div className="WidgetContainer">
-
-      <p>Päivän tummuus kertoo aktiivisuudestasi</p>
-
       <CalendarContainer />
-
     </div>
   </div>
