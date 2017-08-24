@@ -151,7 +151,7 @@ li b {
 @media screen and (max-width: 1366px) and (min-width: 801px) {
   .day-labels {
     column-count: 7;
-    width: 175px;
+    width: 12.5vw;
     margin: 0 auto;
   }
 }
@@ -159,8 +159,8 @@ li b {
 @media screen and (min-width: 1367px) {
   .day-labels {
     column-count: 7;
-    width: 
-
+    width: 175px;
+    margin: 0 auto;
   }
 }
 
