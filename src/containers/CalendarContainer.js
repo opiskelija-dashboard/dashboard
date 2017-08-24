@@ -7,72 +7,72 @@ import { ThreeBounce } from 'better-react-spinkit'
 class CalendarContainer extends Component {
 
   userData(avgData, userData) {
-    let arr = [];
-    let keys = Object.keys(avgData);
-    keys.sort();
-    let startDow = Moment(keys[0]).day();
-    while(keys[0]){
-      let daysInWeek = 7-startDow;
-      let nextWeek = keys.splice(0, daysInWeek);
-      let week = [];
-      for(let i = 0 ; i < nextWeek.length; i++) {
-        if(userData[nextWeek[i]]) {
-          week.push({ date: nextWeek[i] , count: userData[nextWeek[i]]});
+    let allWeeks = [];
+    let dateKeys = Object.keys(avgData);
+    //order course dates
+    dateKeys.sort();
+    let startDow = Moment(dateKeys[0]).day();
+    while(dateKeys[0]){
+      //first calendar week may have less than 7 active course days
+      let daysInNextWeek = 7-startDow;
+      let nextWeek = dateKeys.splice(0, daysInNextWeek);
+      let weekData = nextWeek.map((day, index) => {
+        if(userData[day]) {
+          return { date: day , count: userData[day] };
         } else {
-          week.push({ date: nextWeek[i], count: 0})
+          return { date: day, count: 0}
         }
-      }
-      arr.push(week);
+      })
+      allWeeks.push(weekData);
+      //all the following weeks start from sunday
       startDow = 0;
     }
-    return arr;
+    return allWeeks;
   };
 
-  averageData(data) {
-    let wks = [];
-    let keys = Object.keys(data);
-    keys.sort();
-    let startDow = Moment(keys[0]).day();
-    while(keys[0]){
-      let daysInWeek = 7-startDow;
-      let nextWeek = keys.splice(0, daysInWeek);
-      let week = [];
-      for(let i = 0 ; i < nextWeek.length; i++) {
-        week.push({ date: nextWeek[i] , count: data[nextWeek[i]]});
-      }
-      wks.push(week);
+  averageData(avgData) {
+    let allWeeks = [];
+    let dateKeys = Object.keys(avgData);
+    dateKeys.sort();
+    let startDow = Moment(dateKeys[0]).day();
+    while(dateKeys[0]){
+      let daysInNextWeek = 7-startDow;
+      let nextWeek = dateKeys.splice(0, daysInNextWeek);
+      let week = nextWeek.map((day) => {
+        return { date: day , count: avgData[day] }
+      })
+      allWeeks.push(week);
       startDow = 0;
     }
-    return wks;
+    return allWeeks;
   };
 
   renderCalendars() {
     const averageWeeks = this.averageData(this.props.heatMapAverageData);
     const userWeeks = this.userData(this.props.heatMapAverageData, this.props.heatMapData);
-    let calendars = [];
-    for(let i = 0; i < averageWeeks.length; i++) {
-      let start = Moment(averageWeeks[i][0].date, "YYYY-MM-DD");
-      let end = Moment(averageWeeks[i][averageWeeks[i].length-1].date, "YYYY-MM-DD");
-      calendars.push(
-        <div key={i} className="CalendarWeek">
-          <p className="week-label">{start.week() +' '} 
+    let calendars = averageWeeks.map((avgWeek, weekIndex) => {
+      let start = Moment(avgWeek[0].date, "YYYY-MM-DD");
+      let end = Moment(avgWeek[avgWeek.length-1].date, "YYYY-MM-DD");
+      return(
+        <div key={weekIndex} className="CalendarWeek">
+          <p className="week-label"> {start.week() + ' '} 
             <span className="date-range">
-                ({start.format("DD.MM.")} - 
-                {' '+ end.format("DD.MM.")})
+                ({ start.format("DD.MM.") } - 
+                { ' '+ end.format("DD.MM.") })
             </span>
           </p>
-          <Calendar
-            endDate={userWeeks[i][userWeeks[i].length-1].date}
-            numDays={userWeeks[i].length}
-            values={userWeeks[i]}
+          <Calendar id="userCalendar"
+            endDate={userWeeks[weekIndex][userWeeks[weekIndex].length-1].date}
+            numDays={userWeeks[weekIndex].length}
+            values={userWeeks[weekIndex]}
           />
-          <Calendar
-            endDate={averageWeeks[i][averageWeeks[i].length-1].date}
-            numDays={averageWeeks[i].length}
-            values={averageWeeks[i]}
+          <Calendar id="avgCalendar"
+            endDate={avgWeek[avgWeek.length-1].date}
+            numDays={avgWeek.length}
+            values={avgWeek}
           />
         </div>)
-    }
+    })
     return calendars;
   }
   
