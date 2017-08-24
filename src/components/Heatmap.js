@@ -9,7 +9,7 @@ const classForValue = value => {
   return `color-dashboard-${value.count}`;
 };
 
-export const Calendar = props => {
+export const Heatmap = props => {
   const map = (
     <CalendarHeatmap
       horizontal={false}

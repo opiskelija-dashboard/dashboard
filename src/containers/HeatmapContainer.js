@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import {Calendar} from '../components/Calendar'
+import {Heatmap} from '../components/Heatmap'
 import Moment from 'moment'
 // import { connect } from "react-redux";
 
-export default class CalendarContainer extends Component {
+export default class HeatmapContainer extends Component {
   render() {
     const numDays = 7;
     const weeks = [
@@ -16,7 +16,7 @@ export default class CalendarContainer extends Component {
       { date: "2017-08-11", count: 4},
       { date: "2017-08-12", count: 2}
     ],
-    [ 
+    [
       { date: "2017-08-13", count: 3},
       { date: "2017-08-14", count: 3},
       { date: "2017-08-15", count: 2},
@@ -29,12 +29,12 @@ export default class CalendarContainer extends Component {
     const renderCalendars = weeks.map((v, index) =>
       <div key={index} className="CalendarWeek">
         <p style={{fontSize: 20}}>{Moment(v[0].date, "YYYY-MM-DD").week()}</p>
-        <Calendar
+        <Heatmap
           endDate={v[6].date}
           numDays={numDays}
           values={v}
         />
-        <Calendar
+        <Heatmap
           endDate={v[6].date}
           numDays={numDays}
           values={v}

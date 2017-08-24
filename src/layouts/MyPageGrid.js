@@ -5,7 +5,7 @@ import "../../node_modules/react-resizable/css/styles.css";
 
 import ChartContainer from '../containers/ChartContainer'
 import ProgressBarContainer from "../containers/ProgressBarContainer";
-import CalendarContainer from "../containers/CalendarContainer";
+import HeatmapContainer from "../containers/HeatmapContainer";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -42,7 +42,7 @@ export default class MyPageGrid extends Component {
             </div>
 
             <div style={{height: '100%'}} key={'heatmap'}>
-              <CalendarContainer />
+              <HeatmapContainer />
             </div>
         </ResponsiveReactGridLayout>
       </div>
