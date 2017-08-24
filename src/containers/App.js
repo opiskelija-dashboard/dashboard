@@ -8,7 +8,9 @@ import {
   fetchSkillsData,
   fetchLeaderBoardData,
   setCourseId,
-  updateLeaderboard
+  updateLeaderboard,
+  fetchHeatMapData,
+  fetchHeatMapAverageData
 } from "../actions/index";
 import { connect } from "react-redux";
 // import { ThreeBounce } from "better-react-spinkit";
@@ -30,6 +32,8 @@ class App extends React.Component {
       return;
     }
     if(nextProps.dashboard_token && nextProps.courseId) {
+      this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+      this.props.fetchHeatMapData(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchLeaderBoardData(nextProps.dashboard_token, nextProps.courseId);
@@ -65,7 +69,9 @@ const mapDispatchToProps = dispatch => {
     fetchSkillsData: (token, courseId) => dispatch(fetchSkillsData(token, courseId)),
     fetchLeaderBoardData: (token, courseId) => dispatch(fetchLeaderBoardData(token, courseId)),
     setCourseId: (id) => dispatch(setCourseId(id)),
-    updateLeaderboard: (token, courseId) => dispatch(updateLeaderboard(token, courseId))
+    updateLeaderboard: (token, courseId) => dispatch(updateLeaderboard(token, courseId)),
+    fetchHeatMapData: (token, courseId) => dispatch(fetchHeatMapData(token, courseId)),
+    fetchHeatMapAverageData: (token, courseId) => dispatch(fetchHeatMapAverageData(token, courseId))
   };
 };
 
