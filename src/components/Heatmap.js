@@ -1,6 +1,5 @@
 import React from 'react';
 import CalendarHeatmap from "react-calendar-heatmap";
-import { Popup } from 'semantic-ui-react'
 
 const classForValue = value => {
   if (!value) {
@@ -22,10 +21,6 @@ export const Heatmap = props => {
   )
 
   return (
-    <div className="asdasd">
-      <Popup trigger={map} >
-        TESTITESTI
-      </Popup>
-    </div>
+    map
   )
 }

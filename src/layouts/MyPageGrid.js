@@ -41,7 +41,7 @@ export default class MyPageGrid extends Component {
               <ProgressBarContainer />
             </div>
 
-            <div style={{height: '100%'}} key={'heatmap'}>
+            <div style={{overflow: 'auto', height: '100%'}} key={'heatmap'}>
               <HeatmapContainer />
             </div>
         </ResponsiveReactGridLayout>

@@ -1,56 +1,14 @@
 import React, { Component } from "react";
 import {Heatmap} from '../components/Heatmap'
 import Moment from 'moment'
-<<<<<<< HEAD:src/containers/HeatmapContainer.js
-// import { connect } from "react-redux";
-
-export default class HeatmapContainer extends Component {
-  render() {
-    const numDays = 7;
-    const weeks = [
-    [
-      { date: "2017-08-06", count: 1},
-      { date: "2017-08-07", count: 1},
-      { date: "2017-08-08", count: 4},
-      { date: "2017-08-09", count: 3},
-      { date: "2017-08-10", count: 2},
-      { date: "2017-08-11", count: 4},
-      { date: "2017-08-12", count: 2}
-    ],
-    [
-      { date: "2017-08-13", count: 3},
-      { date: "2017-08-14", count: 3},
-      { date: "2017-08-15", count: 2},
-      { date: "2017-08-16", count: 1},
-      { date: "2017-08-17", count: 4},
-      { date: "2017-08-18", count: 2},
-      { date: "2017-08-19", count: 1}
-    ]];
-
-    const renderCalendars = weeks.map((v, index) =>
-      <div key={index} className="CalendarWeek">
-        <p style={{fontSize: 20}}>{Moment(v[0].date, "YYYY-MM-DD").week()}</p>
-        <Heatmap
-          endDate={v[6].date}
-          numDays={numDays}
-          values={v}
-        />
-        <Heatmap
-          endDate={v[6].date}
-          numDays={numDays}
-          values={v}
-        />
-      </div>
-    )
-=======
 import { connect } from 'react-redux'
 import { ThreeBounce } from 'better-react-spinkit'
 
-class CalendarContainer extends Component {
+class HeatmapContainer extends Component {
 
   userData(avgData, userData) {
     let allWeeks = [];
-    //active course dates in ascending order 
+    //active course dates in ascending order
     let dateKeys = Object.keys(avgData);
     dateKeys.sort();
     let startDow = Moment(dateKeys[0]).day();
@@ -97,18 +55,18 @@ class CalendarContainer extends Component {
       let end = Moment(avgWeek[avgWeek.length-1].date, "YYYY-MM-DD");
       return(
         <div key={weekIndex} className="CalendarWeek">
-          <p className="week-label"> {start.week() + ' '} 
+          <p className="week-label"> {start.week() + ' '}
             <span className="date-range">
-                ({ start.format("DD.MM.") } - 
+                ({ start.format("DD.MM.") } -
                 { ' '+ end.format("DD.MM.") })
             </span>
           </p>
-          <Calendar id="userCalendar"
+          <Heatmap id="userCalendar"
             endDate={userWeeks[weekIndex][userWeeks[weekIndex].length-1].date}
             numDays={userWeeks[weekIndex].length}
             values={userWeeks[weekIndex]}
           />
-          <Calendar id="avgCalendar"
+          <Heatmap id="avgCalendar"
             endDate={avgWeek[avgWeek.length-1].date}
             numDays={avgWeek.length}
             values={avgWeek}
@@ -117,10 +75,8 @@ class CalendarContainer extends Component {
     })
     return calendars;
   }
-  
->>>>>>> 34993c660cdf985fead497d122025f4b81dcfe09:src/containers/CalendarContainer.js
 
-  render() {      
+  render() {
     const userIsFetching = this.props.userIsFetching;
     const averageIsFetching = this.props.averageIsFetching;
     const fetchError = this.props.fetchError;
@@ -166,7 +122,7 @@ class CalendarContainer extends Component {
                 </div>
               </div>
             </div>
-        
+
             {this.renderCalendars()}
 
           </div>
@@ -187,4 +143,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, null)(CalendarContainer);
+export default connect(mapStateToProps, null)(HeatmapContainer);
