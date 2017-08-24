@@ -5,7 +5,7 @@ import { Line } from "react-chartjs-2";
 
 export const Chart = props => {
   const options = {
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
       yAxes: [
         {
@@ -17,7 +17,7 @@ export const Chart = props => {
       ]
     }
   };
-  
+
   const data = {
     labels: props.progressData.map((item) => item.date),
     datasets: [
@@ -64,7 +64,7 @@ export const Chart = props => {
   };
 
   return(
-    <div style={{margin: "auto", overflow: "hidden"}}>
+    <div style={{height: '100%'}}>
       <Line
         data={data}
         options={options}

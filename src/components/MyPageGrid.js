@@ -11,31 +11,33 @@ export default class MyPageGrid extends Component {
 
   render() {
     const layoutLg = [
-      {i: 'a', x: 0, y: 0, w: 12, h: 4, static: true},
-      {i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4},
-      {i: 'c', x: 4, y: 0, w: 1, h: 2}
+      {i: 'chart', x: 0, y: 0, w: 10, h: 3},
+      {i: 'skills', x: 1, y: 0, w: 3, h: 2},
+      {i: 'heatmap', x: 4, y: 0, w: 1, h: 2}
     ];
 
     const layoutMd = [
-      {i: 'a', x: 0, y: 0, w: 1, h: 2},
-      {i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4},
+      {i: 'a', x: 0, y: 0, w: 6, h: 2},
+      {i: 'b', x: 1, y: 0, w: 3, h: 2},
       {i: 'c', x: 4, y: 0, w: 1, h: 2}
     ];
     const layouts = {lg:layoutLg, md: layoutMd}
 
     return (
-      <div>
+      <div style={{marginTop: '10px'}}>
         <ResponsiveReactGridLayout
           className="layout"
           layouts={layouts}
-          breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-          cols={{lg: 12, md: 10, sm: 6, xs: 4, xxs: 2}}
+          breakpoints={{lg: 980, sm: 768}}
+          cols={{lg: 10, sm: 6}}
         >
-            <div key={'a'} className="WidgetContainer">
+            <div style={{overflow: 'hidden'}} key={'chart'}>
               <ChartContainer />
             </div>
-            <div key={'b'}>b</div>
-            <div key={'c'}>c</div>
+            <div key={'skills'}>
+
+            </div>
+            <div key={'heatmap'}>c</div>
         </ResponsiveReactGridLayout>
       </div>
     )
