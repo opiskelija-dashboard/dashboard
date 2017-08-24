@@ -18,12 +18,12 @@ export default class MyPageGrid extends Component {
       {i: 'heatmap', x: 6, y: 4, w: 5, h: 3}
     ];
 
-    const layoutMd = [
-      {i: 'a', x: 0, y: 0, w: 6, h: 2},
-      {i: 'b', x: 2, y: 0, w: 3, h: 2},
-      {i: 'c', x: 4, y: 0, w: 1, h: 2}
+    const layoutSm = [
+      {i: 'chart', x: 0, y: 0, w: 6, h: 2},
+      {i: 'skills', x: 0, y: 3, w: 3, h: 2},
+      {i: 'heatmap', x: 3, y: 3, w: 3, h: 2}
     ];
-    const layouts = {lg:layoutLg, md: layoutMd}
+    const layouts = {lg:layoutLg, sm: layoutSm}
 
     return (
       <div style={{marginTop: '10px'}}>
