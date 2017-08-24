@@ -22,7 +22,7 @@ test.beforeEach(t => {
   t.context.store = mockStore(initialState);
 });
 
-test('renders without crashing', t => {
+test.skip('renders without crashing', t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
       <CalendarContainer />
