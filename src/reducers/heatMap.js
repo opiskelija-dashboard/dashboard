@@ -13,7 +13,7 @@ export default function heatMap(
   }, action ) {
       
   if(action.error) {
-      action.type = "HEAT_MAP_FETCH_ERROR"
+    action.type = "HEAT_MAP_FETCH_ERROR"
   }
   switch(action.type) {
     case FETCH_HEAT_MAP_DATA:
@@ -27,10 +27,9 @@ export default function heatMap(
         { averageIsFetching: false }
       );
     case "HEAT_MAP_FETCH_ERROR":
-      Object.assign({}, state,
+      return Object.assign({}, state,
         { fetchError: true }
       );
-      return state;
     default:
       return state;
   }

@@ -8,12 +8,12 @@ class CalendarContainer extends Component {
 
   userData(avgData, userData) {
     let allWeeks = [];
+    //active course dates in ascending order 
     let dateKeys = Object.keys(avgData);
-    //order course dates
     dateKeys.sort();
     let startDow = Moment(dateKeys[0]).day();
     while(dateKeys[0]){
-      //first calendar week may have less than 7 active course days
+      //number of active course days on calendar week (1st week may be short)
       let daysInNextWeek = 7-startDow;
       let nextWeek = dateKeys.splice(0, daysInNextWeek);
       let weekData = nextWeek.map((day, index) => {
