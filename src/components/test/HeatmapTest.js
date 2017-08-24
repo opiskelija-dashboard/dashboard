@@ -3,16 +3,17 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 import ReactDOM from 'react-dom';
 
-import Calendar from '../Calendar';
+import Heatmap from '../Heatmap';
+import CalendarHeatmap from "react-calendar-heatmap";
 
 test.skip('renders without crashing', t => {
   const wrapper = shallow(
-    <Calendar
+    <Heatmap
       endDate={new Date()}
       numDays={7}
       values={[]}
     />
   )
 
-  t.deepEqual(wrapper.find('.asdasd').length(), 1);
+  t.deepEqual(wrapper.find(CalendarHeatmap).length(), 1);
 });
