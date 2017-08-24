@@ -148,10 +148,20 @@ li b {
   font-size: 1.0vw;
 }
 
-.day-labels {
-  column-count: 7;
-  width: 12.8vw;
-  margin: 0 auto;
+@media screen and (max-width: 1366px) and (min-width: 801px) {
+  .day-labels {
+    column-count: 7;
+    width: 175px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1367px) {
+  .day-labels {
+    column-count: 7;
+    width: 
+
+  }
 }
 
 .day {
