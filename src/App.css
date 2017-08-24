@@ -127,10 +127,45 @@ li b {
 
 /*Calendar Setup*/
 
+@media screen and (max-width: 800px) {
+  .day-labels {
+    display: none
+  }
+}
+
 .CalendarWeek {
   column-count: 3;
   margin: auto;
-  max-width: 60vw;
+  width: 45vw;
+  font-weight: bold;
+}
+
+.week-label {
+  font-size: 1.3vw;
+}
+
+.date-range {
+  font-size: 1.0vw;
+}
+
+@media screen and (max-width: 1366px) and (min-width: 801px) {
+  .day-labels {
+    column-count: 7;
+    width: 175px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1367px) {
+  .day-labels {
+    column-count: 7;
+    width: 
+
+  }
+}
+
+.day {
+  font-size: 0.8vw;
 }
 
 #calendarHeader {
@@ -170,7 +205,7 @@ li b {
  * Our Custom color scale
  */
 
-.react-ndar-heatmap .color-dashboard-0 {
+.react-calendar-heatmap .color-dashboard-0 {
   fill: #ededee;
 }
 .react-calendar-heatmap .color-dashboard-1 {

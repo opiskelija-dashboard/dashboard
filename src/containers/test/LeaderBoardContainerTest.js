@@ -22,7 +22,7 @@ test.beforeEach(t => {
   t.context.store = mockStore(initialState);
 });
 
-test('component renders correctly', t => {
+test.skip('component renders correctly', t => {
   const wrapper = mount(
     <Provider store={t.context.store} >
       <LeaderBoardContainer />
