@@ -10,7 +10,10 @@ test('fetch skills data test', t => {
   const responseStub = (url, headers) => {
     return new Promise((r) => r({
       data: {
-        skill_percentage: [{label:'while', user:5, average:7}, {label:'if', user:1, average:3} ]
+        data: [
+          {label:'while', user:5, all:7},
+          {label:'if', user:1, all:3}
+        ]
       }
     }));
   }
@@ -21,12 +24,12 @@ test('fetch skills data test', t => {
       type: 'FETCH_SKILLS_DATA',
       payload: {
         data: {
-          skill_percentage: [{label:'while', user:5, average: 7}, {label:'if', user:1, average:3}]
+          data: [{label:'while', user:5, all: 7}, {label:'if', user:1, all:3}]
         }
       }
     }
   ];
-  const expectedUrl = API_BASE_URL + "/skill-percentages/course/214";
+  const expectedUrl = API_BASE_URL + "/skill-mastery/course/214/combined";
   const expectedHeaders = { headers: { Authorization: 'Bearer xyzzy'}};
   const store = mockStore({});
   return store.dispatch(actions.fetchSkillsData('xyzzy', '214')).then(() => {
