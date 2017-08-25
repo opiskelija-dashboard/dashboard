@@ -61,16 +61,21 @@ class HeatmapContainer extends Component {
                 { ' '+ end.format("DD.MM.") })
             </span>
           </p>
-          <Heatmap id="userCalendar"
-            endDate={userWeeks[weekIndex][userWeeks[weekIndex].length-1].date}
-            numDays={userWeeks[weekIndex].length}
-            values={userWeeks[weekIndex]}
-          />
-          <Heatmap id="avgCalendar"
-            endDate={avgWeek[avgWeek.length-1].date}
-            numDays={avgWeek.length}
-            values={avgWeek}
-          />
+          <div>
+            <Heatmap id="userCalendar"
+              endDate={userWeeks[weekIndex][userWeeks[weekIndex].length-1].date}
+              numDays={userWeeks[weekIndex].length}
+              values={userWeeks[weekIndex]}
+            />
+          </div>
+          <div>
+            <Heatmap id="avgCalendar"
+              endDate={avgWeek[avgWeek.length-1].date}
+              numDays={avgWeek.length}
+              values={avgWeek}
+            />
+          </div>
+
         </div>)
     })
     return calendars;
@@ -82,7 +87,7 @@ class HeatmapContainer extends Component {
     const fetchError = this.props.fetchError;
 
     return (
-      <div>
+      <div style={{marginLeft: '-20'}}>
         { fetchError &&
           <div>Tietoa haettaessa tapahtui virhe. Yritä myöhemmin uudestaan.</div>
         }

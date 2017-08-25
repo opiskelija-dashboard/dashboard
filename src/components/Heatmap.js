@@ -9,7 +9,7 @@ const classForValue = value => {
 };
 
 export const Heatmap = props => {
-  const map = (
+  return (
     <CalendarHeatmap
       horizontal={false}
       showMonthLabels={false}
@@ -18,9 +18,5 @@ export const Heatmap = props => {
       values={props.values}
       classForValue={classForValue}
     />
-  )
-
-  return (
-    map
   )
 }

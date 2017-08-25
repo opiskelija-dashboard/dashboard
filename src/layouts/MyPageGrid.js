@@ -26,7 +26,7 @@ export default class MyPageGrid extends Component {
     const layouts = {lg:layoutLg, sm: layoutSm}
 
     return (
-      <div id='MyPageGrid' style={{marginTop: '10px', maxHeight: '95vh'}}>
+      <div id='MyPageGrid' style={{marginTop: '10px', maxHeight: '80vh'}}>
         <ResponsiveReactGridLayout
           className="layout"
           layouts={layouts}
