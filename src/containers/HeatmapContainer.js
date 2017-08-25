@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import {Calendar} from '../components/Calendar'
+import {Heatmap} from '../components/Heatmap'
 import Moment from 'moment'
 import { connect } from 'react-redux'
 import { ThreeBounce } from 'better-react-spinkit'
 
-class CalendarContainer extends Component {
+class HeatmapContainer extends Component {
 
   userData(avgData, userData) {
     let allWeeks = [];
-    //active course dates in ascending order 
+    //active course dates in ascending order
     let dateKeys = Object.keys(avgData);
     dateKeys.sort();
     let startDow = Moment(dateKeys[0]).day();
@@ -55,35 +55,39 @@ class CalendarContainer extends Component {
       let end = Moment(avgWeek[avgWeek.length-1].date, "YYYY-MM-DD");
       return(
         <div key={weekIndex} className="CalendarWeek">
-          <p className="week-label"> {start.week() + ' '} 
+          <p className="week-label"> {start.week() + ' '}
             <span className="date-range">
-                ({ start.format("DD.MM.") } - 
+                ({ start.format("DD.MM.") } -
                 { ' '+ end.format("DD.MM.") })
             </span>
           </p>
-          <Calendar id="userCalendar"
-            endDate={userWeeks[weekIndex][userWeeks[weekIndex].length-1].date}
-            numDays={userWeeks[weekIndex].length}
-            values={userWeeks[weekIndex]}
-          />
-          <Calendar id="avgCalendar"
-            endDate={avgWeek[avgWeek.length-1].date}
-            numDays={avgWeek.length}
-            values={avgWeek}
-          />
+          <div>
+            <Heatmap id="userCalendar"
+              endDate={userWeeks[weekIndex][userWeeks[weekIndex].length-1].date}
+              numDays={userWeeks[weekIndex].length}
+              values={userWeeks[weekIndex]}
+            />
+          </div>
+          <div>
+            <Heatmap id="avgCalendar"
+              endDate={avgWeek[avgWeek.length-1].date}
+              numDays={avgWeek.length}
+              values={avgWeek}
+            />
+          </div>
+
         </div>)
     })
     return calendars;
   }
-  
 
-  render() {      
+  render() {
     const userIsFetching = this.props.userIsFetching;
     const averageIsFetching = this.props.averageIsFetching;
     const fetchError = this.props.fetchError;
 
     return (
-      <div>
+      <div style={{marginLeft: '-20'}}>
         { fetchError &&
           <div>Tietoa haettaessa tapahtui virhe. Yritä myöhemmin uudestaan.</div>
         }
@@ -123,7 +127,7 @@ class CalendarContainer extends Component {
                 </div>
               </div>
             </div>
-        
+
             {this.renderCalendars()}
 
           </div>
@@ -144,4 +148,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, null)(CalendarContainer);
+export default connect(mapStateToProps, null)(HeatmapContainer);
