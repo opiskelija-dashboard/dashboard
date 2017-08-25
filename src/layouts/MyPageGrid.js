@@ -37,11 +37,11 @@ export default class MyPageGrid extends Component {
               <ChartContainer />
             </div>
 
-            <div style={{overflow: 'auto', height: '100%'}} key={'skills'}>
+            <div style={{height: '100%'}} key={'skills'}>
               <ProgressBarContainer />
             </div>
 
-            <div style={{overflow: 'auto', height: '100%'}} key={'heatmap'}>
+            <div style={{height: '100%'}} key={'heatmap'}>
               <HeatmapContainer />
             </div>
         </ResponsiveReactGridLayout>

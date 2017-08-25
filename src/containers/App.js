@@ -44,7 +44,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="appContainer">
-        <NavBar />
+        <NavBar admin={true}/>
         <div className="Container">
           <FilterWidget />
         </div>
