@@ -8,14 +8,16 @@ import {
   fetchSkillsData,
   fetchLeaderBoardData,
   setCourseId,
-  updateLeaderboard
+  updateLeaderboard,
+  fetchHeatMapData,
+  fetchHeatMapAverageData
 } from "../actions/index";
 import { connect } from "react-redux";
-import { Segment } from "semantic-ui-react";
-import { ThreeBounce } from "better-react-spinkit";
+// import { ThreeBounce } from "better-react-spinkit";
 import { COURSE_ID } from "../config";
 
 class App extends React.Component {
+
   componentDidMount() {
     /* this call currently sets the course id (from config file). course ids can be foud in shadow-ohpe source code
     /assets/js/student-dashboard.js and later we might use those (on the other hand, we were told
@@ -30,41 +32,22 @@ class App extends React.Component {
       return;
     }
     if(nextProps.dashboard_token && nextProps.courseId) {
-      this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
       this.props.fetchLeaderBoardData(nextProps.dashboard_token, nextProps.courseId);
+      this.props.fetchHeatMapData(nextProps.dashboard_token, nextProps.courseId);
       this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
+      this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
+      this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
     }
   }
 
   render() {
-    const fetchError = this.props.fetchError;
-    const isFetching = this.props.isFetching;
-
     return (
       <div className="appContainer">
-        {fetchError &&
-          <div className="marginTop">
-            <Segment>
-              <p>Virhe ladattaessa tietoja palvelimelta!</p>
-              <p>Olethan kirjautunut sisään?</p>
-            </Segment>
-          </div>}
-          
-        {isFetching &&
-          !fetchError &&
-          <div className="marginTop">
-            <ThreeBounce size={40} />
-          </div>}
-
-        {!isFetching &&
-          !fetchError &&
-            <div>
-              <NavBar admin={true} />
-              <div className="Container">
-                <FilterWidget />
-              </div>
-            </div>}
+        <NavBar />
+        <div className="Container">
+          <FilterWidget />
+        </div>
       </div>
     );
   }
@@ -73,8 +56,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     dashboard_token: state.APIcalls.dashboard_token,
-    fetchError: state.APIcalls.fetchError,
-    isFetching: state.APIcalls.isFetching,
+    fetchError: state.points.fetchError,
+    isFetching: state.points.isFetching,
     courseId: state.courseData.courseId
   };
 };
@@ -86,7 +69,9 @@ const mapDispatchToProps = dispatch => {
     fetchSkillsData: (token, courseId) => dispatch(fetchSkillsData(token, courseId)),
     fetchLeaderBoardData: (token, courseId) => dispatch(fetchLeaderBoardData(token, courseId)),
     setCourseId: (id) => dispatch(setCourseId(id)),
-    updateLeaderboard: (token, courseId) => dispatch(updateLeaderboard(token, courseId))
+    updateLeaderboard: (token, courseId) => dispatch(updateLeaderboard(token, courseId)),
+    fetchHeatMapData: (token, courseId) => dispatch(fetchHeatMapData(token, courseId)),
+    fetchHeatMapAverageData: (token, courseId) => dispatch(fetchHeatMapAverageData(token, courseId))
   };
 };
 

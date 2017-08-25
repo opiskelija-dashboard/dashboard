@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchLeaderBoardData } from '../actions/index' 
+import { fetchLeaderBoardData } from '../actions/index'
+import { ThreeBounce } from "better-react-spinkit";
+import jwt_decode from 'jwt-decode';
 
 // Import React Table
 import ReactTable from 'react-table';
@@ -17,7 +19,7 @@ class LeaderBoardContainer extends Component {
     let ownData = null;
     let ownIndex = 100;
     for(var i=0; i < storeData.length; i++) {
-      if(storeData[i].user_id === 15653) {
+      if(storeData[i].user_id === jwt_decode(this.props.dashboard_token).tmcuid) {
         ownData = storeData[i];
         ownIndex = i;
       }
@@ -30,7 +32,7 @@ class LeaderBoardContainer extends Component {
       return storeData.slice(0);
     }
   }
- 
+
   componentDidMount() {
     if(this.props.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(this.props.dashboard_token, this.props.courseId);
@@ -54,9 +56,9 @@ class LeaderBoardContainer extends Component {
             Header: "Sijoitus",
             accessor: "index",
             Cell: row =>{
-              if(row.original.user_id === 15653) {
+              if(row.original.user_id === jwt_decode(this.props.dashboard_token).tmcuid) {
                 return (
-                  <div>{row.value}.  [ohtu_dashboard]</div>
+                  <div>{row.value}.  [{jwt_decode(this.props.dashboard_token).tmcusr}]</div>
                 )
               }
               return(
@@ -74,20 +76,20 @@ class LeaderBoardContainer extends Component {
       }
     ];
 
-    return (
+    const table = (
       <ReactTable
         getTrProps = {(state, rowInfo, column) => {
           if(rowInfo) {
             return {
               style: {
                 background: (() => {
-                  if(rowInfo.original.user_id === 15653) {
+                  if(rowInfo.original.user_id === jwt_decode(this.props.dashboard_token).tmcuid) {
                     return 'rgba(0,255,0,0.5)'
                   } else if(rowInfo.index % 2 !== 0){
                     return 'rgb(240, 240, 240)'
                   } else {
                     return 'rgb(247,247,247)';
-                  } 
+                  }
                 })()
               }
             }
@@ -115,16 +117,31 @@ class LeaderBoardContainer extends Component {
           }
         ]}
       />
+    )
+
+    const isFetching = this.props.isFetching;
+
+    return (
+      <div>
+        {isFetching &&
+          <ThreeBounce size={40} />
+        }
+
+        {!isFetching &&
+          table
+        }
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    leaderBoardData: state.APIcalls.leaderBoardData,
+    leaderBoardData: state.points.leaderBoardData,
     courseId : state.courseData.courseId,
     dashboard_token: state.APIcalls.dashboard_token,
-    leaderboardUpdated: state.APIcalls.leaderboardUpdated
+    leaderboardUpdated: state.points.leaderboardUpdated,
+    isFetching: state.points.leaderBoardFetch
   };
 };
 

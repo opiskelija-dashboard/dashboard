@@ -14,10 +14,9 @@ test.beforeEach(t => {
   const mockStore = configureStore();
 
   const initialState = {
-    APIcalls: {
-      progressData: [],
-      progressLabels: [],
-      maxpoints: 20
+    points: {
+      progressData: {data: []},
+      courseMaxPoints: 20
     }
   };
 
@@ -41,5 +40,5 @@ test("chartcontainer renders chart", t => {
       <ChartContainer />
     </Provider>
   );
-  t.deepEqual(wrapper.find(Chart).length, 1);
+  t.deepEqual(wrapper.find('Chart').length, 1);
 });

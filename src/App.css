@@ -61,6 +61,7 @@ html{
 .progressBarPair {
   display: table-cell;
   width: 60vw;
+  height: 100%;
 }
 
 /* Here starts REACT-GRID-LAYOUT COPY-PASTE */
@@ -131,10 +132,28 @@ li b {
 
 /*Calendar Setup*/
 
+
 .CalendarWeek {
   column-count: 3;
   margin: auto;
-  max-width: 60vw;
+  width: 100%;
+  font-weight: bold;
+  column-rule: 1px solid;
+
+}
+
+.week-label {
+  font-size: 1.3vw;
+}
+
+.date-range {
+  font-size: 1.0vw;
+}
+
+.day-labels {
+   column-count: 7;
+   margin: 0 auto;
+   font-size:0.7vw;
 }
 
 #calendarHeader {
@@ -174,7 +193,7 @@ li b {
  * Our Custom color scale
  */
 
-.react-ndar-heatmap .color-dashboard-0 {
+.react-calendar-heatmap .color-dashboard-0 {
   fill: #ededee;
 }
 .react-calendar-heatmap .color-dashboard-1 {

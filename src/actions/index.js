@@ -3,8 +3,6 @@ import store from "store";
 //import { makeData } from "../makeData";
 import { GET, POST } from '../API'
 
-export const FETCH_COURSE_POINTS = "FETCH_COURSE_POINTS";
-
 // not in use at the moment
 // export const fetchCoursePoints = (token, courseId) => {
 //   const request = GET("/points/course/" + courseId,
@@ -87,6 +85,27 @@ export const fetchLeaderBoardData = (token, courseId) => {
   };
 };
 
+export const FETCH_HEAT_MAP_DATA = "FETCH_HEAT_MAP_DATA";
+
+export const fetchHeatMapData = (token, courseId) => {
+  const url = "/heatmap/courses/" + courseId + "/current-user";
+  const request = GET(url, token);
+  return {
+    type: FETCH_HEAT_MAP_DATA,
+    payload: request
+  }
+}
+
+export const FETCH_HEAT_MAP_AVERAGE_DATA = "FETCH_HEAT_MAP_AVERAGE_DATA";
+
+export const fetchHeatMapAverageData = (token, courseId) => {
+  const url = "/heatmap/courses/" + courseId + "/all";
+  const request = GET(url, token);
+  return {
+    type: FETCH_HEAT_MAP_AVERAGE_DATA,
+    payload: request
+  }
+}
 
 export const SET_COURSE_ID = "SET_COURSE_ID";
 
