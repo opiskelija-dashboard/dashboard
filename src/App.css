@@ -133,11 +133,6 @@ li b {
 
 /*Calendar Setup*/
 
-@media screen and (max-width: 800px) {
-  .day-labels {
-    display: none
-  }
-}
 
 .CalendarWeek {
   column-count: 3;
@@ -156,31 +151,10 @@ li b {
   font-size: 1.0vw;
 }
 
-@media screen and (max-width: 1366px) and (min-width: 801px)  {
- .day-labels {
+.day-labels {
    column-count: 7;
-   width: 13.5vw;
    margin: 0 auto;
    font-size:0.7vw;
- }
-}
-
-@media screen and (min-width: 1367px) and (max-width: 1600px) {
-  .day-labels {
-    column-count: 7;
-    width: 185px;
-    margin: 0 auto;
-    font-size: 0.65vw;
-  }
-}
-
-@media screen and (min-width: 1601px) {
-  .day-labels {
-    column-count: 7;
-    width: 185px;
-    margin: 0 auto;
-    font-size: 0.45vw;
-  }
 }
 
 .HeatmapContainer {
