@@ -30,7 +30,7 @@ export default function points(
       );
     case FETCH_SKILLS_DATA:
       return Object.assign({}, state, {
-        skillsData: action.payload.data.skill_percentage,
+        skillsData: action.payload.data.data,
         skillsFetch: false
       });
     case FETCH_LEADERBOARD_DATA:

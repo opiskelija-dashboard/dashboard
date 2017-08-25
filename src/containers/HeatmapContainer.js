@@ -87,7 +87,7 @@ class HeatmapContainer extends Component {
     const fetchError = this.props.fetchError;
 
     return (
-      <div style={{marginLeft: '-20'}}>
+      <div className="HeatmapContainer">
         { fetchError &&
           <div>Tietoa haettaessa tapahtui virhe. Yritä myöhemmin uudestaan.</div>
         }

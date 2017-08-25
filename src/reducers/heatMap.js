@@ -11,7 +11,7 @@ export default function heatMap(
     averageIsFetching: true,
     fetchError: false
   }, action ) {
-      
+
   if(action.error) {
     action.type = "HEAT_MAP_FETCH_ERROR"
   }

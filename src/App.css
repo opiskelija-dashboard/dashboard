@@ -32,7 +32,7 @@ html{
 }
 
 .WidgetContainer {
-  background-color: #f2f2f2;
+
   margin: 20px;
   padding: 10px;
   overflow: auto;
@@ -52,6 +52,8 @@ html{
 .progressBarContainer {
   margin: auto;
   display: table;
+  overflow: auto;
+  height: 100%;
 }
 
 .progressBarPair {
@@ -71,9 +73,10 @@ html{
 #content {
   width: 100%;
 }
-.react-grid-layout {
-  background: #eee;
-}
+/*.react-grid-layout {
+  background: #f2f2f2;
+}*/
+
 .layoutJSON {
   background: #ddd;
   border: 1px solid black;
@@ -89,8 +92,9 @@ html{
   box-sizing: border-box;
 }
 .react-grid-item:not(.react-grid-placeholder) {
-  background: #ccc;
+  background: #f2f2f2;
   border: 1px solid black;
+  border-radius: 7px;
 }
 .react-grid-item.resizing {
   opacity: 0.9;
@@ -121,6 +125,7 @@ html{
   cursor: -moz-grab;
   cursor: -webkit-grab;
 }
+
 li b {
   font-size: 19px;
   line-height: 14px;
@@ -150,6 +155,11 @@ li b {
    column-count: 7;
    margin: 0 auto;
    font-size:0.7vw;
+}
+
+.HeatmapContainer {
+  overflow: auto;
+  height: 100%;
 }
 
 #calendarHeader {
