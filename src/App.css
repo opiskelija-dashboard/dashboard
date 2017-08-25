@@ -184,7 +184,6 @@ li b {
 }
 
 .HeatmapContainer {
-  margin-left: -20;
   overflow: auto;
   height: 100%;
 }
