@@ -12,17 +12,16 @@ test.beforeEach(t => {
   const mockStore = configureStore();
 
   const initialState = {
-    APIcalls: {
-      progressData: [],
-      progressLabels: [],
-      maxpoints: 20
+    heatMap: {
+      userData: {},
+      averageData: {}
     }
   };
 
   t.context.store = mockStore(initialState);
 });
 
-test.skip('renders without crashing', t => {
+test('renders without crashing', t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
       <HeatmapContainer />
