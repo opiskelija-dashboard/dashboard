@@ -1,6 +1,5 @@
 import React from 'react';
 import CalendarHeatmap from "react-calendar-heatmap";
-import { Popup } from 'semantic-ui-react'
 
 const classForValue = value => {
   if (!value) {
@@ -9,8 +8,8 @@ const classForValue = value => {
   return `color-dashboard-${value.count}`;
 };
 
-export const Calendar = props => {
-  const map = (
+export const Heatmap = props => {
+  return (
     <CalendarHeatmap
       horizontal={false}
       showMonthLabels={false}
@@ -19,13 +18,5 @@ export const Calendar = props => {
       values={props.values}
       classForValue={classForValue}
     />
-  )
-
-  return (
-    <div className="asdasd">
-      <Popup trigger={map} >
-        TESTITESTI
-      </Popup>
-    </div>
   )
 }

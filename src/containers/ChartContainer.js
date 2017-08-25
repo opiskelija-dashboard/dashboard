@@ -22,7 +22,7 @@ class ChartContainer extends Component {
     const isFetching = this.props.isFetching;
 
     return(
-      <div>
+      <div style={{height: '100%'}}>
         {isFetching &&
           <ThreeBounce size={40} />
         }

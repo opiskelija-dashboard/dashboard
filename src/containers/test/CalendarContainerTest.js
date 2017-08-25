@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 
-import CalendarContainer from '../CalendarContainer';
+import HeatmapContainer from '../HeatmapContainer';
 
 
 test.beforeEach(t => {
@@ -24,7 +24,7 @@ test.beforeEach(t => {
 test('renders without crashing', t => {
   const wrapper = mount(
     <Provider store={t.context.store}>
-      <CalendarContainer />
+      <HeatmapContainer />
     </Provider>
   )
 
