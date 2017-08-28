@@ -1,15 +1,12 @@
 import React from 'react';
 import CalendarHeatmap from "react-calendar-heatmap";
 
-
-
-
 export const Heatmap = props => {
 
   const customTitleForValue = value => {
-    return value ? `asdassdasdasdas` : null;
+    return value ? `testi` : null;
   }
-  
+
   const customTooltipDataAttrs = { 'data-toggle': 'tooltip' };
 
   const classForValue = value => {
