@@ -4,6 +4,8 @@ import Moment from 'moment'
 import { connect } from 'react-redux'
 import { ThreeBounce } from 'better-react-spinkit'
 
+import ReactTooltip from 'react-tooltip'
+
 class HeatmapContainer extends Component {
 
   userData(avgData, userData) {
@@ -66,6 +68,7 @@ class HeatmapContainer extends Component {
               endDate={userWeeks[weekIndex][userWeeks[weekIndex].length-1].date}
               numDays={userWeeks[weekIndex].length}
               values={userWeeks[weekIndex]}
+              user={true}
             />
           </div>
           <div>
@@ -73,6 +76,7 @@ class HeatmapContainer extends Component {
               endDate={avgWeek[avgWeek.length-1].date}
               numDays={avgWeek.length}
               values={avgWeek}
+              user={false}
             />
           </div>
 
@@ -88,6 +92,7 @@ class HeatmapContainer extends Component {
 
     return (
       <div className="HeatmapContainer">
+        <ReactTooltip />
         { fetchError &&
           <div>Tietoa haettaessa tapahtui virhe. Yritä myöhemmin uudestaan.</div>
         }
