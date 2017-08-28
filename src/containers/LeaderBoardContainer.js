@@ -10,11 +10,6 @@ import 'react-table/react-table.css';
 
 class LeaderBoardContainer extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {tableData: this.modifyTableData(this.props.leaderBoardData)}
-  }
-
   modifyTableData(storeData) {
     let ownData = null;
     let ownIndex = 100;
@@ -39,13 +34,12 @@ class LeaderBoardContainer extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  shouldComponentUpdate(nextProps) {
     if(this.props.leaderboardUpdated === false && nextProps.leaderboardUpdated === true) {
       this.props.fetchLeaderboard(nextProps.dashboard_token, nextProps.courseId);
+      return false;
     }
-    if(nextProps.leaderBoardData[0]) {
-      this.setState({tableData: this.modifyTableData(nextProps.leaderBoardData)});
-    }
+    return true;
   }
 
   render() {
@@ -76,6 +70,8 @@ class LeaderBoardContainer extends Component {
       }
     ];
 
+    const data = this.modifyTableData(this.props.leaderBoardData);
+
     const table = (
       <ReactTable
         getTrProps = {(state, rowInfo, column) => {
@@ -101,11 +97,11 @@ class LeaderBoardContainer extends Component {
             }
           }
         }}
-        data={this.state.tableData}
+        data={data}
         columns={columns}
         showPagination={false}
-        pageSizeOptions={[this.state.tableData.length]}
-        defaultPageSize={this.state.tableData.length}
+        pageSizeOptions={[data.length]}
+        defaultPageSize={data.length}
         defaultSorted={[
           {
             id: "points",

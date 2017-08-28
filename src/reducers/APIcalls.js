@@ -1,6 +1,5 @@
 import {
-  CONNECT_BACKEND,
-  UPDATE_LEADERBOARD
+  CONNECT_BACKEND
 } from "../actions/index";
 
 export default function APIcalls(
@@ -20,10 +19,6 @@ export default function APIcalls(
       return Object.assign({}, state, {
         dashboard_token: action.payload.data.data.token
       });
-    case UPDATE_LEADERBOARD:
-      return Object.assign({}, state,
-        { leaderboardUpdated: true }
-      );
     case "HANDLE_ERROR":
       console.log("an error occurred during a http request");
       return Object.assign({}, state, { fetchError: true });
