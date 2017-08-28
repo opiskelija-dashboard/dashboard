@@ -15,7 +15,7 @@ export default function points(
     leaderBoardFetch: true,
     progressData: [],
     leaderBoardData: [],
-    leaderBoardUpdated: false
+    leaderboardUpdated: false
   },
   action
 ) {
