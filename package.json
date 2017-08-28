@@ -28,6 +28,7 @@
     "react-redux": "^5.0.5",
     "react-scripts": "1.0.10",
     "react-table": "^6.5.3",
+    "react-tooltip": "^3.3.0",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
     "semantic-ui-react": "^0.71.3"
