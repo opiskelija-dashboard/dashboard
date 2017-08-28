@@ -6,7 +6,6 @@ import * as TiIconPack from 'react-icons/lib/ti'
 export const Badge = props => {
   const Icon = TiIconPack[props.icon]
 
-  console.log(props)
   return (
     <div style={{}}>
       <div style={{padding: '5px'}}>
