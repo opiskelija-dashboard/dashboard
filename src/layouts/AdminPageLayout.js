@@ -3,7 +3,7 @@ import BadgeCreatorContainer from '../containers/BadgeCreatorContainer'
 
 export const AdminPage = () =>
   <div className="center">
-    <div className="WidgetContainer">
+    <div className="AdminPageContainer">
       <BadgeCreatorContainer />
     </div>
   </div>

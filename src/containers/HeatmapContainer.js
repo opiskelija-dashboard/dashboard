@@ -100,7 +100,7 @@ class HeatmapContainer extends Component {
           <ThreeBounce size={40} />
         }
         { !(userIsFetching || averageIsFetching || fetchError) &&
-          <div>
+          <div style={{padding: '10px'}}>
             <p>Tumma väri kertoo aktiivisuudesta kyseisenä päivänä.</p>
             <div className="CalendarWeek">
               <p>Viikko</p>
