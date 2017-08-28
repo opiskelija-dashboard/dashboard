@@ -45,7 +45,7 @@ class ProgressBarContainer extends Component {
     const isFetching = this.props.isFetching;
 
     return (
-      <div>
+      <div style={{overflow: 'auto', height: '100%'}}>
         {isFetching &&
           <ThreeBounce size={40} />
         }

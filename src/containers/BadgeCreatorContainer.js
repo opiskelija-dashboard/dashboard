@@ -10,7 +10,7 @@ class BadgeCreatorContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: 'def InsertNameHere(parametrit)\n\t\nend'
+      code: 'def f(user_id, all_points)\n\t# don\'t modify function definition\n\t# insert code below\n\n\nend'
     }
   }
 
