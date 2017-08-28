@@ -169,21 +169,24 @@ li b {
   width: 100%;
   font-weight: bold;
   column-rule: 1px solid;
-
 }
 
 .week-label {
-  font-size: 1.3vw;
+  font-size: 1.2vw;
 }
 
 .date-range {
-  font-size: 1.0vw;
+  font-size: 0.95vw;
 }
 
 .day-labels {
    column-count: 7;
    margin: 0 auto;
-   font-size:0.7vw;
+   font-size: 0.7vw;
+}
+
+.heatmap-header {
+  font-size: 0.95vw;
 }
 
 .HeatmapContainer {

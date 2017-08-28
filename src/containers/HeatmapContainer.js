@@ -103,9 +103,9 @@ class HeatmapContainer extends Component {
           <div style={{padding: '10px'}}>
             <p>Tumma väri kertoo aktiivisuudesta kyseisenä päivänä.</p>
             <div className="CalendarWeek">
-              <p>Viikko</p>
-              <p>Oma aktiivisuutesi</p>
-              <p>Kurssin keskiarvoaktiivisuus</p>
+              <p className="heatmap-header">Viikko</p>
+              <p className="heatmap-header">Oma aktiivisuutesi</p>
+              <p className="heatmap-header">Kurssin keskiarvoaktiivisuus</p>
             </div>
             <div className="CalendarWeek">
               <div>&nbsp;</div>
