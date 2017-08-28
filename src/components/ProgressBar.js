@@ -1,18 +1,21 @@
 import React from "react";
 import "../App.css";
-import { Progress } from "semantic-ui-react";
+import { Line } from 'rc-progress';
 
 export const ProgressBar = props =>
   <div className="progressBarPair">
-    <Progress
+    <Line
     percent={props.firstBar}
-    label={'Oma edistyminen ' + props.firstBar + '%'}
-    indicating
-    autoSuccess
+    strokeWidth={1.5}
+    trailWidth={1.5}
+    strokeColor='#00723b'
    />
-    <Progress
+   <p>Oma edistyminen {props.firstBar}%</p>
+    <Line
       percent={props.secondBar}
-      label={'Keskiarvo edistyminen ' + props.secondBar + '%'}
-      color='teal'
+      strokeWidth={1.5}
+      trailWidth={1.5}
+      // label={'}
     />
+    <p>Keskiarvo edistyminen {props.secondBar}%</p>
   </div>

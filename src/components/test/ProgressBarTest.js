@@ -11,5 +11,5 @@ test('component renders two bars', t => {
     <ProgressBar />
   )
 
-  t.deepEqual(wrapper.find(Progress).length, 2);
+  t.deepEqual(wrapper.find('.progressBarPair').length, 1);
 });
