@@ -102,7 +102,7 @@ export default class ShowcaseLayout extends Component {
       <div>
         <ResponsiveReactGridLayout
           layouts={layouts}
-          breakpoints={{lg: 980, sm: 768}}
+          breakpoints={{lg: 980}}
           cols={{lg: 12}}
         >
           {generateDOM()}
