@@ -1,14 +1,22 @@
 import React from 'react';
 import CalendarHeatmap from "react-calendar-heatmap";
 
-const classForValue = value => {
-  if (!value) {
-    return "color-empty";
-  }
-  return `color-dashboard-${value.count}`;
-};
-
 export const Heatmap = props => {
+
+  const customTitleForValue = value => {
+    return value ? `testi` : null;
+  }
+
+  const customTooltipDataAttrs = { 'data-toggle': 'tooltip' };
+
+  const classForValue = value => {
+    if (!value) {
+      return "color-empty dashboardTooltip";
+    }
+
+    return `color-dashboard-${value.count} dashboardTooltip`;
+  }
+
   return (
     <CalendarHeatmap
       horizontal={false}
@@ -17,6 +25,7 @@ export const Heatmap = props => {
       numDays={props.numDays}
       values={props.values}
       classForValue={classForValue}
+      titleForValue={customTitleForValue}
     />
   )
 }

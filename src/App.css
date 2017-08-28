@@ -6,6 +6,10 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.CodeMirror {
+  text-align: left;
+}
+
 html body {
   min-height: 100vh;
   padding: 0;
@@ -220,14 +224,3 @@ li b {
   max-width: 200px;
   max-height: 50px;
 }
-
-/*End of Calendar Setup*/
-
-/* Here ENDS REACT-GRID-LAYOUT COPY-PASTE */
-
-/*.center div {
-  margin-top: 50px;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-}*/

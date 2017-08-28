@@ -3,6 +3,7 @@ import '../App.css';
 import { connect } from 'react-redux';
 import { LeaderBoard } from '../layouts/LeaderBoardLayout'
 import { Badges } from '../layouts/BadgesLayout'
+import { AdminPage } from '../layouts/AdminPageLayout'
 import MyPageGridLayout from '../layouts/MyPageGrid'
 
 class FilterWidget extends Component {
@@ -19,6 +20,10 @@ class FilterWidget extends Component {
       case "Oma sivu":
         return (
           <MyPageGridLayout />
+        )
+      case "Admin page":
+        return (
+          <AdminPage />
         )
       default:
         return (
