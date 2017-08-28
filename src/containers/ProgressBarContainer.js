@@ -51,7 +51,7 @@ class ProgressBarContainer extends Component {
         }
 
         {!isFetching &&
-          <div className="progressBarContainer">
+          <div style={{padding: '20px'}} className="progressBarContainer">
             <p>
               Ylempi palkki kuvaa omaa edistymistäsi, alempi palkki on kurssin
               opiskelijoiden keskiarvo.
