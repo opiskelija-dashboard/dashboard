@@ -7,9 +7,14 @@ export const Badge = props => {
   const Icon = TiIconPack[props.icon]
 
   return (
-    <div className="">
-      <Icon size={40} />
+    <div style={{}}>
+      <div style={{padding: '5px'}}>
+        <Icon size={props.size} />
+      </div>
+
       <strong>{props.name}</strong>
+      <hr/>
+      <p>{props.text}</p>
     </div>
   )
 }
