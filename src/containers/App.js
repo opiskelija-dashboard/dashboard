@@ -7,6 +7,7 @@ import {
   fetchDailyPoints,
   fetchSkillsData,
   fetchLeaderBoardData,
+  fetchBadgeData,
   setCourseId,
   updateLeaderboard,
   fetchHeatMapData,
@@ -32,6 +33,7 @@ class App extends React.Component {
     this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
     this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
     this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+    this.props.fetchBadgeData(nextProps.dashboard_token);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -68,6 +70,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     connectBackend: () => dispatch(connectBackend()),
+    fetchBadgeData: (token, courseId) => dispatch(fetchBadgeData(token, courseId)),
     fetchDailyPoints: (token, courseId) => dispatch(fetchDailyPoints(token, courseId)),
     fetchSkillsData: (token, courseId) => dispatch(fetchSkillsData(token, courseId)),
     fetchLeaderBoardData: (token, courseId) => dispatch(fetchLeaderBoardData(token, courseId)),

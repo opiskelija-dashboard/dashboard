@@ -3,6 +3,7 @@ import widgets from "./widgets";
 import courseData from "./courseData";
 import heatMap from "./heatMap";
 import points from "./points";
+import badges from './badges'
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -10,7 +11,8 @@ const rootReducer = combineReducers({
   widgets,
   courseData,
   points,
-  heatMap
+  heatMap,
+  badges
 });
 
 export default rootReducer;

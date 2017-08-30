@@ -38,6 +38,15 @@ export const connectBackend = () => {
   };
 };
 
+export const FETCH_BADGE_DATA = 'FETCH_BADGE_DATA';
+
+export const fetchBadgeData = (token) => {
+  const request = GET("/badge-admin/badgedef/all", token);
+  return {
+    type: FETCH_BADGE_DATA,
+    payload: request
+  }
+}
 
 export const FETCH_DAILY_POINTS = "FETCH_DAILY_POINTS";
 
