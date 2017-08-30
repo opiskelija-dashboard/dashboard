@@ -33,6 +33,13 @@ class App extends React.Component {
     this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
     this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
     this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+
+    if (this.props.tmcadm) {
+      this.adminFetches(nextProps);
+    }
+  }
+
+  adminFetches(nextProps) {
     this.props.fetchBadgeData(nextProps.dashboard_token);
   }
 
@@ -49,7 +56,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="appContainer">
-        <NavBar admin={true}/>
+        <NavBar admin={this.props.tmcadm}/>
         <div className="Container">
           <FilterWidget />
         </div>
@@ -63,7 +70,8 @@ const mapStateToProps = state => {
     dashboard_token: state.APIcalls.dashboard_token,
     fetchError: state.points.fetchError,
     isFetching: state.points.isFetching,
-    courseId: state.courseData.courseId
+    courseId: state.courseData.courseId,
+    tmcadm: state.APIcalls.tmcadm
   };
 };
 

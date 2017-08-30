@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchLeaderBoardData } from '../actions/index'
 import { ThreeBounce } from "better-react-spinkit";
-import jwt_decode from 'jwt-decode';
 
 // Import React Table
 import ReactTable from 'react-table';
@@ -14,7 +13,7 @@ class LeaderBoardContainer extends Component {
     let ownData = null;
     let ownIndex = 100;
     for(var i=0; i < storeData.length; i++) {
-      if(storeData[i].user_id === jwt_decode(this.props.dashboard_token).tmcuid) {
+      if(storeData[i].user_id === this.props.tmcuid) {
         ownData = storeData[i];
         ownIndex = i;
       }
@@ -50,9 +49,9 @@ class LeaderBoardContainer extends Component {
             Header: "Sijoitus",
             accessor: "index",
             Cell: row =>{
-              if(row.original.user_id === jwt_decode(this.props.dashboard_token).tmcuid) {
+              if(row.original.user_id === this.props.tmcuid) {
                 return (
-                  <div>{row.value}.  [{jwt_decode(this.props.dashboard_token).tmcusr}]</div>
+                  <div>{row.value}.  [{this.props.tmcusr}]</div>
                 )
               }
               return(
@@ -79,7 +78,7 @@ class LeaderBoardContainer extends Component {
             return {
               style: {
                 background: (() => {
-                  if(rowInfo.original.user_id === jwt_decode(this.props.dashboard_token).tmcuid) {
+                  if(rowInfo.original.user_id === this.props.tmcuid) {
                     return 'rgba(0,255,0,0.5)'
                   } else if(rowInfo.index % 2 !== 0){
                     return 'rgb(240, 240, 240)'
@@ -137,7 +136,9 @@ const mapStateToProps = state => {
     courseId : state.courseData.courseId,
     dashboard_token: state.APIcalls.dashboard_token,
     leaderboardUpdated: state.points.leaderboardUpdated,
-    isFetching: state.points.leaderBoardFetch
+    isFetching: state.points.leaderBoardFetch,
+    tmcusr: state.APIcalls.tmcusr,
+    tmcuid: state.APIcalls.tmcuid
   };
 };
 
