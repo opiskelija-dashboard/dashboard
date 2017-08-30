@@ -26,17 +26,21 @@ class App extends React.Component {
     this.props.connectBackend();
   }
 
+  fetchData(nextProps) {
+    this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
+    this.props.fetchHeatMapData(nextProps.dashboard_token, nextProps.courseId);
+    this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
+    this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
+    this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+  }
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.isFetching !== this.props.isFetching ||
       nextProps.fetchError !== this.props.fetchError) {
       return;
     }
     if(nextProps.dashboard_token && nextProps.courseId) {
-      this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
-      this.props.fetchHeatMapData(nextProps.dashboard_token, nextProps.courseId);
-      this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
-      this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
-      this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+      this.fetchData(nextProps);
     }
   }
 
