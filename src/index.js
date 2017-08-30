@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers/index";
 import ReduxPromise from "redux-promise";
+import registerServiceWorker from "./registerServiceWorker";
 
 let storeWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -15,7 +16,6 @@ let envExtension = (process.env.NODE_ENV === 'development') ?
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   ] :
   [rootReducer];
-
 
 let store = storeWithMiddleware(
   ...envExtension
@@ -32,3 +32,4 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
+registerServiceWorker();
