@@ -7,6 +7,7 @@ import {
   fetchDailyPoints,
   fetchSkillsData,
   fetchLeaderBoardData,
+  fetchBadgeData,
   setCourseId,
   updateLeaderboard,
   fetchHeatMapData,
@@ -26,24 +27,36 @@ class App extends React.Component {
     this.props.connectBackend();
   }
 
+  fetchData(nextProps) {
+    this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
+    this.props.fetchHeatMapData(nextProps.dashboard_token, nextProps.courseId);
+    this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
+    this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
+    this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+
+    if (this.props.tmcadm) {
+      this.adminFetches(nextProps);
+    }
+  }
+
+  adminFetches(nextProps) {
+    this.props.fetchBadgeData(nextProps.dashboard_token);
+  }
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.isFetching !== this.props.isFetching ||
       nextProps.fetchError !== this.props.fetchError) {
       return;
     }
     if(nextProps.dashboard_token && nextProps.courseId) {
-      this.props.fetchSkillsData(nextProps.dashboard_token, nextProps.courseId);
-      this.props.fetchHeatMapData(nextProps.dashboard_token, nextProps.courseId);
-      this.props.updateLeaderboard(nextProps.dashboard_token,nextProps.courseId);
-      this.props.fetchDailyPoints(nextProps.dashboard_token, nextProps.courseId);
-      this.props.fetchHeatMapAverageData(nextProps.dashboard_token, nextProps.courseId);
+      this.fetchData(nextProps);
     }
   }
 
   render() {
     return (
       <div className="appContainer">
-        <NavBar admin={true}/>
+        <NavBar admin={this.props.tmcadm}/>
         <div className="Container">
           <FilterWidget />
         </div>
@@ -57,13 +70,15 @@ const mapStateToProps = state => {
     dashboard_token: state.APIcalls.dashboard_token,
     fetchError: state.points.fetchError,
     isFetching: state.points.isFetching,
-    courseId: state.courseData.courseId
+    courseId: state.courseData.courseId,
+    tmcadm: state.APIcalls.tmcadm
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     connectBackend: () => dispatch(connectBackend()),
+    fetchBadgeData: (token, courseId) => dispatch(fetchBadgeData(token, courseId)),
     fetchDailyPoints: (token, courseId) => dispatch(fetchDailyPoints(token, courseId)),
     fetchSkillsData: (token, courseId) => dispatch(fetchSkillsData(token, courseId)),
     fetchLeaderBoardData: (token, courseId) => dispatch(fetchLeaderBoardData(token, courseId)),

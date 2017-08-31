@@ -57,7 +57,9 @@ class BadgeCreatorContainer extends Component {
 
 //redux
 const mapStateToProps = state => {
-
+  return {
+    badges: state.badges
+  }
 }
 
 const mapDispatchToProps = dispatch => {
