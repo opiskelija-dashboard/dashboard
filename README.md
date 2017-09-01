@@ -25,10 +25,11 @@ Kehitysvaiheessa oleva ohjelmisto löytyy osoitteista:
 ### Project information
 
 #### How to use
+To clone this repository run 'git clone git@github.com:opiskelija-dashboard/dashboard.git'
 
-After 'git clone -this-repo-':
--> go to the 'dashboard' folder and run ´npm i´
-Then to run the dashboard on localhost, run ´npm start´
+-> go to the 'dashboard' folder and run 'npm i'
+
+Then to run the dashboard on localhost, run 'npm start'
 
 #### Documentation
 
