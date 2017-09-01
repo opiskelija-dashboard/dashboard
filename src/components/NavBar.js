@@ -8,7 +8,11 @@ export const NavBar = props => (
 
     <ButtonContainer text="Leaderboard" />
 
-    <ButtonContainer text="Badget" />
+
+    {/*
+      *Täältä tulee badgenappula
+      <ButtonContainer text="Badget" />
+      */}
 
     {props.admin &&
       <ButtonContainer text="Admin page" />
