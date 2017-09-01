@@ -24,6 +24,12 @@ Kehitysvaiheessa oleva ohjelmisto löytyy osoitteista:
 
 ### Project information
 
+#### How to use
+
+After 'git clone -this-repo-':
+-> go to the 'dashboard' folder and run ´npm i´
+Then to run the dashboard on localhost, run ´npm start´
+
 #### Documentation
 
 Dokumentaatiota ylläpidetään Google Drivessä. 
